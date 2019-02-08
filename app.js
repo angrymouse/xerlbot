@@ -9,10 +9,10 @@ client.on('message',(message)=>{
     for(let x=1;x<message.content.toLowerCase().split(" ").length;x++){
         args = args=+message.content.toLowerCase().split(" ")[x]+" "
     }
-    args=args.split(" ")
+ 
     if(message.content.toLowerCase().startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
-    let evresult=eval(args.join(" "))
+    let evresult=eval(args)
 let emb=new Discord.RichEmbed()
 .setAuthor("Evil results")
 .setColor("#2E190F")
