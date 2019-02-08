@@ -6,7 +6,7 @@ client.onCommand('@info', (msg,opts)=>{
     client.sendEmbedToChannel(opts.channelID, {
         title:"Xerl Info",
         color:115,
-        description:'Xerl Это разнообразный дискорд бот, который может практически все.',
+        description:'Xerl Это разнообразный дискорд бот, который может практически все.\n Сделан на ESD framework',
         footer:'Разработчик Mice 2.0'
     })
 })
