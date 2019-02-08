@@ -5,7 +5,7 @@ let client=ESD.client(token)
 client.onCommand('@info', (msg,opts)=>{
     client.sendEmbedToChannel(opts.channelID, {
         title:"Xerl Info",
-        color:115, 77, 204
+        color:115
 
     })
 })
