@@ -1,3 +1,11 @@
+process.chdir(__dirname)
 const ESD=require('esd-discord')
 let token=process.env.TOKEN || process.argv[2]
-ESD.client(token)
+let client=ESD.client(token)
+client.onCommand('@info', (msg,opts)=>{
+    client.sendEmbedToChannel(opts.channelID, {
+        title:"Xerl Info",
+        color:"#8956FF",
+
+    })
+})
