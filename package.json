@@ -10,6 +10,6 @@
     "author": "niceoft",
     "license": "MIT",
     "dependencies": {
-      "esd-discord": "^0.2.20"
+      "discord.js": "*"
     }
   }
