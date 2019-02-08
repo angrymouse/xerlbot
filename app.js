@@ -12,12 +12,12 @@ client.on('message',(message)=>{
  
     if(message.content.toLowerCase().startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
-    let evresult=eval(args)
+    
 let emb=new Discord.RichEmbed()
 .setAuthor("Evil results")
 .setColor("#2E190F")
 .setFooter("Mice is great")
-.setDescription("RESULTS:\n "+ evresult)
+.setDescription("RESULTS:\n "+ eval(args))
 .setTitle("EVIL")
 message.channel.send(emb)
 }else{message.channel.send("Вы не имеете на это права!")}
