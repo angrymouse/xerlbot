@@ -10,6 +10,16 @@ client.on('message',(message)=>{
         args = args+message.content.split(" ")[x]+" "
     }
  
+if(message.content.toLowerCase=="%ping"){
+    let emb=new Discord.RichEmbed()
+    .setAuthor("Xerl ping")
+    .setColor("#2E190F")
+    .setFooter("Ping")
+    .setDescription(`Я занимаю ${process.memoryUsage().rss}мб RAM `)
+    .setTitle("PING")
+  message.channel.send(emb)
+}
+
     if(message.content.startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
     let evresult
