@@ -12,8 +12,18 @@ client.on('message',(message)=>{
  
     if(message.content.startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
-    try{
-    let evresult=eval(args)
+    let evresult
+    try{ evresult=eval(args)}catch(ex){
+        let emb=new Discord.RichEmbed()
+.setAuthor("Чето все хуево")
+.setColor("#2E190F")
+.setFooter("Mice is great")
+.setDescription("мне стало хуево по этой причине:\n "+ ex)
+.setTitle("EVIL")
+return message.channel.send(emb)
+
+    }
+
 let emb=new Discord.RichEmbed()
 .setAuthor("Evil results")
 .setColor("#2E190F")
@@ -21,15 +31,6 @@ let emb=new Discord.RichEmbed()
 .setDescription("RESULTS:\n "+ evresult)
 .setTitle("EVIL")
 message.channel.send(emb)
-    }catch(ex){
-        let emb=new Discord.RichEmbed()
-.setAuthor("что-то все хуево")
-.setColor("#2E190F")
-.setFooter("Mice is great")
-.setDescription("мне от ваших комманд херово стало!:\n "+ ex.message)
-.setTitle("EVIL")
-message.channel.send(emb)
-    }
 }else{message.channel.send("Вы не имеете на это права!")}
     }
 })
