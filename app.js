@@ -10,7 +10,7 @@ client.on('message',(message)=>{
         args = args+message.content.split(" ")[x]+" "
     }
  
-if(message.content.toLowerCase=="%ping"){
+if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()
     .setAuthor("Xerl ping")
     .setColor("#2E190F")
