@@ -1,7 +1,7 @@
 process.chdir(__dirname)
 const Discord=require('discord.js')
 let token=process.env.TOKEN || process.argv[2]
-let developers=["343046183088029696"]
+let developers=["343046183088029696","242975403512168449"]
 const client=new Discord.Client();client.login(token)
 
 client.on('message',(message)=>{

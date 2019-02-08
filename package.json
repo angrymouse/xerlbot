@@ -1,15 +1,16 @@
 {
-    "name": "xerl",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node app.js"
-    },
-    "author": "niceoft",
-    "license": "MIT",
-    "dependencies": {
-      "discord.js": "*"
-    }
+  "name": "xerl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "niceoft",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "*",
+    "googleapis": "^27.0.0"
   }
+}
