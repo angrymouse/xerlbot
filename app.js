@@ -6,12 +6,13 @@ const client=new Discord.Client();client.login(token)
 
 client.on('message',(message)=>{
     let args=""
-    for(let x=1;x<message.content.toLowerCase().split(" ").length;x++){
-        args = args+message.content.toLowerCase().split(" ")[x]+" "
+    for(let x=1;x<message.content.split(" ").length;x++){
+        args = args+message.content.split(" ")[x]+" "
     }
  
-    if(message.content.toLowerCase().startsWith('%evil')){
+    if(message.content.startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
+    try{
     let evresult=eval(args)
 let emb=new Discord.RichEmbed()
 .setAuthor("Evil results")
@@ -20,6 +21,15 @@ let emb=new Discord.RichEmbed()
 .setDescription("RESULTS:\n "+ evresult)
 .setTitle("EVIL")
 message.channel.send(emb)
+    }catch(ex){
+        let emb=new Discord.RichEmbed()
+.setAuthor("что-то все хуево")
+.setColor("#2E190F")
+.setFooter("Mice is great")
+.setDescription("мне от ваших комманд херово стало!:\n "+ ex.message)
+.setTitle("EVIL")
+message.channel.send(emb)
+    }
 }else{message.channel.send("Вы не имеете на это права!")}
     }
 })
