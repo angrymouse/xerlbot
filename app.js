@@ -7,13 +7,18 @@ const client=new Discord.Client();client.login(token)
 client.on('message',(message)=>{
     let args=""
     for(let x=1;x<message.content.toLowerCase().split(" ").length;x++){
-        args = args=+message.content.toLowerCase().split(" ")[x]+" "
+        args = args+message.content.toLowerCase().split(" ")[x]+" "
     }
  
     if(message.content.toLowerCase().startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
-    console.log(args)
-
+    let evresult=eval(args)
+let emb=new Discord.RichEmbed()
+.setAuthor("Evil results")
+.setColor("#2E190F")
+.setFooter("Mice is great")
+.setDescription("RESULTS:\n "+ evresult)
+.setTitle("EVIL")
 message.channel.send(emb)
 }else{message.channel.send("Вы не имеете на это права!")}
     }
