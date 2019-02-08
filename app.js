@@ -1,7 +1,7 @@
 process.chdir(__dirname)
 const Discord=require('discord.js')
 let token=process.env.TOKEN || process.argv[2]
-let developers=[343046183088029696]
+let developers=["343046183088029696"]
 const client=new Discord.Client();client.login(token)
 
 client.on('message',(message)=>{
@@ -11,7 +11,7 @@ client.on('message',(message)=>{
     }
     args=args.split(" ")
     if(message.content.toLowerCase().startsWith('%evil')){
-if(developers.includes(message.author.id)){
+if(developers.includes(String(message.author.id))){
     let evresult=eval(args.join(" "))
 let emb=new Discord.RichEmbed()
 .setAuthor("Evil results")
