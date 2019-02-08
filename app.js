@@ -15,7 +15,7 @@ if(message.content=="%ping"){
     .setAuthor("Xerl ping")
     .setColor("#2E190F")
     .setFooter("Ping")
-    .setDescription(`Я занимаю ${process.memoryUsage().rss}мб RAM `)
+    .setDescription(`Я занимаю ${Math.round(process.memoryUsage().rss/ 1024 / 1024)}мб RAM `)
     .setTitle("PING")
   message.channel.send(emb)
 }
