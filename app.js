@@ -19,7 +19,7 @@ let emb=new Discord.RichEmbed()
 .setFooter("Mice is great")
 .setDescription("RESULTS:\n "+ evresult)
 .setTitle("EVIL")
-}
+}else{message.channel.send("Вы не имеете на это права!")}
     }
 })
 
