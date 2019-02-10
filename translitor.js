@@ -33,3 +33,4 @@ return text.replace("q","й")
 .replace(".","ю")
 }
 module.exports.trEnRu=(text)=>{trEnRu(text)}
+console.log(trEnRu("ghbdtn"))
