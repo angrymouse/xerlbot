@@ -18,10 +18,10 @@ if(message.content=="%ping"){
     .setFooter("Ping")
     .setDescription(`Я занимаю ${Math.round(process.memoryUsage().rss/ 1024 / 1024)}мб RAM \n Мой пинг ${Math.round(client.ping)} ms `)
     .setTitle("PING")
-  message.channel.send(emb)
+  return message.channel.send(emb)
 }
 if(message.content.startsWith("%tr")){
-    message.reply(translitor.trEnRu(args))
+  return   message.reply(translitor.trEnRu(args))
 }
     if(message.content.startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
@@ -43,8 +43,8 @@ let emb=new Discord.RichEmbed()
 .setFooter("Mice is great")
 .setDescription("RESULTS:\n "+ evresult)
 .setTitle("EVIL")
-message.channel.send(emb)
-}else{message.channel.send("Вы не имеете на это права!")}
+return message.channel.send(emb)
+}else{return message.channel.send("Вы не имеете на это права!")}
     }
 })
 // let translateparams="qйwцeуrкtеyнuгiшoщpз[х]ъaфsыdвfаgпhрjоkлlд;ж'эzяxчcсvмbиnтmь,б.ю"
