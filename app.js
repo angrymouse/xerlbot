@@ -3,7 +3,7 @@ const Discord=require('discord.js')
 let token=process.env.TOKEN || process.argv[2]
 let developers=["343046183088029696","242975403512168449"]
 const client=new Discord.Client();client.login(token)
-
+let translitor=require("./translitor")
 client.on('message',(message)=>{
     let args=""
     for(let x=1;x<message.content.split(" ").length;x++){
@@ -19,7 +19,9 @@ if(message.content=="%ping"){
     .setTitle("PING")
   message.channel.send(emb)
 }
-
+if(message.content.startsWith("%tr")){
+    message.reply(translitor.trEnRu(args))
+}
     if(message.content.startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
     let evresult
@@ -44,4 +46,13 @@ message.channel.send(emb)
 }else{message.channel.send("Вы не имеете на это права!")}
     }
 })
-
+// let translateparams="qйwцeуrкtеyнuгiшoщpз[х]ъaфsыdвfаgпhрjоkлlд;ж'эzяxчcсvмbиnтmь,б.ю"
+// function translit(text, tp) {
+//     let tpa=tp.split("")
+//     let tr=tp
+//     for(x=0;x>=tpa.length;x=+2){
+//         tr=tr.replace(tpa[x-1],tpa[x])
+//     }
+//     return tr
+// }
+// console.log(translit("ghbdtn",translateparams))
