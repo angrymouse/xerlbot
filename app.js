@@ -3,6 +3,7 @@ const Discord=require('discord.js')
 let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t"]
 let token=process.env.TOKEN || process.argv[2]
 let developers=["343046183088029696","242975403512168449"]
+
 const client=new Discord.Client();client.login(token)
 let translitor=require("./translitor")
 console.log(translitor.trEnRu("ghbdtn"))
