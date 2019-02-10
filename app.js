@@ -1,6 +1,6 @@
 process.chdir(__dirname)
 const Discord=require('discord.js')
-let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t"]
+let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim"]
 let token=process.env.TOKEN || process.argv[2]
 let developers=["343046183088029696","242975403512168449"]
 
@@ -50,7 +50,7 @@ return message.channel.send(emb)
     }
 for(x=0;x<message.content.toLowerCase().split(" ").length;x++){
     if(nepora.includes(message.content.toLowerCase().split(" ")[x])){
-        return message.reply("Возможно вы имели в виду \""+translitor.trEnRu(message.content)+"\"")
+        return message.reply("Возможно вы имели в виду \""+translitor.trEnRu(message.content.toLowerCase())+"\"")
     }
 }
 })
