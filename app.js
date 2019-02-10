@@ -48,7 +48,7 @@ return message.channel.send(emb)
 }else{return message.channel.send("Вы не имеете на это права!")}
     }
 for(x=0;x<message.content.toLowerCase().split(" ");x++){
-    if(norepa.includes(message.content.toLowerCase().split(" ")[x])){
+    if(nepora.includes(message.content.toLowerCase().split(" ")[x])){
         return message.reply("Возможно вы имели в виду \""+translitor.trEnRu(message.content)+"\"")
     }
 }
