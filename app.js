@@ -1,6 +1,6 @@
 process.chdir(__dirname)
 const Discord=require('discord.js')
-let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim"]
+let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim","ghbxtv","jyj","gthtdjlbn"]
 let token=process.env.TOKEN || process.argv[2]
 let developers=["343046183088029696","242975403512168449"]
 
