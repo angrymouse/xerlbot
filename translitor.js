@@ -32,7 +32,7 @@ return text
 .replace(/\m/g,"ь")
 .replace(/\,/g,"б")
 .replace(/\./g,"ю")
-  
+.replace(/\//g,".")
 }
 module.exports.trEnRu=trEnRu
 console.log(trEnRu("ghbdtn"))
