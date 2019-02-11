@@ -22,6 +22,9 @@ if(message.content=="%ping"){
     .setTitle("PING")
   return message.channel.send(emb)
 }
+if(message.content.toLowerCase()=="%invite"){
+    return message.reply("Меня можно пригласить на свой сервер по этой ссылке: http://xerl.ga")
+}
 
 if(message.content.startsWith("%tr")){
   return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
