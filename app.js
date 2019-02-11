@@ -22,6 +22,7 @@ if(message.content=="%ping"){
     .setTitle("PING")
   return message.channel.send(emb)
 }
+
 if(message.content.startsWith("%tr")){
   return   message.reply(translitor.trEnRu(args.toLowerCase()))
 }
