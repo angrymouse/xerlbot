@@ -23,7 +23,7 @@ if(message.content=="%ping"){
   return message.channel.send(emb)
 }
 if(message.content.startsWith("%tr")){
-  return   message.reply(translitor.trEnRu(args))
+  return   message.reply(translitor.trEnRu(args.toLowerCase()))
 }
     if(message.content.startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
