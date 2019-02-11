@@ -3,7 +3,6 @@ const Discord=require('discord.js')
 let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim","ghbxtv","jyj","gthtdjlbn","gj,tlbk","gj,tlbkf","xnj","'nf","cltkfk",",eltn","gjktpty","gjktpyf","[jhjij","[jhjifz","cegth","vj;tim","hfpujdfhbdf.","'nj","crfpfk","evysq"]
 let token=process.env.TOKEN || process.argv[2]
 let developers=["343046183088029696","242975403512168449"]
-
 const client=new Discord.Client();client.login(token)
 let translitor=require("./translitor")
 console.log(translitor.trEnRu("ghbdtn"))
@@ -12,7 +11,7 @@ client.on('message',(message)=>{
     for(let x=1;x<message.content.split(" ").length;x++){
         args = args+message.content.split(" ")[x]+" "
     }
- 
+ if(message.content.toLowerCase()=="%help")
 if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()
     .setAuthor("Xerl ping")
