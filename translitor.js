@@ -34,6 +34,11 @@ return text
 .replace(/\./g,"ю")
 .replace(/\//g,".")
 .replace(/\?/g,",")
+.replace(/\@/g,"\"")
+.replace(/\#/g,"№")
+.replace(/\$/g,";")
+.replace(/\^/g,":")
+.replace(/\&/g,"?")
 
 }
 module.exports.trEnRu=trEnRu
