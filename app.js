@@ -24,7 +24,7 @@ if(message.content=="%ping"){
 }
 
 if(message.content.startsWith("%tr")){
-  return   message.reply(translitor.trEnRu(args.toLowerCase()))
+  return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
 }
     if(message.content.startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
