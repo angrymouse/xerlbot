@@ -11,7 +11,7 @@ client.on('message',(message)=>{
     for(let x=1;x<message.content.split(" ").length;x++){
         args = args+message.content.split(" ")[x]+" "
     }
- if(message.content.toLowerCase()=="%help")
+ if(message.content.toLowerCase()=="%help"){}
 if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()
     .setAuthor("Xerl ping")
