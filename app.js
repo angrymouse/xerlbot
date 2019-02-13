@@ -12,7 +12,7 @@ client.on('message',(message)=>{
     for(let x=1;x<message.content.split(" ").length;x++){
         args = args+message.content.split(" ")[x]+" "
     }
- if(message.content.toLowerCase().startsWith=="%donate"){
+ if(message.content.toLowerCase().startsWith("%donate")){
      let mn=args||"5"
      message.reply("Вы можете поддержать моих разработчиков по этой ссылке\n https://xerl.ga/donate.js?money="+mn)
  }
