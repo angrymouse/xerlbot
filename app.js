@@ -4,6 +4,7 @@ let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","g
 let token=process.env.TOKEN || process.argv[2]
 let developers=["343046183088029696","242975403512168449"]
 const client=new Discord.Client();client.login(token)
+
 let translitor=require("./translitor")
 console.log(translitor.trEnRu("ghbdtn"))
 client.on('message',(message)=>{
@@ -11,7 +12,9 @@ client.on('message',(message)=>{
     for(let x=1;x<message.content.split(" ").length;x++){
         args = args+message.content.split(" ")[x]+" "
     }
- if(message.content.toLowerCase()=="%help"){}
+ if(message.content.toLowerCase().startsWith=="%donate"){
+     message.reply("Вы можете поддержать моих разработчиков по этой ссылке\n https://xerl.ga/donate.js?money="+args)
+ }
 if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()
     .setAuthor("Xerl ping")
