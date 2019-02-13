@@ -13,7 +13,8 @@ client.on('message',(message)=>{
         args = args+message.content.split(" ")[x]+" "
     }
  if(message.content.toLowerCase().startsWith=="%donate"){
-     message.reply("Вы можете поддержать моих разработчиков по этой ссылке\n https://xerl.ga/donate.js?money="+args)
+     let mn=args||"5"
+     message.reply("Вы можете поддержать моих разработчиков по этой ссылке\n https://xerl.ga/donate.js?money="+mn)
  }
 if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()
