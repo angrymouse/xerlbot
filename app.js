@@ -10,12 +10,13 @@ console.log(translitor.trEnRu("ghbdtn"))
 client.on('message',(message)=>{
     let args=""
     for(let x=1;x<message.content.split(" ").length;x++){
+
         args = args+message.content.split(" ")[x]+" "
     }
  if(message.content.toLowerCase().startsWith("%donate")){
 
      let mn=args||"5"
-     message.reply("Вы можете поддержать моих разработчиков по этим ссылкам:\n Yandex.Money - https://xerl.ga/donate.js?money="+mn+"\nQiwi - https://qiwi.me/xerl")
+  return   message.reply("Вы можете поддержать моих разработчиков по этим ссылкам:\n Yandex.Money - https://xerl.ga/donate.js?money="+mn+"\nQiwi - https://qiwi.me/xerl")
  }
  if(message.content.toLowerCase().startsWith("%donators")){
    let emb=new Discord.RichEmbed()
@@ -26,7 +27,26 @@ client.on('message',(message)=>{
    .setDescription(`
 1.Баклажан (крадётся)#0900 - 100 RUB. Коментарий - "МУСОРА СОСАТЬ"
      `)
-     message.channel.send(emb)
+  return   message.channel.send(emb)
+ }
+ if(message.content.toLowerCase().startsWith("%help")){
+   let emb=new Discord.RichEmbed()
+   .setTitle("Xerl help and community")
+   .setColor("#2E190F")
+   .setAuthor("Xerl")
+   .setFooter("xerl communuty")
+   .setDescription(`
+Префикс бота - %
+Команды бота:
+tr - перевести текст с английской раскладки на русскую
+ping - узнать данные бота
+donate - помочь раработчикам бота деньгами
+donators - узнать список людей, которые помогли боту пожертвованием
+invite - пригласить бота на свой сервер
+evil :smiling_imp: - только для разработчиков
+Наше комьюнити - https://discord.gg/cpq85sw
+     `)
+  return   message.channel.send(emb)
  }
 if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()
