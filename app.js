@@ -10,6 +10,11 @@ console.log(translitor.trEnRu("ghbdtn"))
 client.on("ready", ()=>{
   client.user.setActivity("%help")
 })
+client.on("guildMemberAdd", (member)=>{
+    if(member.guild.id == 540192529933664297){
+        member.addRole(member.guild.roles.find('name', "Member"))
+    }
+})
 client.on('message',(message)=>{
     let args=""
     for(let x=1;x<message.content.split(" ").length;x++){
