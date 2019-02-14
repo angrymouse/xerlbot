@@ -14,7 +14,7 @@ client.on('message',(message)=>{
     }
  if(message.content.toLowerCase().startsWith("%donate")){
      let mn=args||"5"
-     message.reply("Вы можете поддержать моих разработчиков по этой ссылке\n https://xerl.ga/donate.js?money="+mn)
+     message.reply("Вы можете поддержать моих разработчиков по этим ссылкам:\n Yandex.Money - https://xerl.ga/donate.js?money="+mn+"\n+Qiwi - https://qiwi.com/p/380982282899")
  }
 if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()

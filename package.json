@@ -10,6 +10,8 @@
   "author": "niceoft",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "*"
+    "discord.js": "*",
+    "github-api": "^3.0.0",
+    "googleapis": "^37.2.0"
   }
 }
