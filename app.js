@@ -13,11 +13,11 @@ client.on('message',(message)=>{
         args = args+message.content.split(" ")[x]+" "
     }
  if(message.content.toLowerCase().startsWith("%donate")){
-   
+
      let mn=args||"5"
      message.reply("Вы можете поддержать моих разработчиков по этим ссылкам:\n Yandex.Money - https://xerl.ga/donate.js?money="+mn+"\nQiwi - https://qiwi.com/p/380982282899")
  }
- if(message.content.toLowerCase().startsWith("%donators"){
+ if(message.content.toLowerCase().startsWith("%donators")){
    let emb=new Discord.RichEmbed()
    .setTitle("Top of donators")
    .setColor("#2E190F")
