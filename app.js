@@ -7,6 +7,9 @@ const client=new Discord.Client();client.login(token)
 
 let translitor=require("./translitor")
 console.log(translitor.trEnRu("ghbdtn"))
+client.on("ready", ()=>{
+  client.user.setActivity("%help")
+})
 client.on('message',(message)=>{
     let args=""
     for(let x=1;x<message.content.split(" ").length;x++){
