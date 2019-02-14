@@ -85,7 +85,7 @@ if(message.content=="%ping"){
   return message.channel.send(emb)
 }
 if(message.content.toLowerCase()=="%invite"){
-    return message.reply("Меня можно пригласить на свой сервер по этой ссылке: http://xerl.ga/invite.js")
+    return message.reply("Меня можно пригласить на свой сервер по этой ссылке: https://xerl.ga/invite.js")
 }
 
 if(message.content.startsWith("%tr")){
