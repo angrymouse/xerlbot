@@ -51,7 +51,7 @@ ID этого канала - ${message.channel.id}
    .setAuthor("Xerl")
    .setFooter("xerl donators")
    .setDescription(`
-1.Баклажан (крадётся)#0900 - 100 RUB. Коментарий - "МУСОРА СОСАТЬ"
+1.Баклажан (крадётся)#0900 - 100 RUB. 
      `)
   return   message.channel.send(emb)
  }
@@ -96,10 +96,10 @@ if(developers.includes(String(message.author.id))){
     let evresult
     try{ evresult=eval(args)}catch(ex){
         let emb=new Discord.RichEmbed()
-.setAuthor("Чето все хуево")
+.setAuthor("Чето плохо ")
 .setColor("#2E190F")
 .setFooter("Mice is great")
-.setDescription("мне стало хуево по этой причине:\n "+ ex)
+.setDescription("мне стало плохо по этой причине:\n "+ ex)
 .setTitle("EVIL")
 return message.channel.send(emb)
 
