@@ -21,9 +21,28 @@ client.on('message',(message)=>{
         args = args+message.content.split(" ")[x]+" "
     }
  if(message.content.toLowerCase().startsWith("%donate")){
-
      let mn=args||"5"
   return   message.reply("Вы можете поддержать моих разработчиков по этим ссылкам:\n Yandex.Money - https://xerl.ga/donate.js?money="+mn+"\nQiwi - https://qiwi.me/xerl")
+ }
+ if(message.content.toLowerCase()=="%server"){
+   let emb=new Discord.RichEmbed()
+   .setTitle("Server info")
+   .setColor("#2E190F")
+   .setAuthor("Xerl")
+   .setFooter("Server info")
+   .setDescription(`
+Имя сервера - ${message.guild.name}
+ID сервера - ${message.guild.id}
+ID этого канала - ${message.channel.id}
+Кол-во людей на сервере - ${message.guild.members.size}
+Кол-во ролей на сервере - ${message.guild.roles.size}
+Кол-во каналов на сервере - ${message.guild.channels.size}
+Степень верификации - ${message.guild.verificationLevel}
+Регион сервера - ${message.guild.region}
+Создатель сервера - ${message.guild.owner}
+
+     `)
+  return   message.channel.send(emb)
  }
  if(message.content.toLowerCase().startsWith("%donators")){
    let emb=new Discord.RichEmbed()
