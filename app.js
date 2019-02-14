@@ -20,11 +20,12 @@ client.on('message',(message)=>{
    let emb=new Discord.RichEmbed()
    .setTitle("Top of donators")
    .setColor("#2E190F")
-   .setAuthor("xerl")
+   .setAuthor("Xerl")
    .setFooter("xerl donators")
    .setDescription(`
 1.Баклажан (крадётся)#0900 - 100 RUB. Коментарий - "МУСОРА СОСАТЬ"
      `)
+     message.channel.send(emb)
  }
 if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()
