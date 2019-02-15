@@ -40,7 +40,7 @@ client.on('message',(message)=>{
     }
  if(message.content.toLowerCase().startsWith("%donate")){
      let mn=args||"5"
-  return   message.reply("Вы можете поддержать моих разработчиков по этим ссылкам:\n Yandex.Money - https://xerl.ga/donate.js?money="+mn+"\nQiwi - https://qiwi.me/xerl")
+  return   message.reply("Вы можете поддержать моих разработчиков по этим ссылкам:\n Yandex.Money - https://xerl.ga/donate.js?money="+mn+"\nQiwi - https://qiwi.me/xerl\nЯ.Соберу - https://yasobe.ru/na/xerl")
  }
  if(message.content.toLowerCase()=="%server"){
    let emb=new Discord.RichEmbed()
