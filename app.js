@@ -1,4 +1,9 @@
 process.chdir(__dirname)
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+let fs=require('fs')
+var isgd = require('isgd');
+
+
 const Discord=require('discord.js')
 let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim","ghbxtv","jyj","gthtdjlbn","gj,tlbk","gj,tlbkf","xnj","'nf","cltkfk",",eltn","gjktpty","gjktpyf","[jhjij","[jhjifz","cegth","vj;tim","hfpujdfhbdf.","'nj","crfpfk","evysq"]
 let token=process.env.TOKEN || process.argv[2]
@@ -19,6 +24,19 @@ client.on('message',(message)=>{
     for(let x=1;x<message.content.split(" ").length;x++){
 
         args = args+message.content.split(" ")[x]+" "
+    }
+    if(message.content.toLowerCase().startsWith("%surl")){
+    try{
+      isgd.shorten(args, function(res) {
+        if(res.startsWith("https://is.gd")){
+        return  message.reply("Ваша сокращенная ссылка - "+res)
+      }else{
+        return message.channel.send(res)
+      }
+      });
+    }catch(ex){
+      return message.reply("Ошибка! "+ex)
+    }
     }
  if(message.content.toLowerCase().startsWith("%donate")){
      let mn=args||"5"
@@ -51,7 +69,7 @@ ID этого канала - ${message.channel.id}
    .setAuthor("Xerl")
    .setFooter("xerl donators")
    .setDescription(`
-1.Баклажан (крадётся)#0900 - 100 RUB. 
+1.Баклажан (крадётся)#0900 - 100 RUB.
      `)
   return   message.channel.send(emb)
  }
@@ -69,7 +87,7 @@ ping - узнать данные бота
 donate - помочь раработчикам бота деньгами
 donators - узнать список людей, которые помогли боту пожертвованием
 invite - пригласить бота на свой сервер
-server - узнать информацию о сервере 
+server - узнать информацию о сервере
 evil :smiling_imp: - только для разработчиков
 Наше комьюнити - https://discord.gg/cpq85sw
      `)

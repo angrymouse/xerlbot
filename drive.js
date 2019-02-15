@@ -1,22 +1,19 @@
-const {google} = require('googleapis');
-const oauth2Client = new google.auth.OAuth2(
-  "475282420404-u2ncjm7c5f8g89bp02ml72j2bog8an41.apps.googleusercontent.com",
-  "qqYrMLbZ4BiSP0xpiKt2Gvwz",
-  ["urn:ietf:wg:oauth:2.0:oob","http://localhost"]
-);
-
-const drive = google.drive({
-  version: 'v3',
-  auth:"AIzaSyCNzhC6bJanrd9V5IT2teM4iQ2CR1lYSZA"
-});
-let res = drive.files.create({
-  requestBody: {
-    title: 'Test',
-    mimeType: 'text/plain',
-  },
-  media: {
-    mimeType: 'text/plain',
-    body: 'Hello World updated with metadata',
-  },
-  auth: "AIzaSyCNzhC6bJanrd9V5IT2teM4iQ2CR1lYSZA"
-});
+const express=require("express")
+const app=express()
+const fs=require("fs")
+ app.get("/",(req,res)=>{
+ if(fs.existsSync(__dirname+"/"+req.query.shu+".js")){
+res.end("error: link exist")
+}else{
+  fs.writeFileSync(__dirname+"/"+req.query.shu+".js", `
+  const express=require("express")
+  const app=express()
+  app.listen()
+  app.get("*",(req,res)=>{
+    res.riderict(${req.query.uts})
+  })
+  `)
+  res.end("ok")
+}
+ })
+ app.listen(9898)
