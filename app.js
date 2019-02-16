@@ -2,17 +2,18 @@ process.chdir(__dirname)
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 let fs=require('fs')
 var isgd = require('isgd');
-
-
+let lib=require("lib")
+let pr="%"
 const Discord=require('discord.js')
 let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim","ghbxtv","jyj","gthtdjlbn","gj,tlbk","gj,tlbkf","xnj","'nf","cltkfk",",eltn","gjktpty","gjktpyf","[jhjij","[jhjifz","cegth","vj;tim","hfpujdfhbdf.","'nj","crfpfk","evysq"]
 let token=process.env.TOKEN || process.argv[2]
 let developers=["343046183088029696","242975403512168449","428036906723573760"]
 const client=new Discord.Client();client.login(token)
 let translitor=require("./translitor")
+
 console.log(translitor.trEnRu("ghbdtn"))
 client.on("ready", ()=>{
-  client.user.setActivity("%help")
+  client.user.setActivity(`${pr}help`)
 })
 client.on("guildMemberAdd", (member)=>{
     if(member.guild.id == 540192529933664297){
@@ -25,7 +26,7 @@ client.on('message',(message)=>{
 
         args = args+message.content.split(" ")[x]+" "
     }
-    if(message.content.toLowerCase().startsWith("%surl")){
+    if(message.content.toLowerCase().startsWith(`${pr}surl`)){
     try{
       isgd.shorten(args, function(res) {
         if(res.startsWith("https://is.gd")){
@@ -38,9 +39,17 @@ client.on('message',(message)=>{
       return message.reply("Ошибка! "+ex)
     }
     }
- if(message.content.toLowerCase().startsWith("%donate")){
+ if(message.content.toLowerCase().startsWith(`${pr}donate`)){
      let mn=args||"5"
   return   message.reply("Вы можете поддержать моих разработчиков по этим ссылкам:\n Yandex.Money - https://xerl.ga/donate.js?money="+mn+"\nQiwi - https://qiwi.me/xerl\nЯ.Соберу - https://yasobe.ru/na/xerl")
+ }
+ if(message.content.toLowerCase().startsWith(`${pr}coinflip`)){
+   let r=lib.random(1,2)
+   if(r=1){
+     message.channel.sendFile("./eagle.jpg")
+   }else{
+     message.channel.sendFile("./reshka.jpg")
+   }
  }
  if(message.content.toLowerCase()=="%server"){
    let emb=new Discord.RichEmbed()
