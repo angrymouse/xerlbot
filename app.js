@@ -2,7 +2,7 @@ process.chdir(__dirname)
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 let fs=require('fs')
 var isgd = require('isgd');
-let lib=require("lib")
+let lib=require("./lib.js")
 let pr="%"
 const Discord=require('discord.js')
 let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim","ghbxtv","jyj","gthtdjlbn","gj,tlbk","gj,tlbkf","xnj","'nf","cltkfk",",eltn","gjktpty","gjktpyf","[jhjij","[jhjifz","cegth","vj;tim","hfpujdfhbdf.","'nj","crfpfk","evysq"]
