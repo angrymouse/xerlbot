@@ -45,7 +45,7 @@ client.on('message',(message)=>{
  }
  if(message.content.toLowerCase().startsWith(`${pr}coinflip`)){
    let r=lib.random(1,2)
-   if(r=1){
+   if(r==1){
      message.channel.sendFile("./eagle.jpg")
    }else{
      message.channel.sendFile("./reshka.jpg")
