@@ -1,5 +1,5 @@
 process.chdir(__dirname)
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 let fs=require('fs')
 var isgd = require('isgd');
 let lib=require("./lib.js")
@@ -12,7 +12,7 @@ const client=new Discord.Client();client.login(token)
 let translitor=require("./translitor")
 
 console.log(translitor.trEnRu("ghbdtn"))
-client.on("ready", ()=>{
+client.once("ready", ()=>{
   client.user.setActivity(`${pr}help`)
 })
 client.on("guildMemberAdd", (member)=>{
@@ -25,6 +25,29 @@ client.on('message',(message)=>{
     for(let x=1;x<message.content.split(" ").length;x++){
 
         args = args+message.content.split(" ")[x]+" "
+    }
+    if(message.content.toLowerCase()==`${pr}voting`){
+      message.reply("Окей, сообщите мне сообщение голосования")
+      let colctr = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 });
+      colctr.once("collect", (message)=>{
+        let votecontent=message.content
+        message.reply("Теперь сообщите мне варианты ответа")
+
+        let colctr2 = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 });
+        colctr2.once("collect", (message)=>{
+let arg2=message.content.split('')
+message.channel.send(votecontent).then(msg=>{
+  if(arg2.includes("y")){
+    msg.react("✅")
+  }
+  setTimeout(() => {
+    if (arg2.includes("n")) {
+      msg.react("❎")
+    }},500)
+
+})
+        })
+      })
     }
     if(message.content.toLowerCase().startsWith(`${pr}surl`)){
     try{
