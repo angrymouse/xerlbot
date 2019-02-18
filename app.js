@@ -9,12 +9,17 @@ let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","g
 let token=process.env.TOKEN || process.argv[2]
 let developers=["343046183088029696","242975403512168449","428036906723573760"]
 const client=new Discord.Client();client.login(token)
+function delFromArray(array, nameofemement){
+  return array.splice(nameofemement, 1)
+}
 let translitor=require("./translitor")
 
 console.log(translitor.trEnRu("ghbdtn"))
 client.once("ready", ()=>{
   client.user.setActivity(`${pr}help`)
+
 })
+
 client.on("guildMemberAdd", (member)=>{
     if(member.guild.id == 540192529933664297){
         member.addRole(member.guild.roles.find('name', "Member"))
@@ -43,7 +48,13 @@ message.channel.send(votecontent).then(msg=>{
   setTimeout(() => {
     if (arg2.includes("n")) {
       msg.react("❎")
-    }},500)
+    }
+    setTimeout(() => {
+      if (arg2.includes("1")) {
+   
+      }
+    }, 500)
+  },500)
 
 })
         })
@@ -74,7 +85,7 @@ message.channel.send(votecontent).then(msg=>{
      message.channel.sendFile("./reshka.jpg")
    }
  }
- if(message.content.toLowerCase()=="%server"){
+ if(message.content.toLowerCase()==`${pr}server`){
    let emb=new Discord.RichEmbed()
    .setTitle("Server info")
    .setColor("#2E190F")
@@ -94,7 +105,7 @@ ID этого канала - ${message.channel.id}
      `)
   return   message.channel.send(emb)
  }
- if(message.content.toLowerCase().startsWith("%donators")){
+ if(message.content.toLowerCase().startsWith(`${pr}donators`)){
    let emb=new Discord.RichEmbed()
    .setTitle("Top of donators")
    .setColor("#2E190F")
@@ -105,7 +116,7 @@ ID этого канала - ${message.channel.id}
      `)
   return   message.channel.send(emb)
  }
- if(message.content.toLowerCase().startsWith("%help")){
+ if(message.content.toLowerCase().startsWith(`${pr}help`)){
    let emb=new Discord.RichEmbed()
    .setTitle("Xerl help and community")
    .setColor("#2E190F")
@@ -121,6 +132,8 @@ donators - узнать список людей, которые помогли �
 invite - пригласить бота на свой сервер
 server - узнать информацию о сервере
 surl - сократить ссылку
+voting - устроить голосование
+coinflip - подбросить монетку
 evil :smiling_imp: - только для разработчиков
 Наше комьюнити - https://discord.gg/cpq85sw
      `)
