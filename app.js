@@ -51,7 +51,7 @@ message.channel.send(votecontent).then(msg=>{
     }
     setTimeout(() => {
       if (arg2.includes("1")) {
-   
+
       }
     }, 500)
   },500)
@@ -135,6 +135,7 @@ surl - сократить ссылку
 voting - устроить голосование
 coinflip - подбросить монетку
 evil :smiling_imp: - только для разработчиков
+Xerl Cloud - https://c.xerl.pp.ua
 Наше комьюнити - https://discord.gg/cpq85sw
      `)
   return   message.channel.send(emb)
