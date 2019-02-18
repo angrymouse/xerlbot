@@ -32,31 +32,31 @@ client.on('message',(message)=>{
         args = args+message.content.split(" ")[x]+" "
     }
     if(message.content.toLowerCase()==`${pr}voting`){
-      message.reply("Окей, сообщите мне сообщение голосования")
-      let colctr = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 });
-      colctr.once("collect", (message)=>{
-        let votecontent=message.content
-        message.reply("Теперь сообщите мне варианты ответа")
 
-        let colctr2 = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 });
-        colctr2.once("collect", (message)=>{
-let arg2=message.content.split('')
-message.channel.send(votecontent).then(msg=>{
-  if(arg2.includes("y")){
-    msg.react("✅")
-  }
-  setTimeout(() => {
-    if (arg2.includes("n")) {
-      msg.react("❎")
-    }
-    setTimeout(() => {
-      if (arg2.includes("1")) {
+      message.reply("Окей, сообщите мне сообщение голосования").then(m1=>{
 
+        let colctr = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 });
+        colctr.once("collect", (message)=>{
+          m1.delete()
+          let votecontent=message.content
+          message.reply("Теперь сообщите мне варианты ответа").then(m2=>{
+            let colctr2 = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 });
+            colctr2.once("collect", (message)=>{
+              m2.delete()
+    let arg2=message.content.split('')
+    message.channel.send(votecontent).then(msg=>{
+      if(arg2.includes("y")){
+        msg.react("✅")
       }
-    }, 500)
-  },500)
+      setTimeout(() => {
+        if (arg2.includes("n")) {
+          msg.react("❎")
+        }
+      },500)
 
-})
+    })
+            })
+          })
         })
       })
     }
