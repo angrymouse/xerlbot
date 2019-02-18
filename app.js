@@ -121,7 +121,7 @@ ID этого канала - ${message.channel.id}
    .setTitle("Xerl help and community")
    .setColor("#2E190F")
    .setAuthor("Xerl")
-   .setFooter("xerl communuty")
+   .setFooter("xerl communuty,bot,and cloud")
    .setDescription(`
 Префикс бота - %
 Команды бота:
