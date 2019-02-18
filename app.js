@@ -44,6 +44,11 @@ client.on('message',(message)=>{
             colctr2.once("collect", (message)=>{
               m2.delete()
     let arg2=message.content.split('')
+    let emb=new Discord.RichEmbed()
+    .setTitle("Voting")
+    .setColor("#2E190F")
+    .setDescription(votecontent)
+    .setFooter("Please select")
     message.channel.send(votecontent).then(msg=>{
       if(arg2.includes("y")){
         msg.react("✅")
