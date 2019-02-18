@@ -49,7 +49,7 @@ client.on('message',(message)=>{
     .setColor("#2E190F")
     .setDescription(votecontent)
     .setFooter("Please select")
-    message.channel.send(votecontent).then(msg=>{
+    message.channel.send(emb).then(msg=>{
       if(arg2.includes("y")){
         msg.react("✅")
       }
