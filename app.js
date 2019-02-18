@@ -98,6 +98,7 @@ ID этого канала - ${message.channel.id}
 Кол-во людей на сервере - ${message.guild.members.size}
 Кол-во ролей на сервере - ${message.guild.roles.size}
 Кол-во каналов на сервере - ${message.guild.channels.size}
+Кол-во емоджи на сервере - ${message.guild.emojis.size}
 Степень верификации - ${message.guild.verificationLevel}
 Регион сервера - ${message.guild.region}
 Создатель сервера - ${message.guild.owner}
