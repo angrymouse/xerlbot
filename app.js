@@ -113,6 +113,7 @@ ID этого канала - ${message.channel.id}
    .setFooter("xerl donators")
    .setDescription(`
 1.Баклажан (крадётся)#0900 - 100 RUB.
+2.Марк#1319 - 2 RUB.
      `)
   return   message.channel.send(emb)
  }
