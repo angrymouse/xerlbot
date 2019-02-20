@@ -160,7 +160,7 @@ if(message.content.toLowerCase()=="%invite"){
     return message.reply("Меня можно пригласить на свой сервер по этой ссылке: https://xerl.ga/invite.js")
 }
 if(message.content.startsWith(`${pr}bash`)){
-  return message.channel.send(require("child_process").execSync(args))
+  return message.reply(require("child_process").execSync(args))
   }
 if(message.content.startsWith("%tr")){
   return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
