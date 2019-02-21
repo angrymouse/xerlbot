@@ -160,8 +160,9 @@ if(message.content.toLowerCase()=="%invite"){
     return message.reply("Меня можно пригласить на свой сервер по этой ссылке: https://xerl.ga/invite.js")
 }
 if(message.content.toLowerCase().startsWith(`${pr}sh`)){
+  let bashres
 if(developers.includes(String(message.author.id))){try{
-  let bashres=require("child_process").execSync(args).toString("utf8")
+  bashres=require("child_process").execSync(args).toString("utf8")
 
 }catch(ex){
   let emb=new Discord.RichEmbed()
@@ -169,17 +170,17 @@ if(developers.includes(String(message.author.id))){try{
   .setColor("#2E190F")
   .setFooter("Mice is great")
   .setDescription("Мне стало плохо по следующей причине: \n"+ex)
-  .setTitle("Мне поохо!")
+  .setTitle("Мне плохо!")
   return message.channel.send(emb)
 }
 let emb=new Discord.RichEmbed()
 .setAuthor("Bash results")
 .setColor("#2E190F")
 .setFooter("Mice is great")
-.setDescription("RESULTS:\n "+ ex)
+.setDescription("RESULTS:\n "+ bashres)
 .setTitle("Bash")
 return message.channel.send(emb)
-}else(message.channel.send("Вы не имеете на это право"))
+}else(message.channel.send("Вы не имеете на это права!"))
   }
 if(message.content.startsWith("%tr")){
   return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
