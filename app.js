@@ -162,22 +162,23 @@ if(message.content.toLowerCase()=="%invite"){
 if(message.content.toLowerCase().startsWith(`${pr}sh`)){
 if(developers.includes(String(message.author.id))){try{
   let bashres=require("child_process").execSync(args).toString("utf8")
-  let emb=new Discord.RichEmbed()
-  .setAuthor("Bash results")
-  .setColor("#2E190F")
-  .setFooter("Mice is great")
-  .setDescription("RESULTS:\n "+ bashres)
-  .setTitle("Bash")
-  return message.channel.send(emb)
+
 }catch(ex){
   let emb=new Discord.RichEmbed()
   .setAuthor("Bash results")
   .setColor("#2E190F")
   .setFooter("Mice is great")
-  .setDescription("Мне стало плохо по следующей причине: \n"=ex)
+  .setDescription("Мне стало плохо по следующей причине: \n"+ex)
   .setTitle("Мне поохо!")
   return message.channel.send(emb)
 }
+let emb=new Discord.RichEmbed()
+.setAuthor("Bash results")
+.setColor("#2E190F")
+.setFooter("Mice is great")
+.setDescription("RESULTS:\n "+ ex)
+.setTitle("Bash")
+return message.channel.send(emb)
 }else(message.channel.send("Вы не имеете на это право"))
   }
 if(message.content.startsWith("%tr")){
