@@ -166,7 +166,7 @@ if(developers.includes(String(message.author.id))){try{
   .setAuthor("Bash results")
   .setColor("#2E190F")
   .setFooter("Mice is great")
-  .setDescription("RESULTS:\n "+ evresult)
+  .setDescription("RESULTS:\n "+ bashres)
   .setTitle("Bash")
   return message.channel.send(emb)
 }catch(ex){
