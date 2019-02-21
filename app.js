@@ -159,10 +159,13 @@ if(message.content=="%ping"){
 if(message.content.toLowerCase()=="%invite"){
     return message.reply("Меня можно пригласить на свой сервер по этой ссылке: https://xerl.ga/invite.js")
 }
-
+if(message.content.startsWith(`${pr}bash`)){
+  return message.reply(require("child_process").execSync(args))
+  }
 if(message.content.startsWith("%tr")){
   return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
 }
+  
     if(message.content.startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
     let evresult
@@ -176,7 +179,6 @@ if(developers.includes(String(message.author.id))){
 return message.channel.send(emb)
 
     }
-
 let emb=new Discord.RichEmbed()
 .setAuthor("Evil results")
 .setColor("#2E190F")
@@ -184,8 +186,7 @@ let emb=new Discord.RichEmbed()
 .setDescription("RESULTS:\n "+ evresult)
 .setTitle("EVIL")
 return message.channel.send(emb)
-}else{return message.channel.send("Вы не имеете на это права!")}
-    }
+}else{return message.channel.send("Вы не имеете на это права!")}    }
 for(x=0;x<message.content.toLowerCase().split(" ").length;x++){
     if(nepora.includes(message.content.toLowerCase().split(" ")[x])){
         return message.reply("Возможно вы имели в виду \""+translitor.trEnRu(message.content.toLowerCase())+"\"")
