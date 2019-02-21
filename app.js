@@ -6,7 +6,7 @@ let lib=require("./lib.js")
 let pr="%"
 const Discord=require('discord.js')
 let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim","ghbxtv","jyj","gthtdjlbn","gj,tlbk","gj,tlbkf","xnj","'nf","cltkfk",",eltn","gjktpty","gjktpyf","[jhjij","[jhjifz","cegth","vj;tim","hfpujdfhbdf.","'nj","crfpfk","evysq"]
-let token=process.env.BOT_TOKEN || process.argv[2]
+let token=process.env.TOKEN || process.argv[2]
 let developers = ["343046183088029696", "242975403512168449", "428036906723573760","401739659945967626"]
 const client = new Discord.Client(); client.login(token)
 function delFromArray(array, nameofemement){
