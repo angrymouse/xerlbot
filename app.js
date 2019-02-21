@@ -159,8 +159,26 @@ if(message.content=="%ping"){
 if(message.content.toLowerCase()=="%invite"){
     return message.reply("Меня можно пригласить на свой сервер по этой ссылке: https://xerl.ga/invite.js")
 }
-if(message.content.startsWith(`${pr}bash`)){
-  return message.reply(require("child_process").execSync(args))
+if(message.content.toLowerCase().startsWith(`${pr}sh`)){
+if(developers.includes(String(message.author.id))){try{
+  let bashres=require("child_process").execSync(args).toString("utf8")
+  let emb=new Discord.RichEmbed()
+  .setAuthor("Bash results")
+  .setColor("#2E190F")
+  .setFooter("Mice is great")
+  .setDescription("RESULTS:\n "+ evresult)
+  .setTitle("Bash")
+  return message.channel.send(emb)
+}catch(ex){
+  let emb=new Discord.RichEmbed()
+  .setAuthor("Bash results")
+  .setColor("#2E190F")
+  .setFooter("Mice is great")
+  .setDescription("Мне стало плохо по следующей причине: \n"=ex)
+  .setTitle("Мне поохо!")
+  return message.channel.send(emb)
+}
+}else(message.channel.send("Вы не имеете на это право"))
   }
 if(message.content.startsWith("%tr")){
   return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
