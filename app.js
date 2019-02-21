@@ -165,7 +165,7 @@ if(message.content.startsWith(`${pr}bash`)){
 if(message.content.startsWith("%tr")){
   return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
 }
-  
+
     if(message.content.startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
     let evresult
