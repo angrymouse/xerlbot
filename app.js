@@ -157,7 +157,7 @@ if(message.content=="%ping"){
   return message.channel.send(emb)
 }
 if(message.content.toLowerCase()=="%invite"){
-    return message.reply("Меня можно пригласить на свой сервер по этой ссылке: https://xerlbot.icu/invites")
+    return message.reply("Меня можно пригласить на свой сервер по этой ссылке: https://xerlbot.icu/invite")
 }
 if(message.content.toLowerCase().startsWith(`${pr}sh`)){
   let bashres
