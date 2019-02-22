@@ -16,7 +16,7 @@ let translitor=require("./translitor")
 
 console.log(translitor.trEnRu("ghbdtn"))
 client.once("ready", ()=>{
-  client.user.setActivity(`${pr}help`)
+  client.user.setActivity(`${pr}help || xerlbot.icu`)
 
 })
 
