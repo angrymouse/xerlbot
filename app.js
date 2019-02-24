@@ -143,7 +143,7 @@ voting - устроить голосование
 coinflip - подбросить монетку
 evil :smiling_imp: - только для разработчиков
 Xerl Cloud - https://c.xerl.pp.ua
-Наше комьюнити - https://discord.gg/cpq85sw
+Наше комьюнити - https://discord.gg/Yrb28Je
      `)
   return   message.channel.send(emb)
  }
