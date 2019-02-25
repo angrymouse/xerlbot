@@ -1,6 +1,6 @@
 process.chdir(__dirname)
 const jsftp = require("jsftp");
-require("./dbinit.js")
+require("./dbinit.js")()
 let fs=require('fs')
 const ftp = new jsftp({
   host: "ftpupload.net",

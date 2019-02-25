@@ -1,4 +1,5 @@
-const jsftp = require("jsftp");
+module.exports=()=>{
+  const jsftp = require("jsftp");
 
 const ftp = new jsftp({
   host: "ftpupload.net",
@@ -14,3 +15,4 @@ ftp.get("htdocs/db.json", "db/db.json", err => {
   }
 ftp.raw("quit")
 });
+}
