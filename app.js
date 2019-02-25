@@ -10,7 +10,7 @@ const ftp = new jsftp({
 });
 ftp.get("htdocs/db.json", "db/db.json", err => {
   if (err) {
-    return console.error("There was an error retrieving the file.");
+    return console.error(err);
   }else{
     console.log("db downloaded succefully")
   }
