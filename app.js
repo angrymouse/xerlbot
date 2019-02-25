@@ -8,13 +8,7 @@ const ftp = new jsftp({
   user: "epiz_23505821", // defaults to "anonymous"
   pass: "GitGdp17azUsqd" // defaults to "@anonymous"
 });
-ftp.get("htdocs/db.json", __dirname+"/db/db.json", err => {
-  if (err) {
-    return console.error(err);
-  }else{
-    console.log("db downloaded succefully")
-  }
-});
+
 function dbput(db){
 fs.writeFileSync("./db/db.json", JSON.stringify(db))
 ftp.put(fs.readFileSync("./db/db.json"), "htdocs/db.json", err => {
