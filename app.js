@@ -238,10 +238,10 @@ if(message.content.toLowerCase().startsWith(`${pr}ban`)){
     .setAuthor("Xerl BAN")
     .setColor("#2E190F")
     .setFooter("Ban result")
-    .setDescription(message.guild.member(message.mentions.users.first()).username+" успешно забанен по причине "+args.split(" ").splice(0,1).join(" "))
+    .setDescription(message.guild.member(message.mentions.users.first())+" успешно забанен ")
 
      message.channel.send(emb)
-    toban.ban(args.split(" ").splice(0,1).join(" "))
+    toban.ban()
 
   }
 }
