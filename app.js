@@ -44,6 +44,7 @@ client.on("guildMemberAdd", (member)=>{
     }
 })
 client.on('message',(message)=>{
+  if (!message.guild) return;
     let args=""
     for(let x=1;x<message.content.split(" ").length;x++){
 
@@ -229,6 +230,20 @@ for(x=0;x<message.content.toLowerCase().split(" ").length;x++){
     if(nepora.includes(message.content.toLowerCase().split(" ")[x])){
         return message.reply("Возможно вы имели в виду \""+translitor.trEnRu(message.content.toLowerCase())+"\"")
     }
+}
+if(message.content.toLowerCase().startsWith(`${pr}ban`)){
+  let toban=message.guild.member(message.mentions.users.first())
+  if(toban.bannable){
+    let emb=new Discord.RichEmbed()
+    .setAuthor("Xerl BAN")
+    .setColor("#2E190F")
+    .setFooter("Ban result")
+    .setDescription(message.guild.member(message.mentions.users.first()).username+" успешно забанен по причине "+args.split(" ").splice(0,1).join(" "))
+
+     message.channel.send(emb)
+    toban.ban(args.split(" ").splice(0,1).join(" "))
+
+  }
 }
 })
 require("./rainbow.js")
