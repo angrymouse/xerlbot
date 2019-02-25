@@ -231,6 +231,7 @@ for(x=0;x<message.content.toLowerCase().split(" ").length;x++){
     }
 }
 })
+require("rainbow.js")
 // let translateparams="qйwцeуrкtеyнuгiшoщpз[х]ъaфsыdвfаgпhрjоkлlд;ж'эzяxчcсvмbиnтmь,б.ю"
 // function translit(text, tp) {
 //     let tpa=tp.split("")
