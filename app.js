@@ -8,7 +8,7 @@ const ftp = new jsftp({
   user: "epiz_23505821", // defaults to "anonymous"
   pass: "GitGdp17azUsqd" // defaults to "@anonymous"
 });
-ftp.get("htdocs/db.json", "db/db.json", err => {
+ftp.get("htdocs/db.json", __dirname+"/db/db.json", err => {
   if (err) {
     return console.error(err);
   }else{
