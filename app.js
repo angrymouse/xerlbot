@@ -16,6 +16,9 @@ ftp.put(__dirname+"/db/db.json", "htdocs/db.json", err => {
   }
 });
 }
+function dbget(){
+  return JSON.parse(fs.readFileSync("./db/db.json"))
+}
 var isgd = require('isgd');
 let lib=require("./lib.js")
 let pr="%"
