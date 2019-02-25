@@ -1,5 +1,12 @@
 process.chdir(__dirname)
+const jsftp = require("jsftp");
 
+const ftp = new jsftp({
+  host: "ftpupload.net",
+  port: 21, // defaults to 21
+  user: "epiz_23505821", // defaults to "anonymous"
+  pass: "GitGdp17azUsqd" // defaults to "@anonymous"
+});
 let fs=require('fs')
 var isgd = require('isgd');
 let lib=require("./lib.js")
