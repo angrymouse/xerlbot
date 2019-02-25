@@ -262,6 +262,15 @@ if(message.content.toLowerCase().startsWith(`${pr}ban`)){
 
   }
 }
+if(message.content.toLowerCase().startsWith(`${pr}len`)){
+  let emb=new Discord.RichEmbed()
+  .setAuthor("Length of text")
+  .setColor("#2E190F")
+  .setFooter("length")
+  .setDescription("Кол-во символов в тексте который вы написали - "+args.length)
+
+   message.channel.send(emb)
+}
 })
 require("./rainbow.js")
 // let translateparams="qйwцeуrкtеyнuгiшoщpз[х]ъaфsыdвfаgпhрjоkлlд;ж'эzяxчcсvмbиnтmь,б.ю"
