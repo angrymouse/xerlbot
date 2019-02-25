@@ -1,13 +1,21 @@
 process.chdir(__dirname)
 const jsftp = require("jsftp");
-
+require("./dbinit.js")
+let fs=require('fs')
 const ftp = new jsftp({
   host: "ftpupload.net",
   port: 21, // defaults to 21
   user: "epiz_23505821", // defaults to "anonymous"
   pass: "GitGdp17azUsqd" // defaults to "@anonymous"
 });
-let fs=require('fs')
+function dbput(db){
+fs.writeFileSync("./db/db.json", JSON.stringify(db))
+ftp.put(__dirname+"/db/db.json", "htdocs/db.json", err => {
+  if (err) {
+  return  console.log(err);
+  }
+});
+}
 var isgd = require('isgd');
 let lib=require("./lib.js")
 let pr="%"
