@@ -10,7 +10,7 @@ const ftp = new jsftp({
 });
 function dbput(db){
 fs.writeFileSync("./db/db.json", JSON.stringify(db))
-ftp.put(__dirname+"/db/db.json", "htdocs/db.json", err => {
+ftp.put("./db/db.json", "htdocs/db.json", err => {
   if (err) {
   return  console.log(err);
   }
