@@ -4,7 +4,7 @@ const forEachTimeout = require('foreach-timeout');
 // const hastebinGen = require('hastebin-gen');
 // const mysql = require('mysql');
 
-const creator = '343046183088029696';
+const owner = '343046183088029696';
 const hexreg = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
 
 let prefix = '%';
@@ -62,7 +62,7 @@ client.on('message', message => {
     }
 
     if (command === 'stop') {
-        if (!message.member.hasPermission("MANAGE_ROLES")) return err(null, 'Управление ролями')
+        if (!message.member.hasPermission("MANAGE_ROLES") && !message.author.id==owner) return err(null, 'Управление ролями')
 
         if (!rainbowOn.has(message.guild.id)) return err('Изменение радужной роли и так не включено')
 
@@ -73,7 +73,7 @@ client.on('message', message => {
         if (['rainbow', 'rb'].includes(command)) {
             const role = message.guild.roles.find(r => r.name === 'xerlbot.icu');
 
-            if (!message.member.hasPermission("MANAGE_ROLES")) return err(null, 'Управление ролями');
+            if (!message.member.hasPermission("MANAGE_ROLES") && !message.author.id==owner) return err(null, 'Управление ролями');
 
             if (!role) return err('На вашем сервере нет роли с названием \`xerlbot.icu\`');
 
