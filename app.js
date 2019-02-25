@@ -8,7 +8,23 @@ const ftp = new jsftp({
   user: "epiz_23505821", // defaults to "anonymous"
   pass: "GitGdp17azUsqd" // defaults to "@anonymous"
 });
+var Ftpclient = require('ftp');
 
+ var c = new Ftpclient();
+ c.on('ready', function() {
+   c.get('htdocs/db.json', function(err, stream) {
+     if (err) throw err;
+     stream.once('close', function() { c.end(); });
+     stream.pipe(fs.createWriteStream('db/db.json'));
+   });
+ });
+ // connect to localhost:21 as anonymous
+ c.connect({
+   host: "ftpupload.net",
+   port: 21, // defaults to 21
+   user: "epiz_23505821", // defaults to "anonymous"
+   password: "GitGdp17azUsqd" // defaults to "@anonymous"
+ });
 function dbput(db){
 fs.writeFileSync("./db/db.json", JSON.stringify(db))
 ftp.put(fs.readFileSync("./db/db.json"), "htdocs/db.json", err => {
