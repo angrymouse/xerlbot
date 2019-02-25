@@ -267,7 +267,7 @@ if(message.content.toLowerCase().startsWith(`${pr}len`)){
   .setAuthor("Length of text")
   .setColor("#2E190F")
   .setFooter("length")
-  .setDescription("Кол-во символов в тексте который вы написали - "+args.length)
+  .setDescription("Кол-во символов в тексте который вы написали - "+args.length-1)
 
    message.channel.send(emb)
 }
