@@ -9,12 +9,12 @@ const ftp = new jsftp({
   pass: "GitGdp17azUsqd" // defaults to "@anonymous"
 });
 var Ftpclient = require('ftp');
-
+  let rtdb
  var c = new Ftpclient();
  c.on('ready', function() {
    c.get('htdocs/db.json', function(err, stream) {
      if (err) throw err;
-     stream.once('close', function() { c.end(); });
+     stream.once('close', function() { c.end();   rtdb=dbget()});
      stream.pipe(fs.createWriteStream('db/db.json'));
    });
  });
@@ -48,7 +48,7 @@ function delFromArray(array, nameofemement){
   return array.splice(nameofemement, 1)
 }
 let translitor=require("./translitor")
-  let rtdb=dbget()
+
 console.log(translitor.trEnRu("ghbdtn"))
 client.once("ready", ()=>{
   client.user.setActivity(`${pr}help || xerlbot.icu`)
@@ -287,7 +287,14 @@ if(rtdb.servers[String(message.guild.id)].adsprotection==true){
     }
   }
 }
-
+if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
+  if(message.member.hasPermission("ADMINISTRATOR")){
+    rtdb.servers[String(message.guild.id)].adsprotection=true;
+    message.reply("Защита от рекламы успешно включена!")
+  }else{
+    message.reply("Вы должны иметь право администратора сервера для использования этой команды!")
+  }
+}
 })
 require("./rainbow.js")
 // let translateparams="qйwцeуrкtеyнuгiшoщpз[х]ъaфsыdвfаgпhрjоkлlд;ж'эzяxчcсvмbиnтmь,б.ю"
