@@ -271,6 +271,12 @@ if(message.content.toLowerCase().startsWith(`${pr}len`)){
 
    message.channel.send(emb)
 }
+let argx=message.content.split(" ")
+for(let i=0;i<argx.length;i++){
+  if(argx[i].toString().split("/").includes("discord.gg")){
+    message.guild.owner.send(message.author + " Опубликовал рекламу своего сервера на вашем")
+  }
+}
 })
 require("./rainbow.js")
 // let translateparams="qйwцeуrкtеyнuгiшoщpз[х]ъaфsыdвfаgпhрjоkлlд;ж'эzяxчcсvмbиnтmь,б.ю"
