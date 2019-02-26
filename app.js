@@ -295,7 +295,14 @@ if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toL
     message.reply("Вы должны иметь право администратора сервера для использования этой команды!")
   }
 }
-
+if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
+  if(message.member.hasPermission("ADMINISTRATOR")){
+    rtdb.servers[String(message.guild.id)].adsprotection=true;
+    message.reply("Защита от рекламы включена успешно! Ваш сервер в безопасности!")
+  }else{
+    message.reply("Вы должны иметь право администратора сервера для использования этой команды!")
+  }
+}
 })
 client.on("messageUpdate",(message)=>{
   if(!message.guild || message.author.bot){return;}
