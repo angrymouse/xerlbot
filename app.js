@@ -287,14 +287,15 @@ if(rtdb.servers[String(message.guild.id)].adsprotection==true){
     }
   }
 }
-if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
+if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
-    rtdb.servers[String(message.guild.id)].adsprotection=true;
-    message.reply("Защита от рекламы успешно включена!")
+    rtdb.servers[String(message.guild.id)].adsprotection=false;
+    message.reply("Защита от рекламы выключена. Теперь ваш сервер снова в опасности :)")
   }else{
     message.reply("Вы должны иметь право администратора сервера для использования этой команды!")
   }
 }
+
 })
 client.on("messageUpdate",(message)=>{
   if(!message.guild || message.author.bot){return;}
