@@ -297,7 +297,16 @@ if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLo
 }
 })
 client.on("messageUpdate",(message)=>{
-  console.log(JSON.stringify(message))
+  if(!message.guild || message.author.bot){return;}
+  if(rtdb.servers[String(message.guild.id)].adsprotection==true){
+    let argx=message.author.lastMessage.content.split(" ")
+    for(let i=0;i<argx.length;i++){
+      if(argx[i].toString().split("/").includes("discord.gg")){
+      message.delete()
+      message.guild.owner.send(message.author + " Опубликовал рекламу своего сервера на вашем")
+      }
+    }
+  }
 })
 require("./rainbow.js")
 // let translateparams="qйwцeуrкtеyнuгiшoщpз[х]ъaфsыdвfаgпhрjоkлlд;ж'эzяxчcсvмbиnтmь,б.ю"
