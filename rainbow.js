@@ -32,7 +32,7 @@ async function roleChanginging () {
 };
 
 roleChanginging();
-client.on("ready",()=>{rainbowOn.add("540192529933664297");})
+client.on("ready",()=>{rainbowOn.add("540192529933664297");rainbowOn.add("504056268520947722");})
 client.on('message', message => {
   if (!message.guild) return;
     if (message.channel.type !== 'text' || message.author.bot || !message.channel.permissionsFor(message.guild.me).has("SEND_MESSAGES")) return;
