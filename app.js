@@ -48,25 +48,32 @@ function delFromArray(array, nameofemement){
   return array.splice(nameofemement, 1)
 }
 let translitor=require("./translitor")
-
+  let rtdb=dbget()
 console.log(translitor.trEnRu("ghbdtn"))
 client.once("ready", ()=>{
   client.user.setActivity(`${pr}help || xerlbot.icu`)
 
 })
 
+client.on("guildCreate",(guild)=>{
+rtdb.servers[String(guild.id)]={
+  "adsprotection":false
+}
+dbput(rtdb)
+})
 client.on("guildMemberAdd", (member)=>{
     if(member.guild.id == 540192529933664297){
         member.addRole(member.guild.roles.find('name', "Member"))
     }
 })
 client.on('message',(message)=>{
-  if (!message.guild) return;
+  if (!message.guild || message.author.bot) return;
     let args=""
     for(let x=1;x<message.content.split(" ").length;x++){
 
         args = args+message.content.split(" ")[x]+" "
     }
+
     if(message.content.toLowerCase()==`${pr}voting`){
 
       message.reply("Окей, сообщите мне сообщение голосования").then(m1=>{
@@ -271,12 +278,16 @@ if(message.content.toLowerCase().startsWith(`${pr}len`)){
 
    message.channel.send(emb)
 }
-let argx=message.content.split(" ")
-for(let i=0;i<argx.length;i++){
-  if(argx[i].toString().split("/").includes("discord.gg")){
+if(rtdb.servers[String(message.guild.id)].adsprotection==true){
+  let argx=message.content.split(" ")
+  for(let i=0;i<argx.length;i++){
+    if(argx[i].toString().split("/").includes("discord.gg")){
+    message.delete()
     message.guild.owner.send(message.author + " Опубликовал рекламу своего сервера на вашем")
+    }
   }
 }
+
 })
 require("./rainbow.js")
 // let translateparams="qйwцeуrкtеyнuгiшoщpз[х]ъaфsыdвfаgпhрjоkлlд;ж'эzяxчcсvмbиnтmь,б.ю"
