@@ -296,6 +296,9 @@ if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLo
   }
 }
 })
+client.on("messageUpdate",(message)=>{
+  console.log(JSON.stringify(message))
+})
 require("./rainbow.js")
 // let translateparams="qйwцeуrкtеyнuгiшoщpз[х]ъaфsыdвfаgпhрjоkлlд;ж'эzяxчcсvмbиnтmь,б.ю"
 // function translit(text, tp) {
