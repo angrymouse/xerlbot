@@ -281,7 +281,7 @@ if(message.content.toLowerCase().startsWith(`${pr}len`)){
 if(rtdb.servers[String(message.guild.id)].adsprotection==true){
   let argx=message.content.split(" ")
   for(let i=0;i<argx.length;i++){
-    if(argx[i].toString().split("/").includes("discord.gg")){
+    if(argx[i].toString().toLowerCase().split("/").includes("discord.gg")){
     message.delete()
     message.guild.owner.send(message.author + " Опубликовал рекламу своего сервера на вашем")
     }
@@ -290,6 +290,7 @@ if(rtdb.servers[String(message.guild.id)].adsprotection==true){
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
     rtdb.servers[String(message.guild.id)].adsprotection=false;
+    dbput(rtdb)
     message.reply("Защита от рекламы выключена. Теперь ваш сервер снова в опасности :)")
   }else{
     message.reply("Вы должны иметь право администратора сервера для использования этой команды!")
@@ -298,6 +299,7 @@ if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toL
 if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
   if(message.member.hasPermission("ADMINISTRATOR")){
     rtdb.servers[String(message.guild.id)].adsprotection=true;
+    dbput(rtdb)
     message.reply("Защита от рекламы включена успешно! Ваш сервер в безопасности!")
   }else{
     message.reply("Вы должны иметь право администратора сервера для использования этой команды!")
@@ -309,7 +311,7 @@ client.on("messageUpdate",(message)=>{
   if(rtdb.servers[String(message.guild.id)].adsprotection==true){
     let argx=message.author.lastMessage.content.toLowerCase.split(" ")
     for(let i=0;i<argx.length;i++){
-      if(argx[i].toString().split("/").includes("discord.gg")){
+      if(argx[i].toString().toLowerCase().split("/").includes("discord.gg")){
       message.delete()
       message.guild.owner.send(message.author + " Опубликовал рекламу своего сервера на вашем")
       }
