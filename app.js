@@ -108,6 +108,32 @@ client.on('message',(message)=>{
         })
       })
     }
+    if(message.content.startsWith(`${pr}gs`)){
+      message.reply("Окей, сообщите мне тему конкурса").then(msg=>{
+        let colctr=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
+        colctr.once("collect", (message)=>{
+          msg.delete()
+          let contheme=message.content
+          message.reply("Хорошо, теперь сообщите мне время, через которое истечет голосование (в секундах)").then(msg=>{
+            let colctr2=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
+            colctr2.once("collect",message=>{
+              msg.delete()
+              message.channel.send(contheme).then(msg=>{
+                msg.react("✅").then(rct=>{
+
+                  setTimeout(()=>{
+                    winner=rct.users.array()[lib.random(1,rct.users.size)]
+                    msg.channel.send(winner+" выйграл конкурс! Мои поздравления!")
+                  },Number(message.content+"000") )
+          })
+                    })
+            })
+          })
+
+        })
+      })
+
+    }
     if(message.content.toLowerCase().startsWith(`${pr}surl`)){
     try{
       isgd.shorten(args, function(res) {
