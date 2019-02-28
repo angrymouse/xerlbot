@@ -309,7 +309,7 @@ if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLo
 client.on("messageUpdate",(message)=>{
   if(!message.guild || message.author.bot){return;}
   if(rtdb.servers[String(message.guild.id)].adsprotection==true){
-    let argx=message.author.lastMessage.content.toLowerCase.split(" ")
+    let argx=message.author.lastMessage.content.toLowerCase().split(" ")
     for(let i=0;i<argx.length;i++){
       if(argx[i].toString().toLowerCase().split("/").includes("discord.gg")){
       message.delete()
