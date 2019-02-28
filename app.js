@@ -255,6 +255,9 @@ for(x=0;x<message.content.toLowerCase().split(" ").length;x++){
         return message.reply("Возможно вы имели в виду \""+translitor.trEnRu(message.content.toLowerCase())+"\"")
     }
 }
+if(message.content.toLowerCase().startsWith(`${pr}avatar`)){
+  message.channel.send({files:[message.mentions.users.first().avatarURL.split('?')[0]]})
+}
 if(message.content.toLowerCase().startsWith(`${pr}ban`)){
   let toban=message.guild.member(message.mentions.users.first())
   if(toban.bannable){
