@@ -123,7 +123,7 @@ client.on('message',(message)=>{
 
                   setTimeout(()=>{
                     winner=rct.users.array()[lib.random(1,rct.users.size-1)]
-                    msg.channel.send(winner+" выйграл конкурс! Мои поздравления!")
+                    msg.channel.send(winner+" выграл конкурс! Мои поздравления!")
                   },Number(message.content+"000") )
           })
                     })
