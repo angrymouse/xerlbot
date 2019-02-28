@@ -122,7 +122,7 @@ client.on('message',(message)=>{
                 msg.react("✅").then(rct=>{
 
                   setTimeout(()=>{
-                    winner=rct.users.array()[lib.random(1,rct.users.size)]
+                    winner=rct.users.array()[lib.random(1,rct.users.size-1)]
                     msg.channel.send(winner+" выйграл конкурс! Мои поздравления!")
                   },Number(message.content+"000") )
           })
