@@ -114,7 +114,7 @@ client.on('message',(message)=>{
         colctr.once("collect", (message)=>{
           msg.delete()
           let contheme=message.content
-          message.reply("Хорошо, теперь сообщите мне время, через которое истечет голосование (в секундах)").then(msg=>{
+          message.reply("Хорошо, теперь сообщите мне время, через которое истечет конкурс (в секундах)").then(msg=>{
             let colctr2=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
             colctr2.once("collect",message=>{
               msg.delete()
