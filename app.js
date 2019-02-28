@@ -305,6 +305,10 @@ if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLo
     message.reply("Вы должны иметь право администратора сервера для использования этой команды!")
   }
 }
+if(message.content.toLowerCase().startsWith(`${pr}say`){
+  message.delete(100)
+  message.channel.send(args)
+})
 })
 client.on("messageUpdate",(message)=>{
   if(!message.guild || message.author.bot){return;}
