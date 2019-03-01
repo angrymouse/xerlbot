@@ -77,20 +77,29 @@ client.on('message',(message)=>{
     }
     if(message.content.toLowerCase().startsWith(`${pr}money`)){
       if(!rtdb.users[String(message.author.id)]){
-        rtdb.users[String(message.author.id)]={"money":0}
+        rtdb.users[String(message.author.id)]={"money":0,"canwork"=true}
         dbput(rtdb)
       }
       message.reply("ваши деньги: "+String(rtdb.users[String(message.author.id)].money)+" :star:")
     }
     if(message.content.toLowerCase().startsWith(`${pr}work`)){
       if(!rtdb.users[String(message.author.id)]){
-        rtdb.users[String(message.author.id)]={"money":0}
+        rtdb.users[String(message.author.id)]={"money":0, "canwork":true}
         dbput(rtdb)
+      }
+      if(rtdb.users[String(message.author.id)].canwork=false){
+        return message.reply("Вы можете работать только раз в 2 часа!")
       }
       let workedmoney=lib.random(1,100)
       rtdb.users[String(message.author.id)].money+=workedmoney
       dbput(rtdb)
       message.reply("Вы заработали "+String(workedmoney)+ " :star:")
+      rtdb.users[String(message.author.id)].canwork=false
+      dbput(rtdb)
+      setTimeout(()=>{
+        rtdb.users[String(message.author.id)].canwork=true
+        dbput(rtdb)
+      },720000)
     }
     if(message.content.toLowerCase()==`${pr}voting`){
 
