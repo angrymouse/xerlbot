@@ -164,7 +164,7 @@ for(let i=0;i<emjes.length;i++){
 
                   setTimeout(()=>{
                     winner=rct.users.array()[lib.random(1,rct.users.size-1)]
-                    msg.channel.send(winner+" выграл "+contheme+"! Мои поздравления!")
+                    msg.channel.send(winner+" выйграл "+contheme+"! Мои поздравления!")
                   },time )
           })
                     })
@@ -344,7 +344,7 @@ if(message.content.toLowerCase().startsWith(`${pr}len`)){
   .setAuthor("Length of text")
   .setColor("#2E190F")
   .setFooter("length")
-  .setDescription("Кол-во символов в тексте который вы написали - "+args.length-1)
+  .setDescription("Кол-во символов в тексте который вы написали - "+args.split('').length-1)
 
    message.channel.send(emb)
 }
@@ -390,6 +390,13 @@ if(message.content.toLowerCase().startsWith(`${pr}sha512`)){
 }
 if(message.content.toLowerCase().startsWith(`${pr}sha384`)){
   return message.reply("SHA384 Твоего текста: "+shajs('sha384').update(args).digest('hex'))
+}
+if(message.content.toLowerCase().startsWith(`${pr}haste`)){
+  const hastebin = require('hastebin-gen');
+  args=args.split(' ')
+  args.splice(0,1)
+  args=args.join(' ')
+  hastebin(args,message.content.toLowerCase().split(' ')[1]).then(ur=>{message.reply(ur)}).catch(message.channel.send)
 }
 })
 client.on("messageUpdate",(message)=>{
