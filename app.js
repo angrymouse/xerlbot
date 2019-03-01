@@ -109,22 +109,33 @@ client.on('message',(message)=>{
       })
     }
     if(message.content.startsWith(`${pr}gs`)){
-      message.reply("Окей, сообщите мне тему конкурса").then(msg=>{
+      message.reply("Окей, сообщите мне главный приз конкурса").then(msg=>{
         let colctr=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
         colctr.once("collect", (message)=>{
           msg.delete()
           let contheme=message.content
-          message.reply("Хорошо, теперь сообщите мне время, через которое истечет конкурс (в секундах)").then(msg=>{
+          message.reply("Хорошо, теперь сообщите мне время, через которое истечет конкурс ").then(msg=>{
             let colctr2=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
             colctr2.once("collect",message=>{
               msg.delete()
-              message.channel.send(contheme).then(msg=>{
+              let time
+              if(message.content.toLowerCase().endsWith("m")){
+                time=Number(String(Number(message.content.toLowerCase().replace("m",""))*60)+"000")
+              }else{
+                time=Number(String(Number(message.content.toLowerCase().replace("s","")))+"000")
+              }
+              let emb=new Discord.RichEmbed()
+              .setTitle(contheme)
+              .setColor("#2E190F")
+              .setDescription(`Разыгрывается ${contheme}!`)
+              .setFooter(`Для участия в розыгрыше ${contheme} поставьте галочку под сообщением.`)
+              message.channel.send(emb).then(msg=>{
                 msg.react("✅").then(rct=>{
 
                   setTimeout(()=>{
                     winner=rct.users.array()[lib.random(1,rct.users.size-1)]
-                    msg.channel.send(winner+" выграл конкурс! Мои поздравления!")
-                  },Number(message.content+"000") )
+                    msg.channel.send(winner+" выграл "+contheme+"! Мои поздравления!")
+                  },time )
           })
                     })
             })
