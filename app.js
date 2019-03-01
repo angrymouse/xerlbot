@@ -129,7 +129,7 @@ client.on('message',(message)=>{
       }
 for(let i=0;i<emjes.length;i++){
 
-  setTimeout(()=>{msg.react(emjes[i])},i*80)
+  setTimeout(()=>{msg.react(emjes[i])},i*100)
 }
     })
             })
