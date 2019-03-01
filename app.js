@@ -68,13 +68,20 @@ client.on("guildMemberAdd", (member)=>{
     }
 })
 client.on('message',(message)=>{
+
   if (!message.guild || message.author.bot) return;
     let args=""
     for(let x=1;x<message.content.split(" ").length;x++){
 
         args = args+message.content.split(" ")[x]+" "
     }
-
+    if(message.content.toLowerCase().startsWith(`${pr}money`)){
+      if(!rtdb.users[String(message.author.id)]){
+        rtdb.users[String(message.author.id)]={"money":0}
+        dbput(rtdb)
+      }
+      message.reply("ваши деньги: "+String(rtdb.users[String(message.author.id)].money)+" :star:")
+    }
     if(message.content.toLowerCase()==`${pr}voting`){
 
       message.reply("Окей, сообщите мне сообщение голосования").then(m1=>{
