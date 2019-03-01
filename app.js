@@ -93,40 +93,44 @@ client.on('message',(message)=>{
     .setDescription(votecontent)
     .setFooter("Please select")
     message.channel.send(emb).then(msg=>{
+      let emjes=[]
       if(arg2.includes("y")){
-        msg.react("✅")
+        emjes.push("✅")
       }
         if (arg2.includes("n")) {
-          msg.react("❎")
+          emjes.push("❎")
         }
       if(arg2.includes('1')){
-        msg.react("1⃣")
+        emjes.push("1⃣")
       }
       if(arg2.includes("2")){
-        msg.react("2⃣")
+        emjes.push("2⃣")
       }
       if(arg2.includes("3")){
-        msg.react("3⃣")
+        emjes.push("3⃣")
       }
       if(arg2.includes("4")){
-        msg.react("4⃣")
+        emjes.push("4⃣")
       }
       if(arg2.includes("5")){
-        msg.react("5⃣")
+        emjes.push("5⃣")
       }
       if(arg2.includes("6")){
-        msg.react("6⃣")
+        emjes.push("6⃣")
       }
       if(arg2.includes("7")){
-        msg.react("7⃣")
+        emjes.push("7⃣")
       }
       if(arg2.includes("8")){
-        msg.react("8⃣")
+        emjes.push("8⃣")
       }
       if(arg2.includes("9")){
-        msg.react("9⃣")
+        emjes.push("9⃣")
       }
+for(let i=0;i<emjes.length;i++){
 
+  setTimeout(()=>{msg.react(emjes[i])},i*80)
+}
     })
             })
           })
