@@ -234,28 +234,8 @@ ID этого канала - ${message.channel.id}
   return   message.channel.send(emb)
  }
  if(message.content.toLowerCase().startsWith(`${pr}help`)){
-   let emb=new Discord.RichEmbed()
-   .setTitle("Xerl help and community")
-   .setColor("#2E190F")
-   .setAuthor("Xerl")
-   .setFooter("xerl communuty,bot,and cloud")
-   .setDescription(`
-Префикс бота - %
-Команды бота:
-tr - перевести текст с английской раскладки на русскую
-ping - узнать данные бота
-donate - помочь раработчикам бота деньгами
-donators - узнать список людей, которые помогли боту пожертвованием
-invite - пригласить бота на свой сервер
-server - узнать информацию о сервере
-surl - сократить ссылку
-voting - устроить голосование
-coinflip - подбросить монетку
-evil :smiling_imp: - только для разработчиков
-Xerl Cloud - https://c.xerl.pp.ua
-Наше комьюнити - https://discord.gg/Yrb28Je
-     `)
-  return   message.channel.send(emb)
+
+  return   message.channel.send("Для того что-бы узнать обо всех моих коммандах перейдите на https://xerlbot.icu/commands")
  }
 if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()
