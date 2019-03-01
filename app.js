@@ -89,7 +89,7 @@ client.on('message',(message)=>{
       }
       if(rtdb.users[String(message.author.id)].canwork=false){
         return message.reply("Вы можете работать только раз в 2 часа!")
-      }
+      }else{
       let workedmoney=lib.random(1,100)
       rtdb.users[String(message.author.id)].money+=workedmoney
       dbput(rtdb)
@@ -100,6 +100,7 @@ client.on('message',(message)=>{
         rtdb.users[String(message.author.id)].canwork=true
         dbput(rtdb)
       },720000)
+    }
     }
     if(message.content.toLowerCase()==`${pr}voting`){
 
