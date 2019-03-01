@@ -40,6 +40,7 @@ var isgd = require('isgd');
 let lib=require("./lib.js")
 let pr="%"
 const Discord=require('discord.js')
+var shajs = require('sha.js')
 let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim","ghbxtv","jyj","gthtdjlbn","gj,tlbk","gj,tlbkf","xnj","'nf","cltkfk",",eltn","gjktpty","gjktpyf","[jhjij","[jhjifz","cegth","vj;tim","hfpujdfhbdf.","'nj","crfpfk","evysq"]
 let token=process.env.TOKEN || process.argv[2]
 let developers = ["343046183088029696","428036906723573760"]
@@ -268,7 +269,7 @@ if(message.content=="%ping"){
 if(message.content.toLowerCase()=="%invite"){
     return message.reply("Меня можно пригласить на свой сервер по этой ссылке: https://xerlbot.icu/invite")
 }
-if(message.content.toLowerCase().startsWith(`${pr}sh`)){
+if(message.content.toLowerCase().startsWith(`${pr}shell`)){
   let bashres
 if(developers.includes(String(message.author.id))){try{
   bashres=require("child_process").execSync(args).toString("utf8")
@@ -378,6 +379,18 @@ if(message.content.toLowerCase().startsWith(`${pr}say`)){
   message.delete(100)
   message.channel.send(args)
 }
+if(message.content.toLowerCase().startsWith(`${pr}sha256`)){
+  return message.reply("SHA256 Твоего текста: "+shajs('sha256').update(args).digest('hex'))
+}
+if(message.content.toLowerCase().startsWith(`${pr}sha224`)){
+  return message.reply("SHA224 Твоего текста: "+shajs('sha224').update(args).digest('hex'))
+}
+if(message.content.toLowerCase().startsWith(`${pr}sha512`)){
+  return message.reply("SHA512 Твоего текста: "+shajs('sha512').update(args).digest('hex'))
+}
+if(message.content.toLowerCase().startsWith(`${pr}sha384`)){
+  return message.reply("SHA384 Твоего текста: "+shajs('sha384').update(args).digest('hex'))
+}
 })
 client.on("messageUpdate",(message)=>{
   if(!message.guild || message.author.bot){return;}
@@ -390,6 +403,7 @@ client.on("messageUpdate",(message)=>{
       }
     }
   }
+
 })
 require("./rainbow.js")
 // let translateparams="qйwцeуrкtеyнuгiшoщpз[х]ъaфsыdвfаgпhрjоkлlд;ж'эzяxчcсvмbиnтmь,б.ю"
