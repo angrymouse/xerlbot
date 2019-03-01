@@ -96,11 +96,36 @@ client.on('message',(message)=>{
       if(arg2.includes("y")){
         msg.react("✅")
       }
-      setTimeout(() => {
         if (arg2.includes("n")) {
           msg.react("❎")
         }
-      },500)
+      if(arg2.includes('1')){
+        msg.react("1⃣")
+      }
+      if(arg2.includes("2")){
+        msg.react("2⃣")
+      }
+      if(arg2.includes("3")){
+        msg.react("3⃣")
+      }
+      if(arg2.includes("4")){
+        msg.react("4⃣")
+      }
+      if(arg2.includes("5")){
+        msg.react("5⃣")
+      }
+      if(arg2.includes("6")){
+        msg.react("6⃣")
+      }
+      if(arg2.includes("7")){
+        msg.react("7⃣")
+      }
+      if(arg2.includes("8")){
+        msg.react("8⃣")
+      }
+      if(arg2.includes("9")){
+        msg.react("9⃣")
+      }
 
     })
             })
