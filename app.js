@@ -82,6 +82,16 @@ client.on('message',(message)=>{
       }
       message.reply("ваши деньги: "+String(rtdb.users[String(message.author.id)].money)+" :star:")
     }
+    if(message.content.toLowerCase().startsWith(`${pr}work`)){
+      if(!rtdb.users[String(message.author.id)]){
+        rtdb.users[String(message.author.id)]={"money":0}
+        dbput(rtdb)
+      }
+      let workedmoney=lib.random(1,100)
+      rtdb.users[String(message.author.id)].money+=workedmoney
+      dbput(rtdb)
+      message.reply("Вы заработали "+String(workedmoney)+ " :star:")
+    }
     if(message.content.toLowerCase()==`${pr}voting`){
 
       message.reply("Окей, сообщите мне сообщение голосования").then(m1=>{
