@@ -77,7 +77,7 @@ client.on('message',(message)=>{
     }
     if(message.content.toLowerCase().startsWith(`${pr}money`)){
       if(!rtdb.users[String(message.author.id)]){
-        rtdb.users[String(message.author.id)]={"money":0,"canwork"=true}
+        rtdb.users[String(message.author.id)]={"money":0,"canwork":true}
         dbput(rtdb)
       }
       message.reply("ваши деньги: "+String(rtdb.users[String(message.author.id)].money)+" :star:")
