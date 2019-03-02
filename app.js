@@ -290,11 +290,13 @@ ID этого канала - \`${message.channel.id}\`
    let emb=new Discord.RichEmbed()
    .setTitle("Top of donators")
    .setColor(color)
-   .setAuthor("Xerl")
-   .setFooter("xerl donators")
+   .setThumbnail('https://media.discordapp.net/attachments/548220541576806400/551518150672253016/631180.png?width=135&height=135')
+   .setAuthor("Xerl ping",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
+   .setFooter("Спасибо им за донаты❤")
    .setDescription(`
-1.Баклажан (крадётся)#0900 - 100 RUB.
-2.Марк#1319 - 13 RUB.
+1. Баклажан (крадётся)#0900 - 100 RUB.
+2. MerdedSpade#2613 - 67 RUB.
+3. Марк#1319 - 13 RUB.
      `)
   return   message.channel.send(emb)
  }
