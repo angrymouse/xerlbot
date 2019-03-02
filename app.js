@@ -248,7 +248,8 @@ for(let i=0;i<emjes.length;i++){
      let mn=args||"5"
   const embed = new Discord.RichEmbed()
   .setTitle('Donate')
-  .setDescription('<:panda_money:551497493532377124> **Вы можете поддержать моих разработчиков по этим ссылкам:**\n\n <:yandex_money:551495863600414730>\`Yandex Money\` - https://xerl.ga/donate.js?money="+mn+"\n\`<:qiwi:551495863344693258>Qiwi\` - https://qiwi.me/xerl\n<:yandex_money:551495863600414730>\`Я Соберу\` - https://yasobe.ru/na/xerl')
+  .setColor(color)
+  .setDescription('<:panda_money:551497493532377124> **Вы можете поддержать моих разработчиков по этим ссылкам:**\n\n <:yandex_money:551495863600414730>\`Yandex Money\` - https://xerl.ga/donate.js?money="+mn+"\n<:qiwi:551495863344693258>\`Qiwi\` - https://qiwi.me/xerl\n<:yandex_money:551495863600414730>\`Я Соберу\` - https://yasobe.ru/na/xerl')
   return message.channel.send(embed)
  }
  if(message.content.toLowerCase().startsWith(`${pr}coinflip`)){
@@ -414,7 +415,7 @@ if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLo
     dbput(rtdb)
     message.reply("**Защита от рекламы включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
   }else{
-    const embed = new Dicord.RichEmbed()
+    const embed = new Discord.RichEmbed()
     .setColor("RED")
     .setDescription('**Вы должны иметь право** `ADMINISTRATOR`')
     .setImage('./screen/1.png')
