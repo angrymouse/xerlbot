@@ -68,6 +68,34 @@ client.on("guildMemberAdd", (member)=>{
         member.addRole(member.guild.roles.find('name', "Member"))
     }
 })
+
+client.on("guildCreate", guild => {
+  const logsServerJoin = client.channels.get('551479276247973889');
+  const embed = new Discord.RichEmbed()
+  .setTitle(guild.name)
+  .setDescription("Новый сервер.")
+  .setColor(color)
+  .addField("Количество людей:", guild.memberCount)
+  .addField("Количество ролей:", guild.roles.size)
+  .addField("Owner", guild.owner.user.tag)
+  .addField("ID:", guild.id)
+   logsServerJoin.send(guild.id, embed);
+   logsServerJoin.send("``` ```");
+});    
+client.on("guildDelete", guild => {
+  const logsServerLeave = client.channels.get('551479276247973889');
+  const embed = new Discord.RichEmbed()
+  .setTitle(guild.name)
+  .setDescription("Я был удалён с сервера.")
+  .setColor("RED")
+  .addField("Количество людей:", guild.memberCount)
+  .addField("Количество ролей:", guild.roles.size)
+  .addField("Owner", guild.owner.user.tag)
+  .addField("ID:", guild.id)
+ 	
+  logsServerLeave.send(embed);
+});
+
 client.on('message',(message)=>{
 
   if (!message.guild || message.author.bot) return;
