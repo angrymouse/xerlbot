@@ -127,12 +127,16 @@ message.channel.send(embed)
         .setDescription('<:no:551490591155027970> **Вы можете работать только раз в 2 часа!**')
 message.channel.send(embed)
         }else{
-      let work1 = [`Банкиром`, `Дворником`,`Выгульщиком собак`,`Официантом`,`Барменом`,`Уборщиком`];
-      let work2 = Math.floor(Math.random() * work1.length);
+      //let work1 = [`Банкиром`, `Дворником`,`Выгульщиком собак`,`Официантом`,`Барменом`,`Уборщиком`];
+     // let work2 = Math.floor(Math.random() * work1.length);
       let workedmoney=lib.random(1,100)
       rtdb.users[String(message.author.id)].money+=workedmoney
       dbput(rtdb)
-      message.reply(`Вы поработали ${work2} заработали `+String(workedmoney)+ `<:money:551523400158412820>`)
+      const embed = new Discord.RichEmbed()
+      .setAuthor(message.author.username,message.author.displayAvatarURL)
+      .setColor(color)
+      .setDescription(`Вы поработали и заработали `+String(workedmoney)+ `<:money:551523400158412820>`)
+message.channel.send(embed)
       rtdb.users[String(message.author.id)].canwork=false
       dbput(rtdb)
       setTimeout(()=>{
@@ -143,13 +147,13 @@ message.channel.send(embed)
     }
     if(message.content.toLowerCase()==`${pr}voting`){
 
-      message.reply("Окей, сообщите мне сообщение голосования").then(m1=>{
+      message.reply("**Сообщите мне сообщение голосования**").then(m1=>{
 
         let colctr = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 });
         colctr.once("collect", (message)=>{
           m1.delete()
           let votecontent=message.content
-          message.reply("Теперь сообщите мне варианты ответа").then(m2=>{
+          message.reply("**Теперь сообщите мне варианты ответа**").then(m2=>{
             let colctr2 = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 });
             colctr2.once("collect", (message)=>{
               m2.delete()
