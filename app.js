@@ -212,6 +212,7 @@ for(let i=0;i<emjes.length;i++){
               let emb=new Discord.RichEmbed()
               .setTitle(contheme)
               .setColor(color)
+              .setThumbnail('https://cdn.discordapp.com/attachments/482516986677428244/551483342231699456/726532.png')
               .setDescription(`Разыгрывается ${contheme}!`)
               .setFooter(`Для участия в розыгрыше ${contheme} поставьте галочку под сообщением.`)
               message.channel.send(emb).then(msg=>{
