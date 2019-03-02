@@ -127,12 +127,12 @@ message.channel.send(embed)
         .setDescription('<:no:551490591155027970> **Вы можете работать только раз в 2 часа!**')
 message.channel.send(embed)
         }else{
-      let 1 = [`Банкиром`, `Дворником`,`Выгульщиком собак`,`Официантом`,`Барменом`,`Уборщиком`];
-      let 2 = Math.floor(Math.random() * 1.length);
+      let work1 = [`Банкиром`, `Дворником`,`Выгульщиком собак`,`Официантом`,`Барменом`,`Уборщиком`];
+      let work2 = Math.floor(Math.random() * work1.length);
       let workedmoney=lib.random(1,100)
       rtdb.users[String(message.author.id)].money+=workedmoney
       dbput(rtdb)
-      message.reply(`Вы поработали ${2} заработали `+String(workedmoney)+ `<:money:551523400158412820>`)
+      message.reply(`Вы поработали ${work2} заработали `+String(workedmoney)+ `<:money:551523400158412820>`)
       rtdb.users[String(message.author.id)].canwork=false
       dbput(rtdb)
       setTimeout(()=>{
