@@ -108,20 +108,31 @@ client.on('message',(message)=>{
         rtdb.users[String(message.author.id)]={"money":0,"canwork":true}
         dbput(rtdb)
       }
-      message.reply("ваши деньги: "+String(rtdb.users[String(message.author.id)].money)+" :star:")
-    }
+      const embed = new Discord.RichEmbed()
+      .setAuthor(message.author.username,message.author.displayAvatarURL)
+      .setColor(color)
+      .setThumbnail(message.author.avatarURL)
+      .setDescription("Твой баланс "+String(rtdb.users[String(message.author.id)].money)+"<:money:551523400158412820>")
+message.channel.send(embed)
+      }
     if(message.content.toLowerCase().startsWith(`${pr}work`)){
       if(!rtdb.users[String(message.author.id)]){
         rtdb.users[String(message.author.id)]={"money":0, "canwork":true}
         dbput(rtdb)
       }
       if(rtdb.users[String(message.author.id)].canwork==false){
-        return message.reply("Вы можете работать только раз в 2 часа!")
-      }else{
+        const embed = new Discord.RichEmbed()
+        .setColor("RED")
+        .setAuthor(message.author.username,message.author.displayAvatarURL)
+        .setDescription('<:no:551490591155027970> **Вы можете работать только раз в 2 часа!**')
+message.channel.send(embed)
+        }else{
+      let 1 = [`Банкиром`, `Дворником`,`Выгульщиком собак`,`Официантом`,`Барменом`,`Уборщиком`];
+      let 2 = Math.floor(Math.random() * 1.length);
       let workedmoney=lib.random(1,100)
       rtdb.users[String(message.author.id)].money+=workedmoney
       dbput(rtdb)
-      message.reply("Вы заработали "+String(workedmoney)+ " :star:")
+      message.reply(`Вы поработали ${2} заработали `+String(workedmoney)+ `<:money:551523400158412820>`)
       rtdb.users[String(message.author.id)].canwork=false
       dbput(rtdb)
       setTimeout(()=>{
