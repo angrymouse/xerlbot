@@ -6,7 +6,7 @@ const ftp = new jsftp({
   host: "ftpupload.net",
   port: 21, // defaults to 21
   user: "epiz_23505821", // defaults to "anonymous"
-  pass: "GitGdp17azUsqd" // defaults to "@anonymous"
+  pass: "Hippothebest1" // defaults to "@anonymous"
 });
 var Ftpclient = require('ftp');
   let rtdb
@@ -23,7 +23,7 @@ var Ftpclient = require('ftp');
    host: "ftpupload.net",
    port: 21, // defaults to 21
    user: "epiz_23505821", // defaults to "anonymous"
-   password: "GitGdp17azUsqd" // defaults to "@anonymous"
+   password: "Hippothebest1" // defaults to "@anonymous"
  });
 function dbput(db){
 fs.writeFileSync("./db/db.json", JSON.stringify(db))
@@ -80,7 +80,7 @@ client.on("guildCreate", guild => {
   .addField("Owner", guild.owner.user.tag)
   .addField("ID:", guild.id)
    logsServerJoin.send(embed);
-});    
+});
 client.on("guildDelete", guild => {
   const logsServerLeave = client.channels.get('551479276247973889');
   const embed = new Discord.RichEmbed()
@@ -91,7 +91,7 @@ client.on("guildDelete", guild => {
   .addField("Количество ролей:", guild.roles.size)
   .addField("Owner", guild.owner.user.tag)
   .addField("ID:", guild.id)
- 	
+
   logsServerLeave.send(embed);
 });
 
@@ -278,7 +278,7 @@ for(let i=0;i<emjes.length;i++){
    }
  }
  if(message.content.toLowerCase()==`${pr}server`){
-  var d = message.member.createdAt; 
+  var d = message.member.createdAt;
   var timen = d.toLocaleString();
    let emb=new Discord.RichEmbed()
    .setTitle("Server info")
@@ -352,7 +352,7 @@ let emb=new Discord.RichEmbed()
 return message.channel.send(emb)
 }else(message.channel.send("Вы не имеете на это права!"))
   }
-  
+
 if(message.content.startsWith("%tr")){
   return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
 }
