@@ -222,27 +222,32 @@ for(let i=0;i<emjes.length;i++){
  if(message.content.toLowerCase().startsWith(`${pr}coinflip`)){
    let r=lib.random(1,2)
    if(r==1){
-     message.channel.sendFile("./eagle.jpg")
+     message.channel.send("**Выпал Орёл!**")
+     message.channel.sendFile("./img/eagle.jpg")
    }else{
-     message.channel.sendFile("./reshka.jpg")
+     message.channel.send("Выпала Решка!")
+     message.channel.sendFile("./img/reshka.jpg")
    }
  }
  if(message.content.toLowerCase()==`${pr}server`){
+  var d = message.member.createdAt; 
+  var timen = d.toLocaleString();
    let emb=new Discord.RichEmbed()
    .setTitle("Server info")
    .setColor("#2E190F")
    .setAuthor("Xerl")
    .setFooter("Server info")
+   .setThumbnail(message.guild.iconURL)
    .setDescription(`
-Имя сервера - ${message.guild.name}
-ID сервера - ${message.guild.id}
-ID этого канала - ${message.channel.id}
-Кол-во людей на сервере - ${message.guild.members.size}
-Кол-во ролей на сервере - ${message.guild.roles.size}
-Кол-во каналов на сервере - ${message.guild.channels.size}
-Кол-во емоджи на сервере - ${message.guild.emojis.size}
-Степень верификации - ${message.guild.verificationLevel}
-Регион сервера - ${message.guild.region}
+Имя сервера - \`${message.guild.name}\`
+ID сервера - \`${message.guild.id}\`
+ID этого канала - \`${message.channel.id}\`
+Кол-во людей на сервере - \`${message.guild.members.size}\`
+Кол-во ролей на сервере - \`${message.guild.roles.size}\`
+Кол-во каналов на сервере - \`${message.guild.channels.size}\`
+Кол-во емоджи на сервере - \`${message.guild.emojis.size}\`
+Степень верификации - \`${message.guild.verificationLevel}\`
+Регион сервера - \`${message.guild.region}\`
 Создатель сервера - ${message.guild.owner}
 
      `)
