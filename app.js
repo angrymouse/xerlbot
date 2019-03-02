@@ -43,7 +43,7 @@ const Discord=require('discord.js')
 var shajs = require('sha.js')
 let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim","ghbxtv","jyj","gthtdjlbn","gj,tlbk","gj,tlbkf","xnj","'nf","cltkfk",",eltn","gjktpty","gjktpyf","[jhjij","[jhjifz","cegth","vj;tim","hfpujdfhbdf.","'nj","crfpfk","evysq"]
 let token=process.env.TOKEN || process.argv[2]
-let developers = ["343046183088029696","428036906723573760"]
+let developers = ["343046183088029696","428036906723573760","406343162651738112"]
 const client = new Discord.Client(); client.login(token)
 function delFromArray(array, nameofemement){
   return array.splice(nameofemement, 1)
