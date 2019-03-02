@@ -194,12 +194,12 @@ for(let i=0;i<emjes.length;i++){
       })
     }
     if(message.content.startsWith(`${pr}gs`)){
-      message.reply("Окей, сообщите мне главный приз конкурса").then(msg=>{
+      message.reply("**Cообщите мне главный приз конкурса**").then(msg=>{
         let colctr=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
         colctr.once("collect", (message)=>{
           msg.delete()
           let contheme=message.content
-          message.reply("Хорошо, теперь сообщите мне время, через которое истечет конкурс ").then(msg=>{
+          message.reply("**Хорошо, теперь сообщите мне время,через которое истечет конкурс**").then(msg=>{
             let colctr2=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
             colctr2.once("collect",message=>{
               msg.delete()
@@ -213,14 +213,14 @@ for(let i=0;i<emjes.length;i++){
               .setTitle(contheme)
               .setColor(color)
               .setThumbnail('https://cdn.discordapp.com/attachments/482516986677428244/551483342231699456/726532.png')
-              .setDescription(`Разыгрывается ${contheme}!`)
+              .setDescription(`Разыгрывается **${contheme}**!🎉`)
               .setFooter(`Для участия в розыгрыше ${contheme} поставьте галочку под сообщением.`)
               message.channel.send(emb).then(msg=>{
                 msg.react("✅").then(rct=>{
 
                   setTimeout(()=>{
                     winner=rct.users.array()[lib.random(1,rct.users.size-1)]
-                    msg.channel.send(winner+" выйграл "+contheme+"! Мои поздравления!")
+                    msg.channel.send(winner+" выйграл "+contheme+"! Мои поздравления!🎉")
                   },time )
           })
                     })
@@ -303,11 +303,9 @@ ID этого канала - \`${message.channel.id}\`
  }
 if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()
-    .setAuthor("Xerl ping")
+    .setAuthor("Xerl ping",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
     .setColor(color)
-    .setFooter("Ping")
-    .setDescription(`Я занимаю ${Math.round(process.memoryUsage().rss/ 1024 / 1024)}мб RAM \n Мой пинг ${Math.round(client.ping)} ms \n Я присутствую на ${client.guilds.size} серверах \n Пользователей у меня ${client.users.size} \n Я есть на ${client.channels.size} каналах`)
-    .setTitle("PING")
+    .setDescription(`Я занимаю ${Math.round(process.memoryUsage().rss/ 1024 / 1024)}мб RAM \n Мой пинг \`${Math.round(client.ping)}\`ms \n Я присутствую на \`${client.guilds.size}\` серверах \n Пользователей у меня \`${client.users.size}\` \n Я есть на \`${client.channels.size}\` каналах`)
   return message.channel.send(emb)
 }
 if(message.content.toLowerCase()=="%invite"){
