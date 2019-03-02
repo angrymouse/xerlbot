@@ -43,6 +43,7 @@ const Discord=require('discord.js')
 var shajs = require('sha.js')
 let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim","ghbxtv","jyj","gthtdjlbn","gj,tlbk","gj,tlbkf","xnj","'nf","cltkfk",",eltn","gjktpty","gjktpyf","[jhjij","[jhjifz","cegth","vj;tim","hfpujdfhbdf.","'nj","crfpfk","evysq"]
 let token=process.env.TOKEN || process.argv[2]
+let c = "#c5fcb3"
 let developers = ["343046183088029696","428036906723573760","406343162651738112"]
 const client = new Discord.Client(); client.login(token)
 function delFromArray(array, nameofemement){
@@ -117,7 +118,7 @@ client.on('message',(message)=>{
     let arg2=message.content.split('')
     let emb=new Discord.RichEmbed()
     .setTitle("Voting")
-    .setColor("#2E190F")
+    .setColor(c)
     .setDescription(votecontent)
     .setFooter("Please select")
     message.channel.send(emb).then(msg=>{
@@ -183,7 +184,7 @@ for(let i=0;i<emjes.length;i++){
               }
               let emb=new Discord.RichEmbed()
               .setTitle(contheme)
-              .setColor("#2E190F")
+              .setColor(c)
               .setDescription(`Разыгрывается ${contheme}!`)
               .setFooter(`Для участия в розыгрыше ${contheme} поставьте галочку под сообщением.`)
               message.channel.send(emb).then(msg=>{
@@ -234,7 +235,7 @@ for(let i=0;i<emjes.length;i++){
   var timen = d.toLocaleString();
    let emb=new Discord.RichEmbed()
    .setTitle("Server info")
-   .setColor("#2E190F")
+   .setColor(c)
    .setAuthor("Xerl")
    .setFooter("Server info")
    .setThumbnail(message.guild.iconURL)
@@ -256,7 +257,7 @@ ID этого канала - \`${message.channel.id}\`
  if(message.content.toLowerCase().startsWith(`${pr}donators`)){
    let emb=new Discord.RichEmbed()
    .setTitle("Top of donators")
-   .setColor("#2E190F")
+   .setColor(c")
    .setAuthor("Xerl")
    .setFooter("xerl donators")
    .setDescription(`
@@ -272,7 +273,7 @@ ID этого канала - \`${message.channel.id}\`
 if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()
     .setAuthor("Xerl ping")
-    .setColor("#2E190F")
+    .setColor(c)
     .setFooter("Ping")
     .setDescription(`Я занимаю ${Math.round(process.memoryUsage().rss/ 1024 / 1024)}мб RAM \n Мой пинг ${Math.round(client.ping)} ms \n Я присутствую на ${client.guilds.size} серверах \n Пользователей у меня ${client.users.size} \n Я есть на ${client.channels.size} каналах`)
     .setTitle("PING")
@@ -289,7 +290,7 @@ if(developers.includes(String(message.author.id))){try{
 }catch(ex){
   let emb=new Discord.RichEmbed()
   .setAuthor("Bash results")
-  .setColor("#2E190F")
+  .setColor(c)
   .setFooter("Mice is great")
   .setDescription("Мне стало плохо по следующей причине: \n"+ex)
   .setTitle("Мне плохо!")
@@ -297,24 +298,24 @@ if(developers.includes(String(message.author.id))){try{
 }
 let emb=new Discord.RichEmbed()
 .setAuthor("Bash results")
-.setColor("#2E190F")
+.setColor(c)
 .setFooter("Mice is great")
 .setDescription("RESULTS:\n "+ bashres)
 .setTitle("Bash")
 return message.channel.send(emb)
 }else(message.channel.send("Вы не имеете на это права!"))
   }
+  
 if(message.content.startsWith("%tr")){
   return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
 }
-
     if(message.content.startsWith('%evil')){
 if(developers.includes(String(message.author.id))){
     let evresult
     try{ evresult=eval(args)}catch(ex){
         let emb=new Discord.RichEmbed()
 .setAuthor("Чето плохо ")
-.setColor("#2E190F")
+.setColor("RED")
 .setFooter("Mice is great")
 .setDescription("мне стало плохо по этой причине:\n "+ ex)
 .setTitle("EVIL")
@@ -323,7 +324,7 @@ return message.channel.send(emb)
     }
 let emb=new Discord.RichEmbed()
 .setAuthor("Evil results")
-.setColor("#2E190F")
+.setColor(c)
 .setFooter("Mice is great")
 .setDescription("RESULTS:\n "+ evresult)
 .setTitle("EVIL")
@@ -342,7 +343,7 @@ if(message.content.toLowerCase().startsWith(`${pr}ban`)){
   if(toban.bannable){
     let emb=new Discord.RichEmbed()
     .setAuthor("Xerl BAN")
-    .setColor("#2E190F")
+    .setColor(c)
     .setFooter("Ban result")
     .setDescription(message.guild.member(message.mentions.users.first())+" успешно забанен ")
 
@@ -354,7 +355,7 @@ if(message.content.toLowerCase().startsWith(`${pr}ban`)){
 if(message.content.toLowerCase().startsWith(`${pr}len`)){
   let emb=new Discord.RichEmbed()
   .setAuthor("Length of text")
-  .setColor("#2E190F")
+  .setColor(c)
   .setFooter("length")
   .setDescription("Кол-во символов в тексте который вы написали - "+args.split('').length-1)
 
