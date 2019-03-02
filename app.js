@@ -373,7 +373,7 @@ if(message.content.toLowerCase().startsWith(`${pr}ban`)){
     .setAuthor("Xerl BAN")
     .setColor(color)
     .setFooter("Ban result")
-    .setDescription(message.guild.member(message.mentions.users.first())+" успешно забанен ")
+    .setDescription(message.guild.member(message.mentions.users.first())+" **успешно забанен** <:ban:551486850536308768>")
 
      message.channel.send(emb)
     toban.ban()
@@ -394,7 +394,7 @@ if(rtdb.servers[String(message.guild.id)].adsprotection==true){
   for(let i=0;i<argx.length;i++){
     if(argx[i].toString().toLowerCase().split("/").includes("discord.gg")){
     message.delete()
-    message.guild.owner.send(message.author + " Опубликовал рекламу своего сервера на вашем")
+    message.guild.owner.send(message.author + " **Опубликовал рекламу своего сервера на вашем** <:angrys:551488605982556165>")
     }
   }
 }
@@ -402,7 +402,7 @@ if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toL
   if(message.member.hasPermission("ADMINISTRATOR")){
     rtdb.servers[String(message.guild.id)].adsprotection=false;
     dbput(rtdb)
-    message.reply("Защита от рекламы выключена. Теперь ваш сервер снова в опасности :)")
+    message.reply("**Защита от рекламы выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
   }else{
     message.reply("Вы должны иметь право администратора сервера для использования этой команды!")
   }
@@ -411,7 +411,7 @@ if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLo
   if(message.member.hasPermission("ADMINISTRATOR")){
     rtdb.servers[String(message.guild.id)].adsprotection=true;
     dbput(rtdb)
-    message.reply("Защита от рекламы включена успешно! Ваш сервер в безопасности!")
+    message.reply("**Защита от рекламы включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
   }else{
     message.reply("Вы должны иметь право администратора сервера для использования этой команды!")
   }
