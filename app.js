@@ -246,7 +246,10 @@ for(let i=0;i<emjes.length;i++){
     }
  if(message.content.toLowerCase().startsWith(`${pr}donate`)){
      let mn=args||"5"
-  return   message.reply("Вы можете поддержать моих разработчиков по этим ссылкам:\n Yandex.Money - https://xerl.ga/donate.js?money="+mn+"\nQiwi - https://qiwi.me/xerl\nЯ.Соберу - https://yasobe.ru/na/xerl")
+  const embed = new Discord.RichEmbed()
+  .setTitle('Donate')
+  .setDescription('<:panda_money:551497493532377124> **Вы можете поддержать моих разработчиков по этим ссылкам:**\n\n <:yandex_money:551495863600414730>\`Yandex Money\` - https://xerl.ga/donate.js?money="+mn+"\n\`<:qiwi:551495863344693258>Qiwi\` - https://qiwi.me/xerl\n<:yandex_money:551495863600414730>\`Я Соберу\` - https://yasobe.ru/na/xerl')
+  return message.channel.send(embed)
  }
  if(message.content.toLowerCase().startsWith(`${pr}coinflip`)){
    let r=lib.random(1,2)
