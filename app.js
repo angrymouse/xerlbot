@@ -79,8 +79,7 @@ client.on("guildCreate", guild => {
   .addField("Количество ролей:", guild.roles.size)
   .addField("Owner", guild.owner.user.tag)
   .addField("ID:", guild.id)
-   logsServerJoin.send(guild.id, embed);
-   logsServerJoin.send("``` ```");
+   logsServerJoin.send(embed);
 });    
 client.on("guildDelete", guild => {
   const logsServerLeave = client.channels.get('551479276247973889');
