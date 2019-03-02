@@ -414,7 +414,11 @@ if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLo
     dbput(rtdb)
     message.reply("**Защита от рекламы включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
   }else{
-    message.reply("Вы должны иметь право администратора сервера для использования этой команды!")
+    const embed = new Dicord.RichEmbed()
+    .setColor("RED")
+    .setDescription('**Вы должны иметь право** `ADMINISTRATOR`')
+    .setImage('./screen/1.png')
+    message.channel.send(embed)
   }
 }
 if(message.content.toLowerCase().startsWith(`${pr}say`)){
@@ -448,7 +452,7 @@ client.on("messageUpdate",(message)=>{
     for(let i=0;i<argx.length;i++){
       if(argx[i].toString().toLowerCase().split("/").includes("discord.gg")){
       message.delete()
-      message.guild.owner.send(message.author + " Опубликовал рекламу своего сервера на вашем")
+      message.guild.owner.send(message.author + " **Опубликовал рекламу своего сервера на вашем** <:angrys:551488605982556165>")
       }
     }
   }
