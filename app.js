@@ -418,7 +418,7 @@ if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLo
     const embed = new Discord.RichEmbed()
     .setColor("RED")
     .setDescription('**Вы должны иметь право** `ADMINISTRATOR`')
-    .setImage('./screen/1.png')
+    .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
     message.channel.send(embed)
   }
 }
