@@ -87,7 +87,7 @@ client.on('message',(message)=>{
         rtdb.users[String(message.author.id)]={"money":0, "canwork":true}
         dbput(rtdb)
       }
-      if(rtdb.users[String(message.author.id)].canwork=false){
+      if(rtdb.users[String(message.author.id)].canwork==false){
         return message.reply("Вы можете работать только раз в 2 часа!")
       }else{
       let workedmoney=lib.random(1,100)
