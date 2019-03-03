@@ -6,7 +6,7 @@ const ftp = new jsftp({
   host: "ftpupload.net",
   port: 21, // defaults to 21
   user: "epiz_23505821", // defaults to "anonymous"
-  pass: "hippothebest1" // defaults to "@anonymous"
+  pass: "GitGdp17azUsqd" // defaults to "@anonymous"
 });
 var Ftpclient = require('ftp');
   let rtdb
@@ -23,7 +23,7 @@ var Ftpclient = require('ftp');
    host: "ftpupload.net",
    port: 21, // defaults to 21
    user: "epiz_23505821", // defaults to "anonymous"
-   password: "Hippothebest1" // defaults to "@anonymous"
+   password: "GitGdp17azUsqd" // defaults to "@anonymous"
  });
 function dbput(db){
 fs.writeFileSync("./db/db.json", JSON.stringify(db))
