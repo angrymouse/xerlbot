@@ -389,7 +389,6 @@ if(message.content.toLowerCase().split("discord.gg").length>1||message.content.t
       message.guild.owner.send(message.author+" опубликовал рекламу своего сервера на вашем!")
     }
   })
-  message.reply("низя так!")
 }
 // if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
 //   if(message.member.hasPermission("ADMINISTRATOR")){
