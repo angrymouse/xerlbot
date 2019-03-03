@@ -20,7 +20,7 @@ let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","g
 let token=process.env.TOKEN || process.argv[2]
 let color = "#c5fcb3"
 let developers = ["343046183088029696","428036906723573760","406343162651738112"]
-const client = new Discord.Client(); client.login(token)
+const client = new Discord.Client({disableEveryone : true}); client.login(token)
 function delFromArray(array, nameofemement){
   return array.splice(nameofemement, 1)
 }
