@@ -103,6 +103,7 @@ client.on('message',(message)=>{
 
         args = args+message.content.split(" ")[x]+" "
     }
+  
     if(message.content.toLowerCase().startsWith(`${pr}money`)){
       if(!rtdb.users[String(message.author.id)]){
         rtdb.users[String(message.author.id)]={"money":0,"canwork":true}
@@ -115,11 +116,13 @@ client.on('message',(message)=>{
       .setDescription("Твой баланс "+String(rtdb.users[String(message.author.id)].money)+"<:money:551523400158412820>")
 message.channel.send(embed)
       }
+  
     if(message.content.toLowerCase().startsWith(`${pr}work`)){
       if(!rtdb.users[String(message.author.id)]){
         rtdb.users[String(message.author.id)]={"money":0, "canwork":true}
         dbput(rtdb)
       }
+      
       if(rtdb.users[String(message.author.id)].canwork==false){
         const embed = new Discord.RichEmbed()
         .setColor("RED")
@@ -145,6 +148,7 @@ message.channel.send(embed)
       },720000)
     }
     }
+  
     if(message.content.toLowerCase()==`${pr}voting`){
 
       message.reply("**Сообщите мне сообщение голосования**").then(m1=>{
@@ -208,6 +212,7 @@ for(let i=0;i<emjes.length;i++){
         })
       })
     }
+  
     if(message.content.startsWith(`${pr}gs`)){
       message.reply("**Cообщите мне главный приз конкурса**").then(msg=>{
         let colctr=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
@@ -238,14 +243,14 @@ for(let i=0;i<emjes.length;i++){
                     msg.channel.send(winner+" выйграл "+contheme+"! Мои поздравления!🎉")
                   },time )
           })
-                    })
+        })
             })
           })
 
         })
       })
-
     }
+  
     if(message.content.toLowerCase().startsWith(`${pr}surl`)){
     try{
       isgd.shorten(args, function(res) {
@@ -259,6 +264,7 @@ for(let i=0;i<emjes.length;i++){
       return message.reply("Ошибка! "+ex)
     }
     }
+  
  if(message.content.toLowerCase().startsWith(`${pr}donate`)){
      let mn=args||"5"
   const embed = new Discord.RichEmbed()
@@ -277,30 +283,28 @@ for(let i=0;i<emjes.length;i++){
      message.channel.sendFile("./img/reshka.jpg")
    }
  }
+  
  if(message.content.toLowerCase()==`${pr}server`){
-  var d = message.member.createdAt;
-  var timen = d.toLocaleString();
-   let emb=new Discord.RichEmbed()
-   .setTitle("Server info")
-   .setColor(color)
-   .setAuthor("Xerl")
-   .setFooter("Server info")
-   .setThumbnail(message.guild.iconURL)
-   .setDescription(`
-Имя сервера - \`${message.guild.name}\`
-ID сервера - \`${message.guild.id}\`
-ID этого канала - \`${message.channel.id}\`
-Кол-во людей на сервере - \`${message.guild.members.size}\`
-Кол-во ролей на сервере - \`${message.guild.roles.size}\`
-Кол-во каналов на сервере - \`${message.guild.channels.size}\`
-Кол-во емоджи на сервере - \`${message.guild.emojis.size}\`
-Степень верификации - \`${message.guild.verificationLevel}\`
-Регион сервера - \`${message.guild.region}\`
-Создатель сервера - ${message.guild.owner}
-
-     `)
-  return   message.channel.send(emb)
- }
+     let emb=new Discord.RichEmbed()
+     .setTitle("Server info")
+     .setColor(color)
+     .setAuthor("Xerl",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
+     .setThumbnail(message.guild.iconURL)
+     .setDescription(`
+  Имя сервера - \`${message.guild.name}\`
+  ID сервера - \`${message.guild.id}\`
+  ID этого канала - \`${message.channel.id}\`
+  Кол-во людей на сервере - \`${message.guild.members.size}\`
+  Кол-во ролей на сервере - \`${message.guild.roles.size}\`
+  Кол-во каналов на сервере - \`${message.guild.channels.size}\`
+  Кол-во емоджи на сервере - \`${message.guild.emojis.size}\`
+  Степень верификации - \`${message.guild.verificationLevel}\`
+  Регион сервера - \`${message.guild.region}\`
+  Создатель сервера - ${message.guild.owner}
+       `)
+    return   message.channel.send(emb)
+}
+  
  if(message.content.toLowerCase().startsWith(`${pr}donators`)){
    let emb=new Discord.RichEmbed()
    .setTitle("Top of donators")
