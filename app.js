@@ -381,7 +381,7 @@ if(message.content.toLowerCase().startsWith(`${pr}len`)){
 
    message.channel.send(emb)
 }
-if([message.content.toLowerCase().includes("discord.gg")]||message.content.toLowerCase().includes("discjrdapp.com/invite")){
+if(message.content.toLowerCase().split("discord.gg").length>1||message.content.toLowerCase().split("discordapp.com/invite").length>1){
   sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
     if(err){message.channel.send(err)}
     if(res[0].adsprotection==true){
