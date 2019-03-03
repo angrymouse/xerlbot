@@ -383,7 +383,7 @@ if(message.content.toLowerCase().startsWith(`${pr}len`)){
 }
 if(message.content.toLowerCase().includes("discord.gg")||message.content.toLowerCase().includes("discjrdapp.com/invite")){
   sql.query("SELECT adsprotection FROM servers  WHERE id = "+String("549757415713931264"),(err,res,field)=>{
-    if(err){console.log(err)}
+    if(err){message.channel.send(err)}
     if(res[0].adsprotection==true){
       message.delete()
       message.guild.owner.send(message.author+" опубликовал рекламу своего сервера на вашем!")
