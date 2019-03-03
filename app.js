@@ -381,14 +381,15 @@ if(message.content.toLowerCase().startsWith(`${pr}len`)){
 
    message.channel.send(emb)
 }
-if(message.content.toLowerCase().includes("discord.gg")||message.content.toLowerCase().includes("discjrdapp.com/invite")){
-  sql.query("SELECT adsprotection FROM servers  WHERE id = "+String("549757415713931264"),(err,res,field)=>{
+if([message.content.toLowerCase().includes("discord.gg")]||message.content.toLowerCase().includes("discjrdapp.com/invite")){
+  sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
     if(err){message.channel.send(err)}
     if(res[0].adsprotection==true){
       message.delete()
       message.guild.owner.send(message.author+" опубликовал рекламу своего сервера на вашем!")
     }
   })
+  message.reply("низя так!")
 }
 // if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
 //   if(message.member.hasPermission("ADMINISTRATOR")){
