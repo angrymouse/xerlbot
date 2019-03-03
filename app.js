@@ -392,7 +392,7 @@ if(message.content.toLowerCase().split("discord.gg").length>1||message.content.t
 }
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
-sql.query('UPDATE `servers` SET `id`="540192529933664297",`adsprotection`=0',(err)=>{if(err){console.log(err)}})
+sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id',(err)=>{if(err){console.log(err)}})
     message.reply("**Защита от рекламы выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
   }else{
   const embed = new Discord.RichEmbed()
