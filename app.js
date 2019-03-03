@@ -1,13 +1,13 @@
 process.chdir(__dirname)
 var mysql      = require('mysql');
-var connection = mysql.createConnection({
+var sql = mysql.createConnection({
   host     : 'remotemysql.com',
   user     : 'x7AOGsQwTV',
   password : 'APrqWNjWpP',
   database : 'x7AOGsQwTV'
 });
 
-connection.connect();
+sql.connect();
 
 
 
@@ -33,9 +33,7 @@ client.user.setPresence({ game: { name: 'Работы над ботом....' }, 
 })
 
 client.on("guildCreate",(guild)=>{
-rtdb.servers[String(guild.id)]={
-  "adsprotection":false
-}
+connection.query("INSERT INTO `servers` (`id`, `adsprotection`) VALUES ("+guild.id+", '0');", (err,res,fields)=>{console.log(res)})
 
 })
 client.on("guildMemberAdd", (member)=>{
@@ -78,48 +76,48 @@ client.on('message',(message)=>{
 
         args = args+message.content.split(" ")[x]+" "
     }
-    if(message.content.toLowerCase().startsWith(`${pr}money`)){
-      if(!rtdb.users[String(message.author.id)]){
-        rtdb.users[String(message.author.id)]={"money":0,"canwork":true}
-        console.log(rtdb)
-      }
-      const embed = new Discord.RichEmbed()
-      .setAuthor(message.author.username,message.author.displayAvatarURL)
-      .setColor(color)
-      .setThumbnail(message.author.avatarURL)
-      .setDescription("Твой баланс "+String(rtdb.users[String(message.author.id)].money)+"<:money:551523400158412820>")
-message.channel.send(embed)
-      }
-    if(message.content.toLowerCase().startsWith(`${pr}work`)){
-      if(!rtdb.users[String(message.author.id)]){
-        rtdb.users[String(message.author.id)]={"money":0, "canwork":true}
-        console.log(rtdb)
-      }
-      if(rtdb.users[String(message.author.id)].canwork==false){
-        const embed = new Discord.RichEmbed()
-        .setColor("RED")
-        .setAuthor(message.author.username,message.author.displayAvatarURL)
-        .setDescription('<:no:551490591155027970> **Вы можете работать только раз в 2 часа!**')
-message.channel.send(embed)
-        }else{
-      //let work1 = [`Банкиром`, `Дворником`,`Выгульщиком собак`,`Официантом`,`Барменом`,`Уборщиком`];
-     // let work2 = Math.floor(Math.random() * work1.length);
-      let workedmoney=lib.random(1,100)
-      rtdb.users[String(message.author.id)].money+=workedmoney
-      console.log(rtdb)
-      const embed = new Discord.RichEmbed()
-      .setAuthor(message.author.username,message.author.displayAvatarURL)
-      .setColor(color)
-      .setDescription(`Вы поработали и заработали `+String(workedmoney)+ `<:money:551523400158412820>`)
-message.channel.send(embed)
-      rtdb.users[String(message.author.id)].canwork=false
-      console.log(rtdb)
-      setTimeout(()=>{
-        rtdb.users[String(message.author.id)].canwork=true
-        console.log(rtdb)
-      },720000)
-    }
-    }
+    // if(message.content.toLowerCase().startsWith(`${pr}money`)){
+    //   if(!undefined.users[String(message.author.id)]){
+    //     undefined.users[String(message.author.id)]={"money":0,"canwork":true}
+    //     console.log(undefined)
+    //   }
+//       const embed = new Discord.RichEmbed()
+//       .setAuthor(message.author.username,message.author.displayAvatarURL)
+//       .setColor(color)
+//       .setThumbnail(message.author.avatarURL)
+//       .setDescription("Твой баланс "+String(undefined.users[String(message.author.id)].money)+"<:money:551523400158412820>")
+// message.channel.send(embed)
+//       }
+//     if(message.content.toLowerCase().startsWith(`${pr}work`)){
+//       if(!undefined.users[String(message.author.id)]){
+//         undefined.users[String(message.author.id)]={"money":0, "canwork":true}
+//         console.log(undefined)
+//       }
+//       if(undefined.users[String(message.author.id)].canwork==false){
+//         const embed = new Discord.RichEmbed()
+//         .setColor("RED")
+//         .setAuthor(message.author.username,message.author.displayAvatarURL)
+//         .setDescription('<:no:551490591155027970> **Вы можете работать только раз в 2 часа!**')
+// message.channel.send(embed)
+//         }else{
+//       //let work1 = [`Банкиром`, `Дворником`,`Выгульщиком собак`,`Официантом`,`Барменом`,`Уборщиком`];
+//      // let work2 = Math.floor(Math.random() * work1.length);
+//       let workedmoney=lib.random(1,100)
+//       undefined.users[String(message.author.id)].money+=workedmoney
+//       console.log(undefined)
+//       const embed = new Discord.RichEmbed()
+//       .setAuthor(message.author.username,message.author.displayAvatarURL)
+//       .setColor(color)
+//       .setDescription(`Вы поработали и заработали `+String(workedmoney)+ `<:money:551523400158412820>`)
+// message.channel.send(embed)
+//       undefined.users[String(message.author.id)].canwork=false
+//       console.log(undefined)
+//       setTimeout(()=>{
+//         undefined.users[String(message.author.id)].canwork=true
+//         console.log(undefined)
+//       },720000)
+//     }
+//     }
     if(message.content.toLowerCase()==`${pr}voting`){
 
       message.reply("**Сообщите мне сообщение голосования**").then(m1=>{
@@ -383,40 +381,40 @@ if(message.content.toLowerCase().startsWith(`${pr}len`)){
 
    message.channel.send(emb)
 }
-if(rtdb.servers[String(message.guild.id)].adsprotection==true){
-  let argx=message.content.split(" ")
-  for(let i=0;i<argx.length;i++){
-    if(argx[i].toString().toLowerCase().split("/").includes("discord.gg")){
-    message.delete()
-    message.guild.owner.send(message.author + " **Опубликовал рекламу своего сервера на вашем** <:angrys:551488605982556165>")
-    }
-  }
-}
-if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
-  if(message.member.hasPermission("ADMINISTRATOR")){
-    rtdb.servers[String(message.guild.id)].adsprotection=false;
-    console.log(rtdb)
-    message.reply("**Защита от рекламы выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
-  }else{
-  const embed = new Discord.RichEmbed()
-    .setColor("RED")
-    .setDescription('<:no:551490591155027970>**Вы должны иметь право** `ADMINISTRATOR`')
-    .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
-    message.channel.send(embed)  }
-}
-if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
-  if(message.member.hasPermission("ADMINISTRATOR")){
-    rtdb.servers[String(message.guild.id)].adsprotection=true;
-    console.log(rtdb)
-    message.reply("**Защита от рекламы включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
-  }else{
-    const embed = new Discord.RichEmbed()
-    .setColor("RED")
-    .setDescription('<:no:551490591155027970>**Вы должны иметь право** `ADMINISTRATOR`')
-    .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
-    message.channel.send(embed)
-  }
-}
+// if(undefined.servers[String(message.guild.id)].adsprotection==true){
+//   let argx=message.content.split(" ")
+//   for(let i=0;i<argx.length;i++){
+//     if(argx[i].toString().toLowerCase().split("/").includes("discord.gg")){
+//     message.delete()
+//     message.guild.owner.send(message.author + " **Опубликовал рекламу своего сервера на вашем** <:angrys:551488605982556165>")
+//     }
+//   }
+// }
+// if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
+//   if(message.member.hasPermission("ADMINISTRATOR")){
+//     undefined.servers[String(message.guild.id)].adsprotection=false;
+//     console.log(undefined)
+//     message.reply("**Защита от рекламы выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
+//   }else{
+//   const embed = new Discord.RichEmbed()
+//     .setColor("RED")
+//     .setDescription('<:no:551490591155027970>**Вы должны иметь право** `ADMINISTRATOR`')
+//     .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
+//     message.channel.send(embed)  }
+// }
+// if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
+//   if(message.member.hasPermission("ADMINISTRATOR")){
+//     undefined.servers[String(message.guild.id)].adsprotection=true;
+//     console.log(undefined)
+//     message.reply("**Защита от рекламы включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
+//   }else{
+//     const embed = new Discord.RichEmbed()
+//     .setColor("RED")
+//     .setDescription('<:no:551490591155027970>**Вы должны иметь право** `ADMINISTRATOR`')
+//     .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
+//     message.channel.send(embed)
+//   }
+// }
 if(message.content.toLowerCase().startsWith(`${pr}say`)){
   message.delete(100)
   message.channel.send(args)
@@ -443,7 +441,7 @@ if(message.content.toLowerCase().startsWith(`${pr}haste`)){
 })
 client.on("messageUpdate",(message)=>{
   if(!message.guild || message.author.bot){return;}
-  if(rtdb.servers[String(message.guild.id)].adsprotection==true){
+  if(undefined.servers[String(message.guild.id)].adsprotection==true){
     let argx=message.author.lastMessage.content.toLowerCase().split(" ")
     for(let i=0;i<argx.length;i++){
       if(argx[i].toString().toLowerCase().split("/").includes("discord.gg")){
