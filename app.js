@@ -33,7 +33,7 @@ client.user.setPresence({ game: { name: 'Работы над ботом....' }, 
 })
 
 client.on("guildCreate",(guild)=>{
-connection.query("INSERT INTO `servers` (`id`, `adsprotection`) VALUES ("+guild.id+", '0');", (err,res,fields)=>{console.log(res)})
+sql.query("INSERT INTO `servers` (`id`, `adsprotection`) VALUES ("+guild.id+", '0');", (err,res,fields)=>{console.log(res)})
 
 })
 client.on("guildMemberAdd", (member)=>{
