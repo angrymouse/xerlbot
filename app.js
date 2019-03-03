@@ -20,7 +20,7 @@ let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","g
 let token=process.env.TOKEN || process.argv[2]
 let color = "#c5fcb3"
 let developers = ["343046183088029696","428036906723573760","406343162651738112"]
-const client = new Discord.Client({disableEveryone : true}); client.login(token)
+const client = new Discord.Client(); client.login(token)
 function delFromArray(array, nameofemement){
   return array.splice(nameofemement, 1)
 }
@@ -381,15 +381,15 @@ if(message.content.toLowerCase().startsWith(`${pr}len`)){
 
    message.channel.send(emb)
 }
-// if(undefined.servers[String(message.guild.id)].adsprotection==true){
-//   let argx=message.content.split(" ")
-//   for(let i=0;i<argx.length;i++){
-//     if(argx[i].toString().toLowerCase().split("/").includes("discord.gg")){
-//     message.delete()
-//     message.guild.owner.send(message.author + " **Опубликовал рекламу своего сервера на вашем** <:angrys:551488605982556165>")
-//     }
-//   }
-// }
+if(message.content.toLowerCase().includes("discord.gg")||message.content.toLowerCase().includes("discjrdapp.com/invite")){
+  sql.query("SELECT adsprotection FROM servers  WHERE id = "+String("549757415713931264"),(err,res,field)=>{
+    if(err){console.log(err)}
+    if(res[0].adsprotection==true){
+      message.delete()
+      message.guild.owner.send(message.author+" опубликовал рекламу своего сервера на вашем!")
+    }
+  })
+}
 // if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
 //   if(message.member.hasPermission("ADMINISTRATOR")){
 //     undefined.servers[String(message.guild.id)].adsprotection=false;

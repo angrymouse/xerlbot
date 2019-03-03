@@ -1,16 +1,16 @@
 var mysql      = require('mysql');
-var connection = mysql.createConnection({
+var sql = mysql.createConnection({
   host     : 'remotemysql.com',
   user     : 'x7AOGsQwTV',
   password : 'APrqWNjWpP',
   database : 'x7AOGsQwTV'
 });
 
-connection.connect();
+sql.connect();
 
-connection.query('SELECT * FROM `servers`', function (error, results, fields) {
- if (error) console.log( error)
-  console.log('The servers is: ', results);
-});
+sql.query("SELECT adsprotection FROM servers  WHERE id = "+String("549757415713931264"),(err,res,field)=>{
+  if(err){console.log(err)}
+  console.log(res[0].adsprotection==false)
+})
 
-connection.end();
+sql.end();
