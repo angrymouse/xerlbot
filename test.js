@@ -1,12 +1,16 @@
 var mysql      = require('mysql');
-var connection = mysql.createConnection('mysql://epiz_23505828:hippothebest1@sql213.epizy.com/epiz_23505828_xerl'
-);
+var connection = mysql.createConnection({
+  host     : 'remotemysql.com',
+  user     : 'x7AOGsQwTV',
+  password : 'APrqWNjWpP',
+  database : 'x7AOGsQwTV'
+});
 
 connection.connect();
 
-connection.query('SELECT *', function (error, results, fields) {
+connection.query('SELECT * FROM `servers`', function (error, results, fields) {
  if (error) console.log( error)
-  console.log('The solution is: ', results);
+  console.log('The servers is: ', results);
 });
 
 connection.end();
