@@ -401,19 +401,18 @@ sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(e
     .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
     message.channel.send(embed)  }
 }
-// if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
-//   if(message.member.hasPermission("ADMINISTRATOR")){
-//     undefined.servers[String(message.guild.id)].adsprotection=true;
-//     console.log(undefined)
-//     message.reply("**Защита от рекламы включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
-//   }else{
-//     const embed = new Discord.RichEmbed()
-//     .setColor("RED")
-//     .setDescription('<:no:551490591155027970>**Вы должны иметь право** `ADMINISTRATOR`')
-//     .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
-//     message.channel.send(embed)
-//   }
-// }
+if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
+  if(message.member.hasPermission("ADMINISTRATOR")){
+  sql.query('UPDATE `servers` SET `adsprotection`=1 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
+    message.reply("**Защита от рекламы включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
+  }else{
+    const embed = new Discord.RichEmbed()
+    .setColor("RED")
+    .setDescription('<:no:551490591155027970>**Вы должны иметь право** `ADMINISTRATOR`')
+    .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
+    message.channel.send(embed)
+  }
+}
 if(message.content.toLowerCase().startsWith(`${pr}say`)){
   message.delete(100)
   message.channel.send(args)
