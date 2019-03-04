@@ -32,6 +32,7 @@ function delFromArray(array, nameofemement){
 let translitor=require("./utils/translitor")
 
 console.log(translitor.trEnRu("ghbdtn"))
+
 client.once("ready", ()=>{
 client.user.setPresence({ game: { name: 'Работы над ботом....' }, status: 'dnd' });
 
