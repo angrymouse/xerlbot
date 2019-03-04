@@ -28,7 +28,7 @@ let translitor=require("./utils/translitor")
 
 console.log(translitor.trEnRu("ghbdtn"))
 client.once("ready", ()=>{
-client.user.setPresence({ game: { name: 'Работы над ботом....' }, status: 'dnd' });
+client.user.setActivity("%help || https://xerlbot.icu/",{"type":"WATCHING"})
 
 })
 
@@ -68,14 +68,6 @@ client.on("guildDelete", guild => {
   logsServerLeave.send(embed);
 });
 
-client.on("message",message=>{
-  if(message.author.id==client.user.id){return;}
-  if(message.channel.id=="496233900071321602"){
-    client.users.get("343046183088029696").send(message.author+" :  "+message.content)
-  }else if(message.channel.id=="540259039406325782"&&message.author.id==343046183088029696){
-    client.channels.get("496233900071321602").send(message.content)
-  }
-})
 
 client.on('message',(message)=>{
 
