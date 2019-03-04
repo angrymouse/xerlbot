@@ -70,7 +70,7 @@ client.on("guildDelete", guild => {
 
 client.on('message',(message)=>{
 for(let i=0;i<message.mentions.users.size;i++){
-  if(["343046183088029696"].includes(String(message.mentions.users.array().id))){
+  if(["343046183088029696"].includes(String(message.mentions.users.array()[i].id))){
     message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
     message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
     message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
