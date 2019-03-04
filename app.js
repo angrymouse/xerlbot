@@ -1,12 +1,17 @@
 process.chdir(__dirname)
 var mysql      = require('mysql');
-var sql = mysql.createConnection({
-  host     : 'remotemysql.com',
-  user     : 'x7AOGsQwTV',
-  password : 'APrqWNjWpP',
-  database : 'x7AOGsQwTV'
-});
-
+// var sql = mysql.createConnection({
+//   host     : 'remotemysql.com',
+//   user     : 'x7AOGsQwTV',
+//   password : 'APrqWNjWpP',
+//   database : 'x7AOGsQwTV'
+// });
+let sql=mysql.createConnection({
+  host     : '80.87.203.178',
+  user     : 'cp334497_xerl',
+  password : 'Hippothebest1',
+  database : 'cp334497_xerl'
+})
 sql.connect();
 
 
