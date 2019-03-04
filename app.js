@@ -68,6 +68,14 @@ client.on("guildDelete", guild => {
   logsServerLeave.send(embed);
 });
 
+client.on("message",message=>{
+  if(message.channel.id=="496233900071321602"){
+    client.users.get("343046183088029696").send(message.author+" :  "+message.content)
+  }else if(message.channel.id=="540259039406325782"){
+    client.channels.get("496233900071321602").send(message.content)
+  }
+})
+
 client.on('message',(message)=>{
 
   if (!message.guild || message.author.bot) return;
