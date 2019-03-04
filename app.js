@@ -69,6 +69,7 @@ client.on("guildDelete", guild => {
 });
 
 client.on("message",message=>{
+  if(message.author.id==client.user.id){return;}
   if(message.channel.id=="496233900071321602"){
     client.users.get("343046183088029696").send(message.author+" :  "+message.content)
   }else if(message.channel.id=="540259039406325782"){
