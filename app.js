@@ -440,6 +440,15 @@ if(developers.includes(String(message.author.id))){return}
 })
 client.on("messageUpdate",(message)=>{
   if(!message.guild || message.author.bot){return;}
+  if(message.author.lastMessage.content.toLowerCase().split("discord.gg").length>1||message.author.lastMessage.content.toLowerCase().split("discordapp.com/invite").length>1){
+    sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
+      if(err){message.channel.send(err)}
+      if(res[0].adsprotection==true){
+        message.delete()
+        message.guild.owner.send(message.author+" опубликовал рекламу своего сервера на вашем!")
+      }
+    })
+  }
   if(developers.includes(String(message.author.id))){return}
 
 
