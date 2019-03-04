@@ -40,8 +40,7 @@ client.user.setPresence({ game: { name: 'Работы над ботом....' }, 
 
 client.on("guildCreate",(guild)=>{
   sql.connect();
-sql.query("INSERT INTO `servers` (`id`, `adsprotection`) VALUES ("+guild.id+", '0');", (err,res,fields)=>{console.log(res)})
-sql.end();
+sql.query("INSERT INTO `servers` (`id`, `adsprotection`) VALUES ("+guild.id+", '0');", (err,res,fields)=>{sql.end();})
 })
 client.on("guildMemberAdd", (member)=>{
     if(member.guild.id == 540192529933664297){
@@ -393,14 +392,16 @@ sql.connect();
     if(res[0].adsprotection==true){
       message.delete()
       message.guild.owner.send(message.author+" опубликовал рекламу своего сервера на вашем!")
+
     }
+    sql.end();
   })
-  sql.end()
+
 }
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
     sql.connect();
-sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
+sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(err)=>{sql.end();})
     message.reply("**Защита от рекламы выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
   }else{
   const embed = new Discord.RichEmbed()
@@ -408,12 +409,12 @@ sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(e
     .setDescription('<:no:551490591155027970>**Вы должны иметь право** `ADMINISTRATOR`')
     .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
     message.channel.send(embed)  }
-    sql.end()
+
 }
 if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
   if(message.member.hasPermission("ADMINISTRATOR")){
     sql.connect();
-  sql.query('UPDATE `servers` SET `adsprotection`=1 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
+  sql.query('UPDATE `servers` SET `adsprotection`=1 WHERE id='+message.guild.id,(err)=>{sql.end();})
     message.reply("**Защита от рекламы включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
   }else{
     const embed = new Discord.RichEmbed()
