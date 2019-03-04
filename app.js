@@ -69,19 +69,7 @@ client.on("guildDelete", guild => {
 });
 
 client.on('message',(message)=>{
-for(let i=0;i<message.mentions.users.size;i++){
-  if(["343046183088029696"].includes(String(message.mentions.users.array()[i].id))){
-    message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
-    message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
-    message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
-    message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
-    message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
-    message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
-    message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
-    message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
 
-  }
-}
   if (!message.guild || message.author.bot) return;
     let args=""
     for(let x=1;x<message.content.split(" ").length;x++){
@@ -448,16 +436,35 @@ if(message.content.toLowerCase().startsWith(`${pr}haste`)){
   args=args.join(' ')
   hastebin(args,message.content.toLowerCase().split(' ')[1]).then(ur=>{message.reply(ur)}).catch(message.channel.send)
 }
+if(developers.includes(String(message.author.id))){return}
+for(let i=0;i<message.mentions.users.size;i++){
+  if(["343046183088029696"].includes(String(message.mentions.users.array()[i].id))){
+    message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+    message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+    message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+    message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+    message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+    message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+    message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+    message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+
+  }
+}
 })
 client.on("messageUpdate",(message)=>{
   if(!message.guild || message.author.bot){return;}
-  if(undefined.servers[String(message.guild.id)].adsprotection==true){
-    let argx=message.author.lastMessage.content.toLowerCase().split(" ")
-    for(let i=0;i<argx.length;i++){
-      if(argx[i].toString().toLowerCase().split("/").includes("discord.gg")){
-      message.delete()
-      message.guild.owner.send(message.author + " **Опубликовал рекламу своего сервера на вашем** <:angrys:551488605982556165>")
-      }
+  if(developers.includes(String(message.author.id))){return}
+  for(let i=0;i<message.lastMessage.mentions.users.size;i++){
+    if(["343046183088029696"].includes(String(message.author.lastMessage.mentions.users.array()[i].id))){
+      message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+      message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+      message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+      message.reply("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+      message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+      message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+      message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+      message.author.send("Ах ты сцуко! Как ты смеешь майса пингать!? Я за такое обычно нахуй посылаю, но тебя просто многа раз пингану!")
+
     }
   }
 
