@@ -1,18 +1,13 @@
 process.chdir(__dirname)
 var mysql      = require('mysql');
-// var sql = mysql.createConnection({
-//   host     : 'remotemysql.com',
-//   user     : 'x7AOGsQwTV',
-//   password : 'APrqWNjWpP',
-//   database : 'x7AOGsQwTV'
-// });
-let sql=mysql.createConnection({
-  host     : '80.87.203.178',
-  user     : 'cp334497_xerl',
-  password : 'Hippothebest1',
-  database : 'cp334497_xerl'
-})
+var sql = mysql.createConnection({
+  host     : 'remotemysql.com',
+  user     : 'x7AOGsQwTV',
+  password : 'APrqWNjWpP',
+  database : 'x7AOGsQwTV'
+});
 
+sql.connect();
 
 
 
@@ -32,15 +27,14 @@ function delFromArray(array, nameofemement){
 let translitor=require("./utils/translitor")
 
 console.log(translitor.trEnRu("ghbdtn"))
-
 client.once("ready", ()=>{
 client.user.setPresence({ game: { name: 'Работы над ботом....' }, status: 'dnd' });
 
 })
 
 client.on("guildCreate",(guild)=>{
-  sql.connect();
-sql.query("INSERT INTO `servers` (`id`, `adsprotection`) VALUES ("+guild.id+", '0');", (err,res,fields)=>{sql.end();})
+sql.query("INSERT INTO `servers` (`id`, `adsprotection`) VALUES ("+guild.id+", '0');", (err,res,fields)=>{console.log(res)})
+
 })
 client.on("guildMemberAdd", (member)=>{
     if(member.guild.id == 540192529933664297){
@@ -257,6 +251,8 @@ for(let i=0;i<emjes.length;i++){
    }
  }
  if(message.content.toLowerCase()==`${pr}server`){
+  // var d = message.member.createdAt;
+  // var timen = d.toLocaleString();
    let emb=new Discord.RichEmbed()
    .setTitle("Server info")
    .setColor(color)
@@ -274,7 +270,7 @@ ID этого канала - \`${message.channel.id}\`
 Степень верификации - \`${message.guild.verificationLevel}\`
 Регион сервера - \`${message.guild.region}\`
 Создатель сервера - ${message.guild.owner}
-Создан - ${message.guild.createdAt}
+Сервер создан ${message.guild.createdAt}
      `)
   return   message.channel.send(emb)
  }
@@ -386,22 +382,17 @@ if(message.content.toLowerCase().startsWith(`${pr}len`)){
    message.channel.send(emb)
 }
 if(message.content.toLowerCase().split("discord.gg").length>1||message.content.toLowerCase().split("discordapp.com/invite").length>1){
-sql.connect();
   sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
     if(err){message.channel.send(err)}
     if(res[0].adsprotection==true){
       message.delete()
       message.guild.owner.send(message.author+" опубликовал рекламу своего сервера на вашем!")
-
     }
-    sql.end();
   })
-
 }
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
-    sql.connect();
-sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(err)=>{sql.end();})
+sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
     message.reply("**Защита от рекламы выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
   }else{
   const embed = new Discord.RichEmbed()
@@ -409,12 +400,10 @@ sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(e
     .setDescription('<:no:551490591155027970>**Вы должны иметь право** `ADMINISTRATOR`')
     .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
     message.channel.send(embed)  }
-
 }
 if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
   if(message.member.hasPermission("ADMINISTRATOR")){
-    sql.connect();
-  sql.query('UPDATE `servers` SET `adsprotection`=1 WHERE id='+message.guild.id,(err)=>{sql.end();})
+  sql.query('UPDATE `servers` SET `adsprotection`=1 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
     message.reply("**Защита от рекламы включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
   }else{
     const embed = new Discord.RichEmbed()
@@ -422,7 +411,6 @@ if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLo
     .setDescription('<:no:551490591155027970>**Вы должны иметь право** `ADMINISTRATOR`')
     .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
     message.channel.send(embed)
-    sql.end()
   }
 }
 if(message.content.toLowerCase().startsWith(`${pr}say`)){
