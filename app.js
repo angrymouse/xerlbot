@@ -7,6 +7,7 @@ var sql = mysql.createConnection({
   database : 'x7AOGsQwTV'
 });
 
+
 sql.connect();
 let warnedFlood = new Set();
 
