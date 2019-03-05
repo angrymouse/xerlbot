@@ -7,7 +7,6 @@ var sql = mysql.createConnection({
   database : 'x7AOGsQwTV'
 });
 
-
 sql.connect();
 let warnedFlood = new Set();
 
@@ -78,47 +77,48 @@ client.on('message',(message)=>{
 
         args = args+message.content.split(" ")[x]+" "
     }
-if(message.content.toLowerCase().startsWith(`${pr}money`)){
-if(!undefined.users[String(message.author.id)]){
- undefined.users[String(message.author.id)]={"money":0,"canwork":true}
-        console.log(undefined)
-      }
-     const embed = new Discord.RichEmbed()
-       .setAuthor(message.author.username,message.author.displayAvatarURL)
-       .setColor(color)
-       .setDescription("Твой баланс "+String(undefined.users[String(message.author.id)].money)+"<:money:551523400158412820>")
- message.channel.send(embed)
-       }
-     if(message.content.toLowerCase().startsWith(`${pr}work`)){
-       if(!undefined.users[String(message.author.id)]){
-         undefined.users[String(message.author.id)]={"money":0, "canwork":true}
-         console.log(undefined)
-       }
-       if(undefined.users[String(message.author.id)].canwork==false){
-         const embed = new Discord.RichEmbed()
-         .setColor("RED")
-         .setAuthor(message.author.username,message.author.displayAvatarURL)
-         .setDescription('<:no:551490591155027970> **Вы можете работать только раз в 2 часа!**')
- message.channel.send(embed)
-         }else{
-       let work1 = [`Банкиром`, `Дворником`,`Выгульщиком собак`,`Официантом`,`Барменом`,`Уборщиком`];
-       let work2 = Math.floor(Math.random() * work1.length);
-       let workedmoney=lib.random(1,100)
-       undefined.users[String(message.author.id)].money+=workedmoney
-       console.log(undefined)
-       const embed = new Discord.RichEmbed()
-       .setAuthor(message.author.username,message.author.displayAvatarURL)
-       .setColor(color)
-       .setDescription(`Вы поработали ${work2[work1]} и заработали `+String(workedmoney)+ `<:money:551523400158412820>`)
- message.channel.send(embed)
-       undefined.users[String(message.author.id)].canwork=false
-       console.log(undefined)
-       setTimeout(()=>{
-         undefined.users[String(message.author.id)].canwork=true
-         console.log(undefined)
-       },720000)
-         }
-    }
+    // if(message.content.toLowerCase().startsWith(`${pr}money`)){
+    //   if(!undefined.users[String(message.author.id)]){
+    //     undefined.users[String(message.author.id)]={"money":0,"canwork":true}
+    //     console.log(undefined)
+    //   }
+//       const embed = new Discord.RichEmbed()
+//       .setAuthor(message.author.username,message.author.displayAvatarURL)
+//       .setColor(color)
+//       .setThumbnail(message.author.avatarURL)
+//       .setDescription("Твой баланс "+String(undefined.users[String(message.author.id)].money)+"<:money:551523400158412820>")
+// message.channel.send(embed)
+//       }
+//     if(message.content.toLowerCase().startsWith(`${pr}work`)){
+//       if(!undefined.users[String(message.author.id)]){
+//         undefined.users[String(message.author.id)]={"money":0, "canwork":true}
+//         console.log(undefined)
+//       }
+//       if(undefined.users[String(message.author.id)].canwork==false){
+//         const embed = new Discord.RichEmbed()
+//         .setColor("RED")
+//         .setAuthor(message.author.username,message.author.displayAvatarURL)
+//         .setDescription('<:no:551490591155027970> **Вы можете работать только раз в 2 часа!**')
+// message.channel.send(embed)
+//         }else{
+//       //let work1 = [`Банкиром`, `Дворником`,`Выгульщиком собак`,`Официантом`,`Барменом`,`Уборщиком`];
+//      // let work2 = Math.floor(Math.random() * work1.length);
+//       let workedmoney=lib.random(1,100)
+//       undefined.users[String(message.author.id)].money+=workedmoney
+//       console.log(undefined)
+//       const embed = new Discord.RichEmbed()
+//       .setAuthor(message.author.username,message.author.displayAvatarURL)
+//       .setColor(color)
+//       .setDescription(`Вы поработали и заработали `+String(workedmoney)+ `<:money:551523400158412820>`)
+// message.channel.send(embed)
+//       undefined.users[String(message.author.id)].canwork=false
+//       console.log(undefined)
+//       setTimeout(()=>{
+//         undefined.users[String(message.author.id)].canwork=true
+//         console.log(undefined)
+//       },720000)
+//     }
+//     }
     if(message.content.toLowerCase()==`${pr}voting`){
 
       message.reply("**Сообщите мне сообщение голосования**").then(m1=>{
@@ -387,7 +387,7 @@ if(message.content.toLowerCase().split("discord.gg").length>1||message.content.t
     if(err){message.channel.send(err)}
     if(res[0].adsprotection==true){
       message.delete()
-      message.guild.owner.send(message.author+" **опубликовал рекламу своего сервера на вашем!**⚠")
+      message.guild.owner.send(message.author+" опубликовал рекламу своего сервера на вашем!")
     }
   })
 }
@@ -403,11 +403,7 @@ if(err){console.log(err)}
             collector.on('collect', msg3 => {
                 if (!warnedFlood.has(message.author.id)) {
                     msg3.delete();
-                  const embed = new Discord.RichEmbed()
-                  .setAuthor(message.author.username,message.author.avatarURL)
-                  .setColor("RED")
-                  .setDescription("**Админисратор сервера неодобряет флуд и спам!При следущей попытке флуда,спама вы будее кикнуты!**")
-                  message.reply(".").then(msg=>{msg.edit(embed)(1000)})
+                    message.reply('администратор сервера неодобряет флуд и спам здесь! При следующей попытке флуда вы будете кикнуты!').then(msg5=>{msg5.delete(3000)})
                     warnedFlood.add(message.author.id);
                     setTimeout(() => warnedFlood.delete(message.author.id), 3000)
                 }
@@ -420,26 +416,21 @@ if(err){console.log(err)}
       collector.on('collect', msg => {
           msg.delete();
               if (message.member.kickable) {
-                 const embed = new Discord.RichEmbed()
-                  .setAuthor(message.author.username,message.author.avatarURL)
-                  .setColor(color)
-                  .setDescription("<:yes:551490591536578590>**Был кикнут,причина**\`Флуд,спам\`")
-                 message.member.kick(embed)
+                  message.member.kick('Был кикнут из-за флуда или спама');
               }
               else{
-     const embed = new Discord.RichEmbed()
-    .setColor("RED")
-    .setDescription('<:no:551490591155027970>**Я должен иметь право** `KICK_MEMBER`')
-    .setImage('https://media.discordapp.net/attachments/548220541576806400/552489909445853205/unknown.png?width=398&height=48')
-    message.channel.send(embed)
-      }
-  })
+                 message.channel.send('Для того что-бы я смог защищать сервер от флуда и спама меня надо паставить выше всех и дать право ``Выгнать участников``')
+              }
+
+
+      });
   }
-}
+  }
+})
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
 sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
-    message.reply("**Защита выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
+    message.reply("**Защита от рекламы выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
   }else{
   const embed = new Discord.RichEmbed()
     .setColor("RED")
@@ -450,7 +441,7 @@ sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(e
 if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
   if(message.member.hasPermission("ADMINISTRATOR")){
   sql.query('UPDATE `servers` SET `adsprotection`=1 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
-    message.reply("**Защита включена! Ваш сервер в безопасности!** <:yes:551490591536578590>")
+    message.reply("**Защита от рекламы включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
   }else{
     const embed = new Discord.RichEmbed()
     .setColor("RED")
