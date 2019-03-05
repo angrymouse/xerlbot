@@ -8,7 +8,7 @@ var sql = mysql.createConnection({
 });
 
 sql.connect();
-
+let warnedFlood = new Set();
 
 
 var isgd = require('isgd');
@@ -391,6 +391,42 @@ if(message.content.toLowerCase().split("discord.gg").length>1||message.content.t
     }
   })
 }
+sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
+if(err){console.log(err)}
+  if(res[0].adsprotection==true){
+
+    let collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 6000 })
+    collector.on('collect', msg => {
+        collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 4000 })
+        collector.on('collect', msg2 => {
+            collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 2000 })
+            collector.on('collect', msg3 => {
+                if (!warnedFlood.has(message.author.id)) {
+                    msg3.delete();
+                    message.reply('администратор сервера неодобряет флуд и спам здесь! При следующей попытке флуда вы будете кикнуты!');
+                    warnedFlood.add(message.author.id);
+                    setTimeout(() => warnedFlood.delete(message.author.id), 3000)
+                }
+            })
+        })
+    })
+    if (warnedFlood.has(message.author.id)) {
+      warnedFlood.delete(message.author.id)
+      const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 4000 })
+      collector.on('collect', msg => {
+          msg.delete();
+              if (message.member.kickable) {
+                  message.member.kick('Был кикнут из-за флуда или спама');
+              }
+              else{
+                 message.channel.send('Для того что-бы я смог защищать сервер от флуда и спама меня надо паставить выше всех и дать право ``Выгнать участников``')
+              }
+
+
+      });
+  }
+  }
+})
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
 sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
@@ -446,7 +482,7 @@ client.on("messageUpdate",(message)=>{
       if(err){message.channel.send(err)}
       if(res[0].adsprotection==true){
         message.delete()
-        message.guild.owner.send(message.author+" опубликовал рекламу своего сервера на вашем!")
+        message.reply("администротор данного сервера запретил рекламировать сторонние сервера на этом!")
       }
     })
   }
@@ -455,13 +491,3 @@ client.on("messageUpdate",(message)=>{
 
 })
 require("./utils/rainbow.js")
-let translateparams="qйwцeуrкtеyнuгiшoщpз[х]ъaфsыdвfаgпhрjоkлlд;ж'эzяxчcсvмbиnтmь,б.ю"
-function translit(text, tp) {
-    let tpa=tp.split("")
-    let tr=tp
-    for(x=0;x>=tpa.length;x=+2){
-        tr=tr.replace(tpa[x-1],tpa[x])
-    }
-    return tr
-}
-console.log(translit("ghbdtn",translateparams))
