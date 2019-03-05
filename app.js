@@ -386,7 +386,7 @@ if(message.content.toLowerCase().split("discord.gg").length>1||message.content.t
     if(err){message.channel.send(err)}
     if(res[0].adsprotection==true){
       message.delete()
-      message.guild.owner.send(message.author+" опубликовал рекламу своего сервера на вашем!")
+      message.guild.owner.send(message.author+" **опубликовал рекламу своего сервера на вашем!**⚠")
     }
   })
 }
@@ -402,7 +402,11 @@ if(err){console.log(err)}
             collector.on('collect', msg3 => {
                 if (!warnedFlood.has(message.author.id)) {
                     msg3.delete();
-                    message.reply('администратор сервера неодобряет флуд и спам здесь! При следующей попытке флуда вы будете кикнуты!').then(msg5=>{msg5.delete(3000)})
+                  const embed = new Discord.RichEmbed()
+                  .setAuthor(message.author.username,message.author.avatarURL)
+                  .setColor("RED")
+                  .setDescription("**Админисратор сервера неодобряет флуд и спам!При следущей попытке флуда,спама вы будее кикнуты!**")
+                  message.reply(".").then(msg=>{msg.edit(embed)(1000)})
                     warnedFlood.add(message.author.id);
                     setTimeout(() => warnedFlood.delete(message.author.id), 3000)
                 }
@@ -415,13 +419,18 @@ if(err){console.log(err)}
       collector.on('collect', msg => {
           msg.delete();
               if (message.member.kickable) {
-                  message.member.kick('Был кикнут из-за флуда или спама');
+                 const embed = new Discord.RichEmbed()
+                  .setAuthor(message.author.username,message.author.avatarURL)
+                  .setColor(color)
+                  .setDescription("<:yes:551490591536578590>**Был кикнут,причина**\`Флуд,спам\`")
+                 message.member.kick(embed)
               }
               else{
-                 message.channel.send('Для того что-бы я смог защищать сервер от флуда и спама меня надо паставить выше всех и дать право ``Выгнать участников``').then(msg5=>{msg5.delete(10000)})
-              }
-
-
+     const embed = new Discord.RichEmbed()
+    .setColor("RED")
+    .setDescription('<:no:551490591155027970>**Я должен иметь право** `KICK_MEMBER`')
+    .setImage('https://media.discordapp.net/attachments/548220541576806400/552489909445853205/unknown.png?width=398&height=48')
+    message.channel.send(embed)
       });
   }
   }
@@ -429,7 +438,7 @@ if(err){console.log(err)}
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
 sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
-    message.reply("**Защита от рекламы выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
+    message.reply("**Защита выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
   }else{
   const embed = new Discord.RichEmbed()
     .setColor("RED")
@@ -440,7 +449,7 @@ sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(e
 if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
   if(message.member.hasPermission("ADMINISTRATOR")){
   sql.query('UPDATE `servers` SET `adsprotection`=1 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
-    message.reply("**Защита от рекламы включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
+    message.reply("**Защита включена! Ваш сервер в безопасности!** <:yes:551490591536578590>")
   }else{
     const embed = new Discord.RichEmbed()
     .setColor("RED")
