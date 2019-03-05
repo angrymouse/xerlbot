@@ -433,7 +433,7 @@ if(err){console.log(err)}
                 .setColor("RED")
                 .setDescription("<:no:551490591155027970>**У меня нету прав** \`KICK_MEMBERS\` **для кика данного пользователя**")
                 .setImage('https://media.discordapp.net/attachments/548220541576806400/552489909445853205/unknown.png?width=398&height=48')
-                 message.channel.send(embed).then(msg=>{msg.delete()(9000)})
+                 message.channel.send(embed)
               }
 
 
