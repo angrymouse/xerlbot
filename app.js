@@ -434,7 +434,7 @@ if(err){console.log(err)}
       }
   })
   }
-})
+}
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
 sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
