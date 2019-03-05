@@ -432,10 +432,10 @@ if(err){console.log(err)}
     .setDescription('<:no:551490591155027970>**Я должен иметь право** `KICK_MEMBER`')
     .setImage('https://media.discordapp.net/attachments/548220541576806400/552489909445853205/unknown.png?width=398&height=48')
     message.channel.send(embed)
-      });
+      }
+  })
   }
-  }
-})
+}
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
 sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
