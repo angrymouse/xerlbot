@@ -432,7 +432,7 @@ if(err){console.log(err)}
     .setImage('https://media.discordapp.net/attachments/548220541576806400/552489909445853205/unknown.png?width=398&height=48')
     message.channel.send(embed)
       }
-  }
+  })
   }
 })
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
