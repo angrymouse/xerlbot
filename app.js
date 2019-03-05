@@ -403,7 +403,7 @@ if(err){console.log(err)}
             collector.on('collect', msg3 => {
                 if (!warnedFlood.has(message.author.id)) {
                     msg3.delete();
-                    message.reply('администратор сервера неодобряет флуд и спам здесь! При следующей попытке флуда вы будете кикнуты!');
+                    message.reply('администратор сервера неодобряет флуд и спам здесь! При следующей попытке флуда вы будете кикнуты!').then(msg5=>{msg5.delete(3000)})
                     warnedFlood.add(message.author.id);
                     setTimeout(() => warnedFlood.delete(message.author.id), 3000)
                 }
