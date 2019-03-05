@@ -297,7 +297,7 @@ if(message.content=="%ping"){
     let emb=new Discord.RichEmbed()
     .setAuthor("Xerl ping",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
     .setColor(color)
-    .setDescription(`Я занимаю ${Math.round(process.memoryUsage().rss/ 1024 / 1024)}мб RAM \n Я был запущен ${new date()} \n Мой пинг \`${Math.round(client.ping)}\`ms \n Я присутствую на \`${client.guilds.size}\` серверах \n Пользователей у меня \`${client.users.size}\` \n Я есть на \`${client.channels.size}\` каналах`)
+    .setDescription(`Я занимаю ${Math.round(process.memoryUsage().rss/ 1024 / 1024)}мб RAM \n Я был запущен ${new Date()} \n Мой пинг \`${Math.round(client.ping)}\`ms \n Я присутствую на \`${client.guilds.size}\` серверах \n Пользователей у меня \`${client.users.size}\` \n Я есть на \`${client.channels.size}\` каналах`)
   return message.channel.send(emb)
 }
 if(message.content.toLowerCase()=="%invite"){
@@ -429,7 +429,7 @@ if(err){console.log(err)}
               else{
                 const embed = new Discord.RichEmbed()
                 .setColor("RED")
-                .setDescription("<:no:551490591155027970>**У меня нету прав**\`KICK_MEMBERS\`**для кика данного пользователя**")
+                .setDescription("<:no:551490591155027970>**У меня нету прав** \`KICK_MEMBERS\` **для кика данного пользователя**")
                 .setImage('https://media.discordapp.net/attachments/548220541576806400/552489909445853205/unknown.png?width=398&height=48')
                  message.channel.send(embed)
               }
