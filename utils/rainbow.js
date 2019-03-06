@@ -62,7 +62,7 @@ client.on('message', message => {
         return message.channel.send({embed});
     }
 
-    if (command === 'stop') {
+    if (['rainbowstop', 'rbs'].includes(command)) {
         if (!message.member.hasPermission("MANAGE_ROLES") && !message.author.id==owner) return err(null, 'Управление ролями')
 
         if (!rainbowOn.has(message.guild.id)) return err('Изменение радужной роли и так не включено')
@@ -80,7 +80,7 @@ client.on('message', message => {
 
             if (!role.editable) return err(`У меня недостаточно прав для изменения роли ${role}`);
 
-            if (rainbowOn.has(message.guild.id)) return err('Нелья создавать более одной меняющейся роли на сервере');
+            if (rainbowOn.has(message.guild.id)) return err('Нельзя создавать более одной меняющейся роли на сервере');
 
             rainbowOn.add(message.guild.id);
 
