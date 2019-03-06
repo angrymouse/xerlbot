@@ -48,7 +48,7 @@ client.on('message', message => {
     function succ (text) {
         const embed = new Discord.RichEmbed()
         .setColor('55ff55')
-        .setTitle('Успех :white_check_mark:')
+        .setTitle('РЈСЃРїРµС… :white_check_mark:')
         .setDescription(`**${text}**`)
         return message.channel.send({embed});
     }
@@ -56,35 +56,35 @@ client.on('message', message => {
     function err (text, perms) {
         const embed = new Discord.RichEmbed()
         .setColor('ff5555')
-        .setTitle('Ошибка :exclamation:')
-        .setDescription(`Причина: **${text}**`)
-        if (perms) embed.setDescription(`**У вас нет права "${perms}"**`);
+        .setTitle('РћС€РёР±РєР° :exclamation:')
+        .setDescription(`РџСЂРёС‡РёРЅР°: **${text}**`)
+        if (perms) embed.setDescription(`**РЈ РІР°СЃ РЅРµС‚ РїСЂР°РІР° "${perms}"**`);
         return message.channel.send({embed});
     }
 
     if (command === 'stop') {
-        if (!message.member.hasPermission("MANAGE_ROLES") && !message.author.id==owner) return err(null, 'Управление ролями')
+        if (!message.member.hasPermission("MANAGE_ROLES") && !message.author.id==owner) return err(null, 'РЈРїСЂР°РІР»РµРЅРёРµ СЂРѕР»СЏРјРё')
 
-        if (!rainbowOn.has(message.guild.id)) return err('Изменение радужной роли и так не включено')
+        if (!rainbowOn.has(message.guild.id)) return err('РР·РјРµРЅРµРЅРёРµ СЂР°РґСѓР¶РЅРѕР№ СЂРѕР»Рё Рё С‚Р°Рє РЅРµ РІРєР»СЋС‡РµРЅРѕ')
 
         rainbowOn.delete(message.guild.id)
-        succ('Изменение радужной роли успешно отключено')
+        succ('РР·РјРµРЅРµРЅРёРµ СЂР°РґСѓР¶РЅРѕР№ СЂРѕР»Рё СѓСЃРїРµС€РЅРѕ РѕС‚РєР»СЋС‡РµРЅРѕ')
     }
 
         if (['rainbow', 'rb'].includes(command)) {
             const role = message.guild.roles.find(r => r.name === 'xerlbot.icu');
 
-            if (!message.member.hasPermission("MANAGE_ROLES") && !message.author.id==owner) return err(null, 'Управление ролями');
+            if (!message.member.hasPermission("MANAGE_ROLES") && !message.author.id==owner) return err(null, 'РЈРїСЂР°РІР»РµРЅРёРµ СЂРѕР»СЏРјРё');
 
-            if (!role) return err('На вашем сервере нет роли с названием \`xerlbot.icu\`');
+            if (!role) return err('РќР° РІР°С€РµРј СЃРµСЂРІРµСЂРµ РЅРµС‚ СЂРѕР»Рё СЃ РЅР°Р·РІР°РЅРёРµРј \`xerlbot.icu\`');
 
-            if (!role.editable) return err(`У меня недостаточно прав для изменения роли ${role}`);
+            if (!role.editable) return err(`РЈ РјРµРЅСЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ СЂРѕР»Рё ${role}`);
 
-            if (rainbowOn.has(message.guild.id)) return err('Нелья создавать более одной меняющейся роли на сервере');
+            if (rainbowOn.has(message.guild.id)) return err('РќРµР»СЊСЏ СЃРѕР·РґР°РІР°С‚СЊ Р±РѕР»РµРµ РѕРґРЅРѕР№ РјРµРЅСЏСЋС‰РµР№СЃСЏ СЂРѕР»Рё РЅР° СЃРµСЂРІРµСЂРµ');
 
             rainbowOn.add(message.guild.id);
 
-            succ('Авто-изменение радужной роли успешно включено');
+            succ('РђРІС‚Рѕ-РёР·РјРµРЅРµРЅРёРµ СЂР°РґСѓР¶РЅРѕР№ СЂРѕР»Рё СѓСЃРїРµС€РЅРѕ РІРєР»СЋС‡РµРЅРѕ');
         }
 
 });
