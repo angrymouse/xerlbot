@@ -279,7 +279,7 @@ ID этого канала - \`${message.channel.id}\`
  .setAuthor("Xerl",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
 .setThumbnail('https://media.discordapp.net/attachments/548220502653534304/552552893266264116/25229.png?width=396&height=396')
  .setColor(color)
- .setDescription('%protection off - **выключить защиту**\n%protection on - **Включить защиту**\n\n**Эта защита включает себя защиту от рекламы и флуда**')
+ .setDescription('%protection off - **Выключить защиту**\n%protection on - **Включить защиту**\n\n**Эта защита включает себя защиту от рекламы и флуда**')
  message.channel.send(embed)
  }
  if(message.content.toLowerCase().startsWith(`${pr}donators`)){
