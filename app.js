@@ -10,7 +10,7 @@ var sql = mysql.createConnection({
 sql.connect();
 let warnedFlood = new Set();
 
-
+let jimp=require("jimp")
 var isgd = require('isgd');
 let lib=require("./utils/lib.js")
 let pr="%"
