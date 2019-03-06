@@ -274,10 +274,10 @@ ID этого канала - \`${message.channel.id}\`
      `)
   return   message.channel.send(emb)
  }
- if(message.content.toLowerCase().startsWith(`${pr}protection`)){
+ if(message.content.toLowerCase()==`${pr}protection`){
  const embed = new Discord.RichEmbed()
  .setAuthor("Xerl",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
- .setThumbnial('https://media.discordapp.net/attachments/548220502653534304/552552893266264116/25229.png?width=396&height=396')
+.setThumbnail('https://media.discordapp.net/attachments/548220502653534304/552552893266264116/25229.png?width=396&height=396')
  .setColor(color)
  .setDescription('%protection off - **выключить защиту**\n%protection on - **Включить защиту**\n\n**Эта защита включает себя защиту от рекламы и флуда**')
  message.channel.send(embed)
@@ -301,7 +301,7 @@ ID этого канала - \`${message.channel.id}\`
   return   message.channel.send("Для того что-бы узнать обо всех моих коммандах перейдите на https://xerlbot.icu/commands")
  }
 if(message.content=="%ping"){
- let d = new Date(); 
+ let d = new Date();
 let timen = d.toLocaleString();
     let emb=new Discord.RichEmbed()
     .setAuthor("Xerl ping",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
