@@ -1,16 +1,6 @@
-var mysql      = require('mysql');
-var sql = mysql.createConnection({
-  host     : '80.87.203.178',
-  user     : 'cp334497_xerl',
-  password : 'Hippothebest1',
-  database : 'cp334497_xerl'
-});
-
-sql.connect();
-
-sql.query("SELECT * FROM servers",(err,res,field)=>{
-  if(err){console.log(err)}
-  console.log(res)
+let express=require("express")
+let app=express()
+app.listen(8080)
+app.get("*",(req,res)=>{
+  res.send(req.params)
 })
-
-sql.end();

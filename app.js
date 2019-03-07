@@ -72,6 +72,7 @@ client.on("guildDelete", guild => {
 client.on('message',(message)=>{
 
   if (!message.guild || message.author.bot) return;
+     const muted = message.guild.roles.find(r => r.name.match(/muted/i));
     let args=""
     for(let x=1;x<message.content.split(" ").length;x++){
 
@@ -411,6 +412,13 @@ if(err){console.log(err)}
             collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 2000 })
             collector.on('collect', msg3 => {
                 if (!warnedFlood.has(message.author.id)) {
+                  if (muted) {
+               if (!message.guild.me.hasPermission('MANAGE_ROLES')) return message.channel.send('Извените, я немогу его замутить, для того что-бы защита от спама работала вам нужно выдать мне право ``MANAGE ROLES``')
+               message.reply('Был замучин за спам или флуд на 10 минут');
+               message.author.send('Вы были замучины за флуд или спам на сервере '+message.guild.name);
+               message.member.addRole(muted);
+               setTimeout(() => message.member.removeRole(muted), 600000)
+           } else {
                     msg3.delete();
                 const embed = new Discord.RichEmbed()
                 .setAuthor(message.author.username,message.author.displayAvatarURL)
@@ -419,7 +427,9 @@ if(err){console.log(err)}
                     message.channel.send(embed).then(msg5=>{msg5.delete(3000)})
                     warnedFlood.add(message.author.id);
                     setTimeout(() => warnedFlood.delete(message.author.id), 3000)
+                  }
                 }
+
             })
         })
     })
