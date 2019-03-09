@@ -50,7 +50,7 @@ client.on("guildCreate", guild => {
   .setColor(color)
   .addField("Количество людей:", guild.memberCount)
   .addField("Количество ролей:", guild.roles.size)
-  .addField("Owner", guild.owner.user.tag+`\` ${guild.owner.user.id}\``)
+  .addField("Owner", `<@${guild.owner.user.id}>`+` \`${guild.owner.user.id}\` \`${guild.owner.user.tag}\``)
   .addField("ID:", guild.id)
   .setTimestamp();
    logsServerJoin.send(embed);
@@ -63,7 +63,7 @@ client.on("guildDelete", guild => {
   .setColor("RED")
   .addField("Количество людей:", guild.memberCount)
   .addField("Количество ролей:", guild.roles.size)
-  .addField("Owner", guild.owner.user.tag)
+  .addField("Owner", `<@${guild.owner.user.id}>`+` \`${guild.owner.user.id}\` \`${guild.owner.user.tag}\``)
   .addField("ID:", guild.id)
   .setTimestamp();
   logsServerLeave.send(embed);
