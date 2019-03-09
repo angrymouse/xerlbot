@@ -319,7 +319,6 @@ let timen = d.toLocaleString();
 <:discord:553935520150061116>Я присутствую на \`${client.guilds.size}\` серверах
 👫Пользователей у меня \`${client.users.size}\` 
 🎚Я есть на \`${client.channels.size}\` каналах
--/-/-/-БОТ-/-/-/-
 💾Версия бота \`0.7.9\`**`)
   return message.channel.send(emb)
 }
