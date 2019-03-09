@@ -18,7 +18,7 @@ const Discord=require('discord.js')
 var shajs = require('sha.js')
 let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim","ghbxtv","jyj","gthtdjlbn","gj,tlbk","gj,tlbkf","xnj","'nf","cltkfk",",eltn","gjktpty","gjktpyf","[jhjij","[jhjifz","cegth","vj;tim","hfpujdfhbdf.","'nj","crfpfk","evysq"]
 let token=process.env.TOKEN || process.argv[2]
-let color = "#c5fcb3"
+let color = "#ff0048"
 let developers = ["343046183088029696","428036906723573760","406343162651738112"]
 const client = new Discord.Client(); client.login(token)
 function delFromArray(array, nameofemement){
@@ -123,22 +123,21 @@ client.on('message',(message)=>{
 //     }
     if(message.content.toLowerCase()==`${pr}voting`){
 
-      message.reply("**Сообщите мне сообщение голосования**").then(m1=>{
+      message.reply("<:message:553938286746533888>**Сообщите мне сообщение голосования**").then(m1=>{
 
         let colctr = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 });
         colctr.once("collect", (message)=>{
           m1.delete()
           let votecontent=message.content
-          message.reply("**Теперь сообщите мне варианты ответа**").then(m2=>{
+          message.reply("<:message:553938286746533888>**Теперь сообщите мне варианты ответа**").then(m2=>{
             let colctr2 = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 });
             colctr2.once("collect", (message)=>{
               m2.delete()
     let arg2=message.content.split('')
     let emb=new Discord.RichEmbed()
-    .setTitle("Voting")
+    .setTitle("Голосование")
     .setColor(color)
-    .setDescription(votecontent)
-    .setFooter("Please select")
+    .setDescription(votecontent+`<:xerl3:553857314059452428>`)
     message.channel.send(emb).then(msg=>{
       let emjes=[]
       if(arg2.includes("y")){
@@ -185,12 +184,12 @@ for(let i=0;i<emjes.length;i++){
       })
     }
     if(message.content.startsWith(`${pr}gs`)){
-      message.reply("**Cообщите мне главный приз конкурса**").then(msg=>{
+      message.reply("<:message:553938286746533888>**Cообщите мне главный приз конкурса**").then(msg=>{
         let colctr=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
         colctr.once("collect", (message)=>{
           msg.delete()
           let contheme=message.content
-          message.reply("**Хорошо, теперь сообщите мне время,через которое истечет конкурс**").then(msg=>{
+          message.reply("<:message:553938286746533888>**Хорошо,теперь сообщите мне время,через которое истечет конкурс**").then(msg=>{
             let colctr2=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
             colctr2.once("collect",message=>{
               msg.delete()
@@ -226,7 +225,7 @@ for(let i=0;i<emjes.length;i++){
     try{
       isgd.shorten(args, function(res) {
         if(res.startsWith("https://is.gd")){
-        return  message.reply("Ваша сокращенная ссылка - "+res)
+        return  message.reply("🔗**Ваша сокращенная ссылка** - "+res)
       }else{
         return message.channel.send(res)
       }
@@ -254,25 +253,25 @@ for(let i=0;i<emjes.length;i++){
    }
  }
  if(message.content.toLowerCase()==`${pr}server`){
-  // var d = message.member.createdAt;
-  // var timen = d.toLocaleString();
+  var d = message.guild.createdAt;
+  var timen = d.toLocaleString();
    let emb=new Discord.RichEmbed()
    .setColor(color)
-   .setAuthor("Xerl")
+   .setAuthor("XERL")
    .setFooter("Server info")
    .setThumbnail(message.guild.iconURL)
    .setDescription(`
-Имя сервера - \`${message.guild.name}\`
-ID сервера - \`${message.guild.id}\`
-ID этого канала - \`${message.channel.id}\`
-Кол-во людей на сервере - \`${message.guild.members.size}\`
-Кол-во ролей на сервере - \`${message.guild.roles.size}\`
-Кол-во каналов на сервере - \`${message.guild.channels.size}\`
-Кол-во емоджи на сервере - \`${message.guild.emojis.size}\`
-Степень верификации - \`${message.guild.verificationLevel}\`
-Регион сервера - \`${message.guild.region}\`
-Создатель сервера - ${message.guild.owner}
-Сервер создан ${message.guild.createdAt}
+<:discord:553935520150061116>**Имя сервера - \`${message.guild.name}\`
+⚙ID сервера - \`${message.guild.id}\`
+⚙ID этого канала - \`${message.channel.id}\`
+👥Кол-во людей на сервере - \`${message.guild.members.size}\`
+📦Кол-во ролей на сервере - \`${message.guild.roles.size}\`
+🎙Кол-во каналов на сервере - \`${message.guild.channels.size}\`
+<:xerl3:553857314059452428>Кол-во емоджи на сервере - \`${message.guild.emojis.size}\`
+<:angrys:551488605982556165>Степень верификации - \`${message.guild.verificationLevel}\`
+🎌Регион сервера - \`${message.guild.region}\`
+<:owner:553942110584176643>Создатель сервера - ${message.guild.owner}
+<:create:553942208689209354>Сервер создан ${timen}**
      `)
   return   message.channel.send(emb)
  }
