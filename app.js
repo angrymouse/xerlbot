@@ -45,13 +45,14 @@ client.on("guildMemberAdd", (member)=>{
 client.on("guildCreate", guild => {
   const logsServerJoin = client.channels.get('551479276247973889');
   const embed = new Discord.RichEmbed()
-  .setTitle(guild.name)
-  .setDescription("Новый сервер.")
+  .setTitle("Новый сервер.")
+  .setDescription(guild.name)
   .setColor(color)
   .addField("Количество людей:", guild.memberCount)
   .addField("Количество ролей:", guild.roles.size)
-  .addField("Owner", guild.owner.user.tag)
+  .addField("Owner", guild.owner.user.tag+`\`guild.owner.user.id\``)
   .addField("ID:", guild.id)
+  .setTimestamp();
    logsServerJoin.send(embed);
 });
 client.on("guildDelete", guild => {
@@ -64,7 +65,7 @@ client.on("guildDelete", guild => {
   .addField("Количество ролей:", guild.roles.size)
   .addField("Owner", guild.owner.user.tag)
   .addField("ID:", guild.id)
-
+  .setTimestamp();
   logsServerLeave.send(embed);
 });
 
