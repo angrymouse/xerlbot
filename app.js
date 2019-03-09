@@ -282,8 +282,8 @@ for(let i=0;i<emjes.length;i++){
  }
  if(message.content.toLowerCase()==`${pr}protection`){
  const embed = new Discord.RichEmbed()
-.setAuthor("XERL | PROTECTION",'https://media.discordapp.net/attachments/548220502653534304/554037727587205141/1595112.png?width=499&height=499')
-.setThumbnail('https://media.discordapp.net/attachments/548220502653534304/552552893266264116/25229.png?width=396&height=396')
+.setAuthor("XERL | PROTECTION",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
+.setThumbnail('https://media.discordapp.net/attachments/548220502653534304/554037727587205141/1595112.png?width=499&height=499')
  .setColor(color)
  .setDescription('%protection off - **Выключить защиту**\n%protection on - **Включить защиту**\n\n**Эта защита включает себя защиту от рекламы и флуда**')
  message.channel.send(embed)
