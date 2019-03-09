@@ -249,10 +249,10 @@ for(let i=0;i<emjes.length;i++){
  if(message.content.toLowerCase().startsWith(`${pr}coinflip`)){
    let r=lib.random(1,2)
    if(r==1){
-     message.channel.send("**Выпал Орёл!**")
+     message.channel.send("💿**Выпал Орёл!**")
      message.channel.sendFile("./img/eagle.jpg")
    }else{
-     message.channel.send("Выпала Решка!")
+     message.channel.send("📀**Выпала Решка!**")
      message.channel.sendFile("./img/reshka.jpg")
    }
  }
