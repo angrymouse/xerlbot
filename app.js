@@ -1,3 +1,4 @@
+//////////////////////////////////////////
 process.chdir(__dirname)
 var mysql      = require('mysql');
 var sql = mysql.createConnection({
@@ -8,23 +9,38 @@ var sql = mysql.createConnection({
 });
 
 sql.connect();
-let warnedFlood = new Set();
 
-let jimp=require("jimp")
-var isgd = require('isgd');
-let lib=require("./utils/lib.js")
-let pr="%"
+
+/////////////////////////////////
+
 const Discord=require('discord.js')
 var shajs = require('sha.js')
+let jimp=require("jimp")
+var isgd = require('isgd');
+////////////////////////////////
+
+let lib=require("./utils/lib.js")
+let translitor=require("./utils/translitor")
 let nepora=["ghbdtn","rfr","ult","rjulf","pfxtv","ltkfnm","vjq","nt,t","cjcb","ghjcnj", "pfqlb", "yfcnhjqrb","lfkmit","cvj;tim","ghbxtv","jyj","gthtdjlbn","gj,tlbk","gj,tlbkf","xnj","'nf","cltkfk",",eltn","gjktpty","gjktpyf","[jhjij","[jhjifz","cegth","vj;tim","hfpujdfhbdf.","'nj","crfpfk","evysq"]
+
+//////////////////////////////
+
 let token=process.env.TOKEN || process.argv[2]
 let color = "#2ab498"
+let pr="%"
+let warnedFlood = new Set();
+let pr2 = "x!"
 let developers = ["343046183088029696","428036906723573760","406343162651738112"]
+
+///////////////////////////////////////
+
 const client = new Discord.Client(); client.login(token)
+
+///////////////////////////////////////
+
 function delFromArray(array, nameofemement){
   return array.splice(nameofemement, 1)
 }
-let translitor=require("./utils/translitor")
 
 console.log(translitor.trEnRu("ghbdtn"))
 client.once("ready", ()=>{
@@ -121,7 +137,7 @@ client.on('message',(message)=>{
 //       },720000)
 //     }
 //     }
-    if(message.content.toLowerCase()==`${pr}voting`){
+    if(message.content.toLowerCase()==`${pr}voting` || message.content.toLowerCase()==`${pr}vote` || message.content.toLowerCase()==`${pr2}voting` || message.content.toLowerCase()==`${pr2}vote`){
 
       message.reply("<:message:553938286746533888>**Сообщите мне сообщение голосования**").then(m1=>{
 
