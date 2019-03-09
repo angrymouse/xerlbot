@@ -58,8 +58,8 @@ client.on("guildCreate", guild => {
 client.on("guildDelete", guild => {
   const logsServerLeave = client.channels.get('551479276247973889');
   const embed = new Discord.RichEmbed()
-  .setTitle(guild.name)
-  .setDescription("Я был удалён с сервера.")
+  .setTitle("Я был удалён с сервера.")
+  .setDescription(guild.name)
   .setColor("RED")
   .addField("Количество людей:", guild.memberCount)
   .addField("Количество ролей:", guild.roles.size)
