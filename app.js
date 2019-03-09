@@ -250,10 +250,10 @@ for(let i=0;i<emjes.length;i++){
    let r=lib.random(1,2)
    if(r==1){
      message.channel.send("💿**Выпал Орёл!**")
-     message.channel.sendFile("./img/eagle.jpg")
+     message.channel.sendFile("./img/eagle.png")
    }else{
      message.channel.send("📀**Выпала Решка!**")
-     message.channel.sendFile("./img/reshka.jpg")
+     message.channel.sendFile("./img/reshka.png")
    }
  }
  if(message.content.toLowerCase()==`${pr}server`){
