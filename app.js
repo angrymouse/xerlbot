@@ -136,8 +136,10 @@ client.on('message',(message)=>{
     let arg2=message.content.split('')
     let emb=new Discord.RichEmbed()
     .setTitle("Голосование")
+    .setAuthor("XERL",'https://cdn.discordapp.com/attachments/548220920284839947/553948191964266517/xer5l.png')
     .setColor(color)
     .setDescription(votecontent+`<:xerl3:553857314059452428>`)
+    .setTimestamp();
     message.channel.send(emb).then(msg=>{
       let emjes=[]
       if(arg2.includes("y")){
@@ -202,9 +204,11 @@ for(let i=0;i<emjes.length;i++){
               let emb=new Discord.RichEmbed()
               .setTitle(contheme)
               .setColor(color)
+              .setAuthor("XERL",'https://cdn.discordapp.com/attachments/548220920284839947/553948191964266517/xer5l.png')
               .setThumbnail('https://cdn.discordapp.com/attachments/482516986677428244/551483342231699456/726532.png')
               .setDescription(`Разыгрывается **${contheme}**!🎉`)
               .setFooter(`Для участия в розыгрыше ${contheme} поставьте галочку под сообщением.`)
+              .setTimestamp();
               message.channel.send(emb).then(msg=>{
                 msg.react("✅").then(rct=>{
 
@@ -213,7 +217,7 @@ for(let i=0;i<emjes.length;i++){
                     msg.channel.send(winner+" выйграл "+contheme+"! Мои поздравления!🎉")
                   },time )
           })
-                    })
+   })
             })
           })
 
@@ -257,7 +261,7 @@ for(let i=0;i<emjes.length;i++){
   var timen = d.toLocaleString();
    let emb=new Discord.RichEmbed()
    .setColor(color)
-   .setAuthor("XERL")
+   .setAuthor("XERL",'https://cdn.discordapp.com/attachments/548220920284839947/553948191964266517/xer5l.png')
    .setFooter("Server info")
    .setThumbnail(message.guild.iconURL)
    .setDescription(`
@@ -273,11 +277,12 @@ for(let i=0;i<emjes.length;i++){
 <:owner:553942110584176643>Создатель сервера - ${message.guild.owner}
 <:create:553942208689209354>Сервер создан ${timen}**
      `)
+   .setTimestamp();
   return   message.channel.send(emb)
  }
  if(message.content.toLowerCase()==`${pr}protection`){
  const embed = new Discord.RichEmbed()
- .setAuthor("Xerl",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
+ .setAuthor("XERL",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
 .setThumbnail('https://media.discordapp.net/attachments/548220502653534304/552552893266264116/25229.png?width=396&height=396')
  .setColor(color)
  .setDescription('%protection off - **Выключить защиту**\n%protection on - **Включить защиту**\n\n**Эта защита включает себя защиту от рекламы и флуда**')
@@ -285,10 +290,10 @@ for(let i=0;i<emjes.length;i++){
  }
  if(message.content.toLowerCase().startsWith(`${pr}donators`)){
    let emb=new Discord.RichEmbed()
-   .setTitle("Top of donators")
+   .setTitle("Донатеры бота XERL")
    .setColor(color)
    .setThumbnail('https://media.discordapp.net/attachments/548220541576806400/551518150672253016/631180.png?width=135&height=135')
-   .setAuthor("Xerl",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
+   .setAuthor("Xerl",'https://cdn.discordapp.com/attachments/548220920284839947/553948191964266517/xer5l.png')
    .setFooter("Спасибо им за донаты❤")
    .setDescription(`
 1. Баклажан (крадётся)#0900 - 100 RUB.
@@ -305,7 +310,7 @@ if(message.content=="%ping"){
  let d = new Date();
 let timen = d.toLocaleString();
     let emb=new Discord.RichEmbed()
-    .setAuthor("Xerl ping",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
+    .setAuthor("XERL",'https://cdn.discordapp.com/attachments/548220920284839947/553948191964266517/xer5l.png')
     .setColor(color)
     .setDescription(`
 <:computer_bsod:553933846228238356>**Я занимаю \`${Math.round(process.memoryUsage().rss/ 1024 / 1024)}\`МБ RAM 
@@ -328,6 +333,7 @@ if(developers.includes(String(message.author.id))){try{
   let emb=new Discord.RichEmbed()
   .setAuthor("Bash results")
   .setColor(color)
+  .setAuthor("XERL",'https://cdn.discordapp.com/attachments/548220920284839947/553948191964266517/xer5l.png')
   .setFooter("Mice is great")
   .setDescription("Мне стало плохо по следующей причине: \n"+ex)
   .setTitle("Мне плохо!")
@@ -379,9 +385,8 @@ if(message.content.toLowerCase().startsWith(`${pr}ban`)){
   let toban=message.guild.member(message.mentions.users.first())
   if(toban.bannable){
     let emb=new Discord.RichEmbed()
-    .setAuthor("Xerl BAN")
+   .setAuthor("XERL",'https://cdn.discordapp.com/attachments/548220920284839947/553948191964266517/xer5l.png')
     .setColor(color)
-    .setFooter("Ban result")
     .setDescription(message.guild.member(message.mentions.users.first())+" **успешно забанен** <:ban:551486850536308768>")
 
      message.channel.send(emb)
@@ -391,7 +396,7 @@ if(message.content.toLowerCase().startsWith(`${pr}ban`)){
 }
 if(message.content.toLowerCase().startsWith(`${pr}len`)){
   let emb=new Discord.RichEmbed()
-  .setAuthor("Length of text")
+   .setAuthor("XERL",'https://cdn.discordapp.com/attachments/548220920284839947/553948191964266517/xer5l.png')
   .setColor(color)
   .setFooter("length")
   .setDescription("Кол-во символов в тексте который вы написали - "+args.split('').length-1)
