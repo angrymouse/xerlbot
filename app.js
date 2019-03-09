@@ -308,7 +308,13 @@ let timen = d.toLocaleString();
     let emb=new Discord.RichEmbed()
     .setAuthor("Xerl ping",'https://cdn.discordapp.com/attachments/482516986677428244/548450467525427209/xerl.png')
     .setColor(color)
-    .setDescription(`Я занимаю ${Math.round(process.memoryUsage().rss/ 1024 / 1024)}мб RAM \n Я был запущен ${timen} \n Мой пинг \`${Math.round(client.ping)}\`ms \n Я присутствую на \`${client.guilds.size}\` серверах \n Пользователей у меня \`${client.users.size}\` \n Я есть на \`${client.channels.size}\` каналах`)
+    .setDescription(`
+<:computer_bsod:553933846228238356>**Я занимаю \`${Math.round(process.memoryUsage().rss/ 1024 / 1024)}\`МБ RAM 
+🕛Я был запущен ${timen}
+<:computers:553933847075749898>Мой пинг \`${Math.round(client.ping)}\`ms 
+<:discord:553935520150061116>Я присутствую на \`${client.guilds.size}\` серверах
+👫Пользователей у меня \`${client.users.size}\` 
+🎚Я есть на \`${client.channels.size}\` каналах**`)
   return message.channel.send(emb)
 }
 if(message.content.toLowerCase()=="%invite"){
