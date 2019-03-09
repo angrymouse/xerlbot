@@ -63,18 +63,19 @@ client.on('message', message => {
     }
 
     if (['rainbowstop', 'rbs'].includes(command)) {
-        if (!message.member.hasPermission("MANAGE_ROLES") && !message.author.id==owner) return err(null, 'Управление ролями')
+        if (!message.member.hasPermission("MANAGE_ROLES")) {return err(null, 'Управление ролями')}else{
 
         if (!rainbowOn.has(message.guild.id)) return err('Изменение радужной роли и так не включено')
 
         rainbowOn.delete(message.guild.id)
         succ('Изменение радужной роли успешно отключено')
+      }
     }
 
         if (['rainbow', 'rb'].includes(command)) {
             const role = message.guild.roles.find(r => r.name === 'xerlbot.icu');
 
-            if (!message.member.hasPermission("MANAGE_ROLES") && !message.author.id==owner) return err(null, 'Управление ролями');
+            if (!message.member.hasPermission("MANAGE_ROLES")) {return err(null, 'Управление ролями');}else{
 
             if (!role) return err('На вашем сервере нет роли с названием \`xerlbot.icu\`');
 
@@ -85,6 +86,7 @@ client.on('message', message => {
             rainbowOn.add(message.guild.id);
 
             succ('Авто-изменение радужной роли успешно включено');
+          }
         }
 
 });
