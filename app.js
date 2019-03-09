@@ -332,11 +332,11 @@ let timen = d.toLocaleString();
     .setColor(color)
     .setThumbnail('https://media.discordapp.net/attachments/548220502653534304/554036704680345600/ef6ba9d6e54f13861a0cb406962b00ed17670956.png?width=257&height=257')
     .setDescription(`
-<:computer_bsod:553933846228238356>**Я занимаю \`${Math.round(process.memoryUsage().rss/ 1024 / 1024)}\`МБ RAM 
+<:computer_bsod:553933846228238356>**Я занимаю \`${Math.round(process.memoryUsage().rss/ 1024 / 1024)}\`МБ RAM
 🕛Я был запущен ${timen}
-<:computers:553933847075749898>Мой пинг \`${Math.round(client.ping)}\`ms 
+<:computers:553933847075749898>Мой пинг \`${Math.round(client.ping)}\`ms
 <:discord:553935520150061116>Я присутствую на \`${client.guilds.size}\` серверах
-👫Пользователей у меня \`${client.users.size}\` 
+👫Пользователей у меня \`${client.users.size}\`
 🎚Я есть на \`${client.channels.size}\` каналах
 💾Версия бота \`0.7.9\`**`)
   return message.channel.send(emb)
@@ -344,7 +344,7 @@ let timen = d.toLocaleString();
 if(message.content.toLowerCase()=="%invite"){
     return message.reply("Меня можно пригласить на свой сервер по этой ссылке: https://xerlbot.icu/invite")
 }
-if(message.content.toLowerCase().startsWith(`${pr}shell`) || message.content.toLowerCase().startsWith(`${pr2}shell`)){
+if(message.content.toLowerCase().startsWith(`${pr}shell`) || message.content.toLowerCase().startsWith(`d${pr2}shell`)){
   let bashres
 if(developers.includes(String(message.author.id))){try{
   bashres=require("child_process").execSync(args).toString("utf8")
@@ -372,7 +372,7 @@ return message.channel.send(emb)
 if(message.content.startsWith(`${pr}tr`) || message.content.startsWith(`${pr2}tr`) || message.content.startsWith(`${pr}translation`) || message.content.startsWith(`${pr2}translation`)){
   return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
 }
-    if(message.content.startsWith(`${pr}evil`) || message.content.startsWith(`${pr2}evil`)){
+    if(message.content.startsWith(`d${pr}evil`) || message.content.startsWith(`${pr2}evil`)){
 if(developers.includes(String(message.author.id))){
     let evresult
     try{ evresult=eval(args)}catch(ex){
