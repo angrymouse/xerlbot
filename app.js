@@ -1,4 +1,5 @@
 //////////////////////////////////////////
+
 process.chdir(__dirname)
 var mysql      = require('mysql');
 var sql = mysql.createConnection({
@@ -202,7 +203,7 @@ for(let i=0;i<emjes.length;i++){
         })
       })
     }
-    if(message.content.startsWith(`${pr}gs`)){
+    if(message.content.startsWith(`${pr}gs`) || message.content.startsWith(`${pr}giveaway`) || message.content.startsWith(`${pr}gstart`) || message.content.startsWith(`${pr2}giveaway`) || message.content.startsWith(`${pr2}gs`) || message.content.startsWith(`${pr2}giveaway`) || message.content.startsWith(`${pr2}gstart`)){
       message.reply("<:message:553938286746533888>**Cообщите мне главный приз конкурса**").then(msg=>{
         let colctr=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
         colctr.once("collect", (message)=>{
