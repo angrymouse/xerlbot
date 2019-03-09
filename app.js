@@ -253,7 +253,7 @@ for(let i=0;i<emjes.length;i++){
      message.channel.sendFile("./img/eagle.png")
    }else{
      message.channel.send("📀**Выпала Решка!**")
-     message.channel.sendFile("./img/reshka.png")
+     message.channel.sendFile("./img/reska.png")
    }
  }
  if(message.content.toLowerCase()==`${pr}server`){
