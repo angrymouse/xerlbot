@@ -318,9 +318,9 @@ let timen = d.toLocaleString();
 <:computers:553933847075749898>Мой пинг \`${Math.round(client.ping)}\`ms 
 <:discord:553935520150061116>Я присутствую на \`${client.guilds.size}\` серверах
 👫Пользователей у меня \`${client.users.size}\` 
-🎚Я есть на \`${client.channels.size}\` каналах**
--\-\-\-БОТ-\-\-\-
-💾Версия бота \`0.7.9\``)
+🎚Я есть на \`${client.channels.size}\` каналах
+-/-/-/-БОТ-/-/-/-
+💾Версия бота \`0.7.9\`**`)
   return message.channel.send(emb)
 }
 if(message.content.toLowerCase()=="%invite"){
