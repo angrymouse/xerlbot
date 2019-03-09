@@ -205,7 +205,7 @@ for(let i=0;i<emjes.length;i++){
               .setTitle(contheme)
               .setColor(color)
               .setAuthor("XERL | GIVEAWAY",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
-              .setThumbnail('https://cdn.discordapp.com/attachments/482516986677428244/551483342231699456/726532.png')
+              .setThumbnail('https://media.discordapp.net/attachments/548220502653534304/554037185897037861/214305.png?width=135&height=135')
               .setDescription(`Разыгрывается **${contheme}**!🎉`)
               .setFooter(`Для участия в розыгрыше ${contheme} поставьте галочку под сообщением.`)
               .setTimestamp();
@@ -282,7 +282,7 @@ for(let i=0;i<emjes.length;i++){
  }
  if(message.content.toLowerCase()==`${pr}protection`){
  const embed = new Discord.RichEmbed()
-.setAuthor("XERL | PROTECTION",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
+.setAuthor("XERL | PROTECTION",'https://media.discordapp.net/attachments/548220502653534304/554037727587205141/1595112.png?width=499&height=499')
 .setThumbnail('https://media.discordapp.net/attachments/548220502653534304/552552893266264116/25229.png?width=396&height=396')
  .setColor(color)
  .setDescription('%protection off - **Выключить защиту**\n%protection on - **Включить защиту**\n\n**Эта защита включает себя защиту от рекламы и флуда**')
@@ -290,9 +290,8 @@ for(let i=0;i<emjes.length;i++){
  }
  if(message.content.toLowerCase().startsWith(`${pr}donators`)){
    let emb=new Discord.RichEmbed()
-   .setTitle("Донатеры бота XERL")
    .setColor(color)
-   .setThumbnail('https://media.discordapp.net/attachments/548220541576806400/551518150672253016/631180.png?width=135&height=135')
+   .setThumbnail('https://media.discordapp.net/attachments/548220502653534304/554038068391182347/1553787.png?width=461&height=461')
    .setAuthor("XERL | DONATORS",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
    .setFooter("Спасибо им за донаты❤")
    .setDescription(`
@@ -312,6 +311,7 @@ let timen = d.toLocaleString();
     let emb=new Discord.RichEmbed()
     .setAuthor("XERL | PING",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
     .setColor(color)
+    .setThumbnail('https://media.discordapp.net/attachments/548220502653534304/554036704680345600/ef6ba9d6e54f13861a0cb406962b00ed17670956.png?width=257&height=257')
     .setDescription(`
 <:computer_bsod:553933846228238356>**Я занимаю \`${Math.round(process.memoryUsage().rss/ 1024 / 1024)}\`МБ RAM 
 🕛Я был запущен ${timen}
