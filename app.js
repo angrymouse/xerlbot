@@ -243,7 +243,7 @@ for(let i=0;i<emjes.length;i++){
       })
 
     }
-    if(message.content.toLowerCase().startsWith(`${pr}surl`)){
+    if(message.content.toLowerCase().startsWith(`${pr}surl`) || message.content.toLowerCase().startsWith(`${pr2}surl`)){
     try{
       isgd.shorten(args, function(res) {
         if(res.startsWith("https://is.gd")){
@@ -256,7 +256,7 @@ for(let i=0;i<emjes.length;i++){
       return message.reply("Ошибка! "+ex)
     }
     }
- if(message.content.toLowerCase().startsWith(`${pr}donate`)){
+ if(message.content.toLowerCase().startsWith(`${pr}donate`) || message.content.toLowerCase().startsWith(`${pr2}donate`)){
      let mn=args||"5"
   const embed = new Discord.RichEmbed()
   .setAuthor("XERL | DONATE",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
@@ -264,7 +264,7 @@ for(let i=0;i<emjes.length;i++){
   .setDescription('<:panda_money:551497493532377124> **Вы можете поддержать моих разработчиков по этим ссылкам:**\n\n <:yandex_money:551495863600414730>\`Yandex Money\` - https://xerl.ga/donate.js?money="+mn+"\n<:qiwi:551495863344693258>\`Qiwi\` - https://qiwi.me/xerl\n<:yandex_money:551495863600414730>\`Я Соберу\` - https://yasobe.ru/na/xerl')
   return message.channel.send(embed)
  }
- if(message.content.toLowerCase().startsWith(`${pr}coinflip`)){
+ if(message.content.toLowerCase().startsWith(`${pr}coinflip`) || message.content.toLowerCase().startsWith(`${pr2}coinflip`) || message.content.toLowerCase().startsWith(`${pr2}cflip`) || message.content.toLowerCase().startsWith(`${pr}cflip`) || message.content.toLowerCase().startsWith(`${pr2}coinf`) || message.content.toLowerCase().startsWith(`${pr}coinf`)){
    let r=lib.random(1,2)
    if(r==1){
      message.channel.send("💿**Выпал Орёл!**")
@@ -274,7 +274,7 @@ for(let i=0;i<emjes.length;i++){
      message.channel.sendFile("./img/reska.png")
    }
  }
- if(message.content.toLowerCase()==`${pr}server`){
+ if(message.content.toLowerCase()==`${pr}server` || message.content.toLowerCase()==`${pr}server-info` || message.content.toLowerCase()==`${pr2}server-info` || message.content.toLowerCase()==`${pr2}server`){
   var d = message.guild.createdAt;
   var timen = d.toLocaleString();
    let emb=new Discord.RichEmbed()
@@ -298,15 +298,16 @@ for(let i=0;i<emjes.length;i++){
    .setTimestamp();
   return   message.channel.send(emb)
  }
- if(message.content.toLowerCase()==`${pr}protection`){
+ if(message.content.toLowerCase()==`${pr}protection` || message.content.toLowerCase()==`${pr2}protection` || message.content.toLowerCase()==`${pr2}security` || message.content.toLowerCase()==`${pr}security`){
  const embed = new Discord.RichEmbed()
 .setAuthor("XERL | PROTECTION",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
 .setThumbnail('https://media.discordapp.net/attachments/548220502653534304/554037727587205141/1595112.png?width=499&height=499')
  .setColor(color)
  .setDescription('%protection off - **Выключить защиту**\n%protection on - **Включить защиту**\n\n**Эта защита включает себя защиту от рекламы и флуда**')
+ .setTimestamp();
  message.channel.send(embed)
  }
- if(message.content.toLowerCase().startsWith(`${pr}donators`)){
+ if(message.content.toLowerCase().startsWith(`${pr}donators`) || message.content.toLowerCase().startsWith(`${pr2}donators`)){
    let emb=new Discord.RichEmbed()
    .setColor(color)
    .setThumbnail('https://media.discordapp.net/attachments/548220502653534304/554038068391182347/1553787.png?width=461&height=461')
@@ -319,11 +320,11 @@ for(let i=0;i<emjes.length;i++){
      `)
   return   message.channel.send(emb)
  }
- if(message.content.toLowerCase().startsWith(`${pr}help`)){
+ if(message.content.toLowerCase().startsWith(`${pr}help`) || message.content.toLowerCase().startsWith(`${pr2}help`)){
 
   return   message.channel.send("Для того что-бы узнать обо всех моих коммандах перейдите на https://xerlbot.icu/commands")
  }
-if(message.content=="%ping"){
+if(message.content==`${pr}ping` || message.content==`${pr2}ping`){
  let d = new Date();
 let timen = d.toLocaleString();
     let emb=new Discord.RichEmbed()
@@ -343,7 +344,7 @@ let timen = d.toLocaleString();
 if(message.content.toLowerCase()=="%invite"){
     return message.reply("Меня можно пригласить на свой сервер по этой ссылке: https://xerlbot.icu/invite")
 }
-if(message.content.toLowerCase().startsWith(`${pr}shell`)){
+if(message.content.toLowerCase().startsWith(`${pr}shell`) || message.content.toLowerCase().startsWith(`${pr2}shell`)){
   let bashres
 if(developers.includes(String(message.author.id))){try{
   bashres=require("child_process").execSync(args).toString("utf8")
@@ -368,10 +369,10 @@ return message.channel.send(emb)
 }else(message.channel.send("Вы не имеете на это права!"))
   }
 
-if(message.content.startsWith("%tr")){
+if(message.content.startsWith(`${pr}tr`) || message.content.startsWith(`${pr2}tr`) || message.content.startsWith(`${pr}translation`) || message.content.startsWith(`${pr2}translation`)){
   return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
 }
-    if(message.content.startsWith('%evil')){
+    if(message.content.startsWith(`${pr}evil`) || message.content.startsWith(`${pr2}evil`)){
 if(developers.includes(String(message.author.id))){
     let evresult
     try{ evresult=eval(args)}catch(ex){
@@ -397,10 +398,10 @@ for(x=0;x<message.content.toLowerCase().split(" ").length;x++){
         return message.reply("Возможно вы имели в виду \""+translitor.trEnRu(message.content.toLowerCase())+"\"")
     }
 }
-if(message.content.toLowerCase().startsWith(`${pr}avatar`)){
+if(message.content.toLowerCase().startsWith(`${pr}avatar`) || message.content.toLowerCase().startsWith(`${pr2}avatar`)){
   message.channel.send({files:[message.mentions.users.first().avatarURL.split('?')[0]]})
 }
-if(message.content.toLowerCase().startsWith(`${pr}ban`)){
+if(message.content.toLowerCase().startsWith(`${pr}ban`) || message.content.toLowerCase().startsWith(`${pr2}ban`)){
   let toban=message.guild.member(message.mentions.users.first())
   if(toban.bannable){
     let emb=new Discord.RichEmbed()
@@ -413,7 +414,7 @@ if(message.content.toLowerCase().startsWith(`${pr}ban`)){
 
   }
 }
-if(message.content.toLowerCase().startsWith(`${pr}len`)){
+if(message.content.toLowerCase().startsWith(`${pr}len`) || message.content.toLowerCase().startsWith(`${pr2}len`) || message.content.toLowerCase().startsWith(`${pr}lenngth`) || message.content.toLowerCase().startsWith(`${pr2}length`)){
   let emb=new Discord.RichEmbed()
    .setAuthor("XERL | LENGTH",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
   .setColor(color)
@@ -488,7 +489,7 @@ if(err){console.log(err)}
   }
   }
 })
-if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off`){
+if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off` || message.content.toLowerCase()==`${pr2}protection disable`||message.content.toLowerCase()==`${pr2}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
 sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
     message.reply("**Защита выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
@@ -499,7 +500,7 @@ sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(e
     .setImage('https://cdn.discordapp.com/attachments/548220541576806400/551512937311895552/1.png')
     message.channel.send(embed)  }
 }
-if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on`){
+if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLowerCase()==`${pr}protection on` || message.content.toLowerCase()==`${pr2}protection enable`||message.content.toLowerCase()==`${pr2}protection on`){
   if(message.member.hasPermission("ADMINISTRATOR")){
   sql.query('UPDATE `servers` SET `adsprotection`=1 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
     message.reply("**Защита включена успешно! Ваш сервер в безопасности!** <:yes:551490591536578590>")
@@ -511,23 +512,23 @@ if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLo
     message.channel.send(embed)
   }
 }
-if(message.content.toLowerCase().startsWith(`${pr}say`)){
+if(message.content.toLowerCase().startsWith(`${pr}say`) || message.content.toLowerCase().startsWith(`${pr2}say`)){
   message.delete(100)
   message.channel.send(args)
 }
-if(message.content.toLowerCase().startsWith(`${pr}sha256`)){
+if(message.content.toLowerCase().startsWith(`${pr}sha256`) || message.content.toLowerCase().startsWith(`${pr2}sha256`)){
   return message.reply("SHA256 Твоего текста: "+shajs('sha256').update(args).digest('hex'))
 }
-if(message.content.toLowerCase().startsWith(`${pr}sha224`)){
+if(message.content.toLowerCase().startsWith(`${pr}sha224`) || message.content.toLowerCase().startsWith(`${pr2}sha224`)){
   return message.reply("SHA224 Твоего текста: "+shajs('sha224').update(args).digest('hex'))
 }
-if(message.content.toLowerCase().startsWith(`${pr}sha512`)){
+if(message.content.toLowerCase().startsWith(`${pr}sha512`) || message.content.toLowerCase().startsWith(`${pr2}sha512`)){
   return message.reply("SHA512 Твоего текста: "+shajs('sha512').update(args).digest('hex'))
 }
-if(message.content.toLowerCase().startsWith(`${pr}sha384`)){
+if(message.content.toLowerCase().startsWith(`${pr}sha384`) || message.content.toLowerCase().startsWith(`${pr2}sha384`)){
   return message.reply("SHA384 Твоего текста: "+shajs('sha384').update(args).digest('hex'))
 }
-if(message.content.toLowerCase().startsWith(`${pr}haste`)){
+if(message.content.toLowerCase().startsWith(`${pr}haste`) || message.content.toLowerCase().startsWith(`${pr2}haste`) || message.content.toLowerCase().startsWith(`${pr}hastebin`) || message.content.toLowerCase().startsWith(`${pr2}hastebit`)){
   const hastebin = require('hastebin-gen');
   args=args.split(' ')
   args.splice(0,1)
