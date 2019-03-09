@@ -138,6 +138,7 @@ client.on('message',(message)=>{
     .setTitle("Голосование")
     .setAuthor("XERL | VOTING",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
     .setColor(color)
+    .setThumbnail('https://media.discordapp.net/attachments/548220920284839947/554045062024003611/1534118.png?width=499&height=499')
     .setDescription(votecontent+`<:xerl3:553857314059452428>`)
     .setTimestamp();
     message.channel.send(emb).then(msg=>{
