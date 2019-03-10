@@ -204,7 +204,7 @@ for(let i=0;i<emjes.length;i++){
         })
       })
     }
- if(message.content===pr+'vote-help'){
+ if(message.content.toLowerCase()==`${pr}vote-help`){
  const embed = new Discord.RichEmbed()
 .setAuthor("XERL | VOTE-HELP",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
 .setColor(color)
