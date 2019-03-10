@@ -220,7 +220,7 @@ for(let i=0;i<emjes.length;i++){
    \`7\` - :seven:
    \`8\` - :eight:
    \`9\` - :nine:
-   
+
    📟Пример: yn123456789
    **`)
    .setImage('https://cdn.discordapp.com/attachments/548220920284839947/554177690907836436/15.gif')
@@ -581,4 +581,4 @@ client.on("messageUpdate",(message)=>{
 
 
 })
-require("./utils/rainbow.js")
+//require("./utils/rainbow.js")
