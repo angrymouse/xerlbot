@@ -18,6 +18,7 @@ const Discord=require('discord.js')
 var shajs = require('sha.js')
 let jimp=require("jimp")
 var isgd = require('isgd');
+
 ////////////////////////////////
 
 let lib=require("./utils/lib.js")
@@ -203,6 +204,30 @@ for(let i=0;i<emjes.length;i++){
         })
       })
     }
+ if(message.content===pr+'vote-help'){
+ const embed = new Discord.RichEmbed()
+.setAuthor("XERL | VOTE-HELP",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
+.setColor(color)
+.setDescriprion(`
+**\`y\` - ✅
+\`n\` - ❎
+\`1\` - :one:
+\`2\` - :two:
+\`3\` - :three:
+\`4\` - :four:
+\`5\` - :five:
+\`6\` - :six:
+\`7\` - :seven:
+\`8\` - :eight:
+\`9\` - "nine:
+
+Пример: yn123456789
+**`)
+.setImage('https://cdn.discordapp.com/attachments/548220920284839947/554177690907836436/15.gif')
+.setThumbnail('https://media.discordapp.net/attachments/548220920284839947/554179695005138962/1534128.png?width=499&height=499')
+.setTimestamp();
+message.channel.send(embed)
+ }
     if(message.content.startsWith(`${pr}gs`) || message.content.startsWith(`${pr}giveaway`) || message.content.startsWith(`${pr}gstart`) || message.content.startsWith(`${pr2}giveaway`) || message.content.startsWith(`${pr2}gs`) || message.content.startsWith(`${pr2}giveaway`) || message.content.startsWith(`${pr2}gstart`)){
       message.reply("<:message:553938286746533888>**Cообщите мне главный приз конкурса**").then(msg=>{
         let colctr=new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 100000 })
