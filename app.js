@@ -455,7 +455,7 @@ if(message.content.toLowerCase().split("discord.gg").length>1||message.content.t
       message.delete()
       message.guild.owner.send(message.author+" **опубликовал сервера на вашем!⚠**")
     }
-  })
+  }).catch(ex){console.log(ex)}
 }
 sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
 if(err){console.log(err)}
@@ -513,9 +513,10 @@ if(err){console.log(err)}
       });
   }
   }
-})
+}).catch(ex){console.log(ex)}
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off` || message.content.toLowerCase()==`${pr2}protection disable`||message.content.toLowerCase()==`${pr2}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
+
 sql.query('UPDATE `servers` SET `adsprotection`=0 WHERE id='+message.guild.id,(err)=>{if(err){console.log(err)}})
     message.reply("**Защита выключена.Теперь ваш сервер снова в опасности!** <:no:551490591155027970>")
   }else{
