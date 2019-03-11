@@ -455,8 +455,9 @@ if(message.content.toLowerCase().split("discord.gg").length>1||message.content.t
       message.delete()
       message.guild.owner.send(message.author+" **опубликовал сервера на вашем!⚠**")
     }
-  }).catch(ex){console.log(ex)}
+  })
 }
+try{
 sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
 if(err){console.log(err)}
   if(res[0].adsprotection==true){
@@ -513,7 +514,10 @@ if(err){console.log(err)}
       });
   }
   }
-}).catch(ex){console.log(ex)}
+})
+}catch(ex){
+  return
+}
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off` || message.content.toLowerCase()==`${pr2}protection disable`||message.content.toLowerCase()==`${pr2}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
 
