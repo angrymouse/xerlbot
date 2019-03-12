@@ -97,48 +97,7 @@ client.on('message',(message)=>{
 
         args = args+message.content.split(" ")[x]+" "
     }
-    // if(message.content.toLowerCase().startsWith(`${pr}money`)){
-    //   if(!undefined.users[String(message.author.id)]){
-    //     undefined.users[String(message.author.id)]={"money":0,"canwork":true}
-    //     console.log(undefined)
-    //   }
-//       const embed = new Discord.RichEmbed()
-//       .setAuthor(message.author.username,message.author.displayAvatarURL)
-//       .setColor(color)
-//       .setThumbnail(message.author.avatarURL)
-//       .setDescription("Твой баланс "+String(undefined.users[String(message.author.id)].money)+"<:money:551523400158412820>")
-// message.channel.send(embed)
-//       }
-//     if(message.content.toLowerCase().startsWith(`${pr}work`)){
-//       if(!undefined.users[String(message.author.id)]){
-//         undefined.users[String(message.author.id)]={"money":0, "canwork":true}
-//         console.log(undefined)
-//       }
-//       if(undefined.users[String(message.author.id)].canwork==false){
-//         const embed = new Discord.RichEmbed()
-//         .setColor("RED")
-//         .setAuthor(message.author.username,message.author.displayAvatarURL)
-//         .setDescription('<:no:551490591155027970> **Вы можете работать только раз в 2 часа!**')
-// message.channel.send(embed)
-//         }else{
-//       //let work1 = [`Банкиром`, `Дворником`,`Выгульщиком собак`,`Официантом`,`Барменом`,`Уборщиком`];
-//      // let work2 = Math.floor(Math.random() * work1.length);
-//       let workedmoney=lib.random(1,100)
-//       undefined.users[String(message.author.id)].money+=workedmoney
-//       console.log(undefined)
-//       const embed = new Discord.RichEmbed()
-//       .setAuthor(message.author.username,message.author.displayAvatarURL)
-//       .setColor(color)
-//       .setDescription(`Вы поработали и заработали `+String(workedmoney)+ `<:money:551523400158412820>`)
-// message.channel.send(embed)
-//       undefined.users[String(message.author.id)].canwork=false
-//       console.log(undefined)
-//       setTimeout(()=>{
-//         undefined.users[String(message.author.id)].canwork=true
-//         console.log(undefined)
-//       },720000)
-//     }
-//     }
+
     if(message.content.toLowerCase()==`${pr}voting` || message.content.toLowerCase()==`${pr}vote` || message.content.toLowerCase()==`${pr2}voting` || message.content.toLowerCase()==`${pr2}vote`){
 
       message.reply("<:message:553938286746533888>**Сообщите мне сообщение голосования**").then(m1=>{
@@ -460,6 +419,7 @@ if(message.content.toLowerCase().split("discord.gg").length>1||message.content.t
 try{
 sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
 if(err){console.log(err)}
+if(!res[0]){return}
   if(res[0].adsprotection==true){
 
     let collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 6000 })
