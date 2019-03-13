@@ -182,7 +182,7 @@ for(let i=0;i<emjes.length;i++){
 
    📟Пример: yn123456789
    **`)
-   .setImage('https://cdn.discordapp.com/attachments/548220920284839947/554177690907836436/15.gif')
+   .setImage('https://media.discordapp.net/attachments/555385317688082442/555386274761146370/Peek_2019-03-13_15-46.gif')
    .setThumbnail('https://media.discordapp.net/attachments/548220920284839947/554179695005138962/1534128.png?width=499&height=499')
    .setTimestamp();
    message.channel.send(embed)
