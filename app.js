@@ -57,6 +57,8 @@ sql.query("INSERT INTO `servers` (`id`, `adsprotection`) VALUES ("+guild.id+", '
 client.on("guildMemberAdd", (member)=>{
     if(member.guild.id == 540192529933664297){
         member.addRole(member.guild.roles.find('name', "Member"))
+    }else if(member.guild.id==541332359291731968){
+      member.setNickname("[𝓦𝓣] "+member.nickname)
     }
 })
 
