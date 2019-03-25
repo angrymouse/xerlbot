@@ -513,7 +513,7 @@ if(message.content.toLowerCase().startsWith(`${pr}sayem`)){
     .setColor(message.content.toLowerCase().split(' ')[1])
     .setDescription(args)
     .setFooter("xerl embed")
-    message.channel.send(emb)
+  return  message.channel.send(emb)
   }catch(err){
     return message.channel.send(err)
   }
