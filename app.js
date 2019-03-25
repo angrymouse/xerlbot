@@ -504,6 +504,20 @@ if(message.content.toLowerCase()==`${pr}protection enable`||message.content.toLo
     message.channel.send(embed)
   }
 }
+if(message.content.toLowerCase().startsWith(`${pr}sayem`)){
+  args=args.split(' ')
+  args.splice(0,1)
+  args=args.join(' ')
+  try{
+    let emb=new Discord.RichEmbed()
+    .setColor(message.content.toLowerCase().split(' ')[1])
+    .setDescription(args)
+    .setFooter("xerl embed")
+    message.channel.send(emb)
+  }catch(err){
+    return message.channel.send(err)
+  }
+}
 if(message.content.toLowerCase().startsWith(`${pr}say`) || message.content.toLowerCase().startsWith(`${pr2}say`)){
   message.delete(100)
   message.channel.send(args)
@@ -527,20 +541,7 @@ if(message.content.toLowerCase().startsWith(`${pr}haste`) || message.content.toL
   args=args.join(' ')
   hastebin(args,message.content.toLowerCase().split(' ')[1]).then(ur=>{message.reply(ur)}).catch(message.channel.send)
 }
-if(message.content.toLowerCase().startsWith(`${pr}sayem`)){
-  args=args.split(' ')
-  args.splice(0,1)
-  args=args.join(' ')
-  try{
-    let emb=new Discord.RichEmbed()
-    .setColor(message.content.toLowerCase().split(' ')[1])
-    .setDescription(args)
-    .setFooter("xerl embed")
-    message.channel.send(emb)
-  }catch(err){
-    return message.channel.send(err)
-  }
-}
+
 if(developers.includes(String(message.author.id))){return}
 })
 client.on("messageUpdate",(message)=>{
