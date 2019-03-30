@@ -99,7 +99,12 @@ client.on('message',(message)=>{
 
         args = args+message.content.split(" ")[x]+" "
     }
+if(message.content.toLowerCase().startsWith(`${pr}qr`)||message.content.toLowerCase().startsWith(`${pr2}qr`)){
+  if(args.split("").length<1){return}else{
+    message.channel.send("https://chart.apis.google.com/chart?cht=qr&chs=200x200&choe=UTF-8&chld=H|0&chl="+encodeURI(args))
 
+  }
+}
     if(message.content.toLowerCase()==`${pr}voting` || message.content.toLowerCase()==`${pr}vote` || message.content.toLowerCase()==`${pr2}voting` || message.content.toLowerCase()==`${pr2}vote`){
 
       message.reply("<:message:553938286746533888>**Сообщите мне сообщение голосования**").then(m1=>{
