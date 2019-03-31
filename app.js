@@ -555,7 +555,7 @@ if(!res[0]){return}
 if(developers.includes(String(message.author.id))){return}
 })
 client.on("messageUpdate",(message)=>{
-  if(!message.guild || message.author.bot || message.member.hasPermission("ADMINISTRATOR") || developers.inclides(String(message.author.id))){return;}
+  if(!message.guild || message.author.bot || message.member.hasPermission("ADMINISTRATOR") || developers.includes(String(message.author.id))){return;}
 
   if(message.author.lastMessage.content.toLowerCase().split("discord.gg").length>1||message.author.lastMessage.content.toLowerCase().split("discordapp.com/invite").length>1){
     sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
