@@ -414,77 +414,6 @@ if(message.content.toLowerCase().startsWith(`${pr}len`) || message.content.toLow
 
    message.channel.send(emb)
 }
-if(message.content.toLowerCase().split("discord.gg").length>1||message.content.toLowerCase().split("discordapp.com/invite").length>1){
-  sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
-    if(err){message.channel.send(err)}
-    if(res[0].adsprotection==true){
-      message.delete()
-      message.guild.owner.send(message.author+" **опубликовал сервера на вашем!⚠**")
-    }
-  })
-}
-try{
-sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
-if(err){console.log(err)}
-if(!res[0]){return}
-  if(res[0].adsprotection==true){
-
-    let collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 6000 })
-    collector.on('collect', msg => {
-        collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 4000 })
-        collector.on('collect', msg2 => {
-            collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 2000 })
-            collector.on('collect', msg3 => {
-                if (!warnedFlood.has(message.author.id)) {
-                  if (muted) {
-               if (!message.guild.me.hasPermission('MANAGE_ROLES')) return message.channel.send('Извените, я немогу его замутить, для того что-бы защита от спама работала вам нужно выдать мне право ``MANAGE ROLES``')
-               message.reply('Был замучин за спам или флуд на 10 минут');
-               message.author.send('Вы были замучины за флуд или спам на сервере '+message.guild.name);
-               message.member.addRole(muted);
-               setTimeout(() => message.member.removeRole(muted), 600000)
-           } else {
-                    msg3.delete();
-                const embed = new Discord.RichEmbed()
-                .setAuthor(message.author.username,message.author.displayAvatarURL)
-                .setColor(color)
-                .setDescription('**Администратор сервера неодобряет флуд,спам здесь!При следущей попытке флуда вы будете кикнуть**')
-                    message.channel.send(embed).then(msg5=>{msg5.delete(3000)})
-                    warnedFlood.add(message.author.id);
-                    setTimeout(() => warnedFlood.delete(message.author.id), 3000)
-                  }
-                }
-
-            })
-        })
-    })
-    if (warnedFlood.has(message.author.id)) {
-      warnedFlood.delete(message.author.id)
-      const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 4000 })
-      collector.on('collect', msg => {
-          msg.delete();
-              if (message.member.kickable) {
-                const embed = new Discord.RichEmbed()
-                .setAuthor(message.author.username,message.author.displayAvatarURL)
-                .setColor(color)
-                .setDescription('<:yes:551490591536578590> <@${message.author.id}>**Был кикнут,по причине: **\`Флуд,спам\`')
-                  message.member.kick(embed);
-              }
-              else{
-                const embed = new Discord.RichEmbed()
-                .setColor("RED")
-                .setDescription("<:no:551490591155027970>**У меня нету прав** \`KICK_MEMBERS\` **для кика данного пользователя**")
-                .setImage('https://media.discordapp.net/attachments/548220541576806400/552489909445853205/unknown.png?width=398&height=48')
-                 message.channel.send(embed)
-              }
-
-
-      });
-  }
-  }
-})
-}catch(ex){
-  return
-}
 if(message.content.toLowerCase()==`${pr}protection disable`||message.content.toLowerCase()==`${pr}protection off` || message.content.toLowerCase()==`${pr2}protection disable`||message.content.toLowerCase()==`${pr2}protection off`){
   if(message.member.hasPermission("ADMINISTRATOR")){
 
@@ -546,11 +475,88 @@ if(message.content.toLowerCase().startsWith(`${pr}haste`) || message.content.toL
   args=args.join(' ')
   hastebin(args,message.content.toLowerCase().split(' ')[1]).then(ur=>{message.reply(ur)}).catch(message.channel.send)
 }
+  if(message.member.hasPermission("ADMINISTRATOR")){return}
+if(message.content.toLowerCase().split("discord.gg").length>1||message.content.toLowerCase().split("discordapp.com/invite").length>1){
+
+  sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
+    if(err){message.channel.send(err)}
+    if(res[0].adsprotection==true){
+      message.delete()
+      message.guild.owner.send(message.author+" **опубликовал сервера на вашем!⚠**")
+    }
+  })
+}
+try{
+    if(message.member.hasPermission("ADMINISTRATOR")){return}
+sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
+if(err){console.log(err)}
+if(!res[0]){return}
+  if(res[0].adsprotection==true){
+
+    let collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 6000 })
+    collector.on('collect', msg => {
+        collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 4000 })
+        collector.on('collect', msg2 => {
+            collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 2000 })
+            collector.on('collect', msg3 => {
+                if (!warnedFlood.has(message.author.id)) {
+                  if (muted) {
+               if (!message.guild.me.hasPermission('MANAGE_ROLES')) return message.channel.send('Извените, я немогу его замутить, для того что-бы защита от спама работала вам нужно выдать мне право ``MANAGE ROLES``')
+               message.reply('Был замучин за спам или флуд на 10 минут');
+               message.author.send('Вы были замучины за флуд или спам на сервере '+message.guild.name);
+               message.member.addRole(muted);
+               setTimeout(() => message.member.removeRole(muted), 600000)
+           } else {
+                    msg3.delete();
+                const embed = new Discord.RichEmbed()
+                .setAuthor(message.author.username,message.author.displayAvatarURL)
+                .setColor(color)
+                .setDescription('**Администратор сервера неодобряет флуд,спам здесь!При следущей попытке флуда вы будете кикнуть**')
+                    message.channel.send(embed).then(msg5=>{msg5.delete(3000)})
+                    warnedFlood.add(message.author.id);
+                    setTimeout(() => warnedFlood.delete(message.author.id), 3000)
+                  }
+                }
+
+            })
+        })
+    })
+      if(message.member.hasPermission("ADMINISTRATOR")){return}
+    if (warnedFlood.has(message.author.id)) {
+      warnedFlood.delete(message.author.id)
+      const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 4000 })
+      collector.on('collect', msg => {
+          msg.delete();
+              if (message.member.kickable) {
+                const embed = new Discord.RichEmbed()
+                .setAuthor(message.author.username,message.author.displayAvatarURL)
+                .setColor(color)
+                .setDescription('<:yes:551490591536578590> <@${message.author.id}>**Был кикнут,по причине: **\`Флуд,спам\`')
+                  message.member.kick(embed);
+              }
+              else{
+                const embed = new Discord.RichEmbed()
+                .setColor("RED")
+                .setDescription("<:no:551490591155027970>**У меня нету прав** \`KICK_MEMBERS\` **для кика данного пользователя**")
+                .setImage('https://media.discordapp.net/attachments/548220541576806400/552489909445853205/unknown.png?width=398&height=48')
+                 message.channel.send(embed)
+              }
+
+
+      });
+  }
+  }
+})
+}catch(ex){
+  return
+}
+
 
 if(developers.includes(String(message.author.id))){return}
 })
 client.on("messageUpdate",(message)=>{
-  if(!message.guild || message.author.bot){return;}
+  if(!message.guild || message.author.bot || message.member.hasPermission("ADMINISTRATOR") || developers.inclides(String(message.author.id))){return;}
+
   if(message.author.lastMessage.content.toLowerCase().split("discord.gg").length>1||message.author.lastMessage.content.toLowerCase().split("discordapp.com/invite").length>1){
     sql.query("SELECT adsprotection FROM servers  WHERE id = "+String(message.guild.id),(err,res,field)=>{
       if(err){message.channel.send(err)}
