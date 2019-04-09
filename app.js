@@ -313,7 +313,7 @@ for(let i=0;i<emjes.length;i++){
  }
  if(message.content.toLowerCase().startsWith(`${pr}help`) || message.content.toLowerCase().startsWith(`${pr2}help`)){
 
-  return   message.channel.send("Для того что-бы узнать обо всех моих коммандах перейдите на https://xerlbot.icu/commands")
+  return   message.channel.send("Для того что-бы узнать обо всех моих коммандах перейдите на https://xerlbot.icu/commands \nЗадать вопрос (Сервер помощи) - https://discord.gg/S3kxatV \n Оставить фидбек/баг - https://feed.xerlbot.icu/")
  }
 if(message.content==`${pr}ping` || message.content==`${pr2}ping`){
  let d = new Date();
