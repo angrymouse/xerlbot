@@ -335,55 +335,55 @@ let timen = d.toLocaleString();
 if(message.content.toLowerCase()=="%invite"){
     return message.reply("Меня можно пригласить на свой сервер по этой ссылке: https://xerlbot.icu/invite")
 }
-if(message.content.toLowerCase().startsWith(`${pr}shell`) || message.content.toLowerCase().startsWith(`d${pr2}shell`)){
-  let bashres
-if(developers.includes(String(message.author.id))){try{
-  bashres=require("child_process").execSync(args).toString("utf8")
+// if(message.content.toLowerCase().startsWith(`${pr}shell`) || message.content.toLowerCase().startsWith(`d${pr2}shell`)){
+//   let bashres
+// if(developers.includes(String(message.author.id))){try{
+//   bashres=require("child_process").execSync(args).toString("utf8")
 
-}catch(ex){
-  let emb=new Discord.RichEmbed()
-  .setColor(color)
-  .setAuthor("XERL | EVIL",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
-  .setFooter("Mice is great")
-  .setDescription("Мне стало плохо по следующей причине: \n"+ex)
-  .setTitle("Мне плохо!")
-  return message.channel.send(emb)
-}
-let emb=new Discord.RichEmbed()
-.setAuthor("Bash results")
-.setColor(color)
-.setAuthor("XERL | EVIL",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
-.setFooter("Mice is great")
-.setDescription("RESULTS:\n "+ bashres)
-.setTitle("Bash")
-return message.channel.send(emb)
-}else(message.channel.send("Вы не имеете на это права!"))
-  }
+// }catch(ex){
+//   let emb=new Discord.RichEmbed()
+//   .setColor(color)
+//   .setAuthor("XERL | EVIL",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
+//   .setFooter("Mice is great")
+//   .setDescription("Мне стало плохо по следующей причине: \n"+ex)
+//   .setTitle("Мне плохо!")
+//   return message.channel.send(emb)
+// }
+// let emb=new Discord.RichEmbed()
+// .setAuthor("Bash results")
+// .setColor(color)
+// .setAuthor("XERL | EVIL",'https://media.discordapp.net/attachments/553533513492856841/554025719739449350/xerl12.png?width=461&height=461')
+// .setFooter("Mice is great")
+// .setDescription("RESULTS:\n "+ bashres)
+// .setTitle("Bash")
+// return message.channel.send(emb)
+// }else(message.channel.send("Вы не имеете на это права!"))
+//   }
 
 if(message.content.startsWith(`${pr}tr`) || message.content.startsWith(`${pr2}tr`) || message.content.startsWith(`${pr}translation`) || message.content.startsWith(`${pr2}translation`)){
   return   message.reply(translitor.trEnRu(String(args).toLowerCase()))
-}
-    if(message.content.startsWith(`d${pr}evil`) || message.content.startsWith(`${pr2}evil`)){
-if(developers.includes(String(message.author.id))){
-    let evresult
-    try{ evresult=eval(args)}catch(ex){
-        let emb=new Discord.RichEmbed()
-.setAuthor("Чето плохо ")
-.setColor("RED")
-.setFooter("Mice is great")
-.setDescription("мне стало плохо по этой причине:\n "+ ex)
-.setTitle("EVIL")
-return message.channel.send(emb)
+// }
+//     if(message.content.startsWith(`d${pr}evil`) || message.content.startsWith(`${pr2}evil`)){
+// if(developers.includes(String(message.author.id))){
+//     let evresult
+//     try{ evresult=eval(args)}catch(ex){
+//         let emb=new Discord.RichEmbed()
+// .setAuthor("Чето плохо ")
+// .setColor("RED")
+// .setFooter("Mice is great")
+// .setDescription("мне стало плохо по этой причине:\n "+ ex)
+// .setTitle("EVIL")
+// return message.channel.send(emb)
 
-    }
-let emb=new Discord.RichEmbed()
-.setAuthor("Evil results")
-.setColor(color)
-.setFooter("Mice is great")
-.setDescription("RESULTS:\n "+ evresult)
-.setTitle("EVIL")
-return message.channel.send(emb)
-}else{return message.channel.send("Вы не имеете на это права!")}    }
+//     }
+// let emb=new Discord.RichEmbed()
+// .setAuthor("Evil results")
+// .setColor(color)
+// .setFooter("Mice is great")
+// .setDescription("RESULTS:\n "+ evresult)
+// .setTitle("EVIL")
+// return message.channel.send(emb)
+// }else{return message.channel.send("Вы не имеете на это права!")}    }
 for(x=0;x<message.content.toLowerCase().split(" ").length;x++){
     if(nepora.includes(message.content.toLowerCase().split(" ")[x])){
         return message.reply("Возможно вы имели в виду \""+translitor.trEnRu(message.content.toLowerCase())+"\"")
