@@ -3,10 +3,10 @@
 process.chdir(__dirname)
 var mysql      = require('mysql');
 var sql = mysql.createConnection({
-  host     : 'remotemysql.com',
-  user     : 'x7AOGsQwTV',
-  password : 'APrqWNjWpP',
-  database : 'x7AOGsQwTV'
+  host     : 'host',
+  user     : 'username',
+  password : 'pass',
+  database : 'db'
 });
 
 sql.connect();
